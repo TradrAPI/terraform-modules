@@ -29,7 +29,7 @@ resource "aws_iam_role_policy_attachment" "bucket_iam" {
 }
 
 resource "aws_iam_role" "bucket_iam" {
-  name = var.backup_agent.bucket.iam.role
+  name = var.backup_agent.iam.role
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
