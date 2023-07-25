@@ -1,0 +1,60 @@
+#cloud-config
+package_update: true
+
+timezone: Europe/Berlin
+
+packages:
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+  - awscli
+
+users:
+  - name: devops-admin
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ${admin_authorized_key}
+
+fs_setup:
+  - device: ${ebs_device_name}
+    partition: auto
+    label: gitlab-data
+    filesystem: ext4
+    overwrite: false
+
+write_files:
+  - encoding: gz+b64
+    content: ${sshd_config}
+    owner: root:root
+    path: /etc/ssh/sshd_config
+    permissions: '0644'
+
+mounts:
+  - [LABEL=gitlab-data, /mnt/gitlab-data, ext4, "nofail,defaults", "0", "0"]
+
+%{ if swap_size != null ~}
+swap:
+  filename: /swap.img
+  size: "${swap_size * 1024 * 1024 * 1024}" # converts to bytes
+%{ endif ~}
+
+bootcmd:
+  - cloud-init-per once wait-for-ebs-attachment sleep 30
+
+runcmd:
+  - sysctl vm.swappiness=10
+  - echo 'vm.swappiness = 10' >> /etc/sysctl.conf
+  - mkdir -p /mnt/gitlab-data/letsencrypt
+  - ln -sf /mnt/gitlab-data/letsencrypt /etc/letsencrypt
+  - mkdir -p /root/.secrets/certbot
+  - echo 'dns_cloudflare_api_token = ${cloudflare_certbot_token}' > /root/.secrets/certbot/cloudflare.ini
+  - chmod 0600 /root/.secrets/certbot/cloudflare.ini
+  - snap install core
+  - snap refresh core
+  - snap install --classic certbot
+  - snap set certbot trust-plugin-with-root=ok
+  - snap install certbot-dns-cloudflare
+  - certbot certonly ${use_test_cert ? "--test-cert" : ""} --dns-cloudflare --dns-cloudflare-credentials /root/.secrets/certbot/cloudflare.ini --agree-tos -nm ${certbot_notification_email} -d ${gitlab_fqdn}

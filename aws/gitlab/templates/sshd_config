@@ -1,0 +1,17 @@
+# See https://github.com/openssh/openssh-portable/blob/master/sshd_config 
+# For a complete reference on the allowed config values
+# Also any Ubuntu server has it under /etc/ssh/sshd_config :)
+Include /etc/ssh/sshd_config.d/*.conf
+
+Port ${ssh_port}
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding yes
+PrintMotd no
+AcceptEnv LANG LC_*
+
+Subsystem       sftp    /usr/lib/openssh/sftp-server
