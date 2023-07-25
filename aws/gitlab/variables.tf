@@ -119,11 +119,11 @@ variable "backup_agent" {
       lifetime_days = optional(number, 8)
     })
 
-    iam = object({
-      policy           = string
-      role             = string
-      instance_profile = string
-    })
+    iam = optional(object({
+      policy           = optional(string, "GitlabS3BackupReadWritePolicy")
+      role             = optional(string, "GitlabS3BackupAgent")
+      instance_profile = optional(string, "Gitlabs3BackupAgent")
+    }), {})
   })
 
   default = {
