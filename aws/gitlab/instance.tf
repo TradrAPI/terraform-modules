@@ -11,6 +11,8 @@ module "gitlab" {
   security_group_ids = var.security_group_ids
   private_ip         = var.private_ip
 
+  iam_instance_profile = aws_iam_instance_profile.bucket_iam.name
+
   resources_prefix   = var.resources_prefix
   ssh_trusted_cidrs  = var.instance_ssh_trusted_cidrs
   ssh_port           = var.instance_ssh_port

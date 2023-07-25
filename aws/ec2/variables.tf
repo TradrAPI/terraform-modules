@@ -153,3 +153,9 @@ variable "win_admin_user" {
     password = ""
   }
 }
+
+variable "iam_instance_profile" {
+  type     = string
+  default  = null
+  nullable = true
+}
