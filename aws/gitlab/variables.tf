@@ -120,8 +120,9 @@ variable "backup_agent" {
     })
 
     iam = object({
-      policy = string
-      role   = string
+      policy           = string
+      role             = string
+      instance_profile = string
     })
   })
 
@@ -132,8 +133,9 @@ variable "backup_agent" {
     }
 
     iam = {
-      policy = "GitlabS3BackupReadWritePolicy"
-      role   = "GitlabS3BackupAgent"
+      policy           = "GitlabS3BackupReadWritePolicy"
+      role             = "GitlabS3BackupAgent"
+      instance_profile = "Gitlabs3BackupAgent"
     }
   }
 }
