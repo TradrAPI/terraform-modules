@@ -9,7 +9,3 @@ output "instance" {
 output "sg" {
   value = module.gitlab.sg
 }
-
-output "backup_user" {
-  value = module.bucket_iam.user
-}
