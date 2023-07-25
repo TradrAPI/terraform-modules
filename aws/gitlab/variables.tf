@@ -139,8 +139,3 @@ variable "backup_agent" {
     }
   }
 }
-
-variable "prefer_bucket_role" {
-  type    = bool
-  default = false
-}

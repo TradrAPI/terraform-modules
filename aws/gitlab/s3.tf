@@ -18,23 +18,6 @@ module "secrets_bucket" {
   force_destroy     = false
 }
 
-module "bucket_iam" {
-  count = var.prefer_bucket_role ? 0 : 1
-
-  source = "../s3_iam"
-
-  bucket_id = module.bucket.bucket_id
-
-  policy = var.backup_agent.iam.policy
-  group  = var.backup_agent.iam.group
-  user   = var.backup_agent.iam.user
-}
-
-moved {
-  from = module.bucket_iam
-  to   = module.bucket_iam[0]
-}
-
 resource "aws_iam_instance_profile" "bucket_iam" {
   name = var.backup_agent.iam.instance_profile
   role = aws_iam_role.bucket_iam.name
