@@ -118,3 +118,8 @@ variable "manage_master_user_password" {
   type    = bool
   default = false
 }
+
+variable "blue_green_update_enabled" {
+  type    = bool
+  default = false
+}
