@@ -82,5 +82,6 @@ resource "aws_security_group_rule" "allow_all_out" {
   protocol          = "-1"
   from_port         = 0
   security_group_id = aws_security_group.this.id
-  cidr_blocks       = ["0.0.0.0/0","::/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
+  ipv6_cidr_blocks  = ["::/0"]
 }
