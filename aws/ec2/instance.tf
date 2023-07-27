@@ -6,6 +6,8 @@ resource "aws_instance" "this" {
   ami      = local.ami_id
   key_name = try(aws_key_pair.this[0].key_name, null)
 
+  iam_instance_profile = var.iam_instance_profile
+
   vpc_security_group_ids = concat(
     var.security_group_ids,
     aws_security_group.http.*.id,

@@ -43,6 +43,10 @@ resource "aws_db_instance" "this" {
 
   db_subnet_group_name = aws_db_subnet_group.this.id
 
+  blue_green_update {
+    enabled = var.blue_green_update_enabled
+  }
+
   vpc_security_group_ids = [
     aws_security_group.this.id
   ]
