@@ -5,7 +5,6 @@ resource "aws_dms_replication_subnet_group" "default" {
   replication_subnet_group_description = "DMS Subnet group"
 }
 
-# Create a new replication instance
 resource "aws_dms_replication_instance" "default" {
   replication_instance_class   = var.replication_instance.class
   allocated_storage            = var.replication_instance.allocated_storage
@@ -83,5 +82,9 @@ resource "aws_dms_replication_task" "replication" {
 
   tags = {
     Name = each.value.name
+  }
+
+  lifecycle {
+    ignore_changes = [replication_task_settings]
   }
 }
