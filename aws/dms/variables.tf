@@ -35,7 +35,6 @@ variable "sources" {
   }))
 
   default = {}
-  # sensitive = true
 }
 
 variable "targets" {
@@ -54,7 +53,6 @@ variable "targets" {
   }))
 
   default = {}
-  # sensitive = true
 }
 
 variable "replication_tasks" {
