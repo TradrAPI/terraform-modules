@@ -21,15 +21,15 @@ variable "replication_instance" {
 
 variable "sources" {
   type = map(object({
-    name          = string
-    database_name = string
-    endpoint_id   = string
-    engine_name   = string
-    username      = string
-    password      = string
-    server_name   = string
-    port          = number
+    name        = string
+    endpoint_id = string
+    engine_name = string
+    username    = string
+    password    = string
+    server_name = string
+    port        = number
 
+    database_name               = optional(string)
     ssl_mode                    = optional(string, "none")
     extra_connection_attributes = optional(string, "")
   }))
@@ -40,15 +40,15 @@ variable "sources" {
 
 variable "targets" {
   type = map(object({
-    name          = string
-    database_name = string
-    endpoint_id   = string
-    engine_name   = string
-    username      = string
-    password      = string
-    server_name   = string
-    port          = number
+    name        = string
+    endpoint_id = string
+    engine_name = string
+    username    = string
+    password    = string
+    server_name = string
+    port        = number
 
+    database_name               = optional(string)
     ssl_mode                    = optional(string, "none")
     extra_connection_attributes = optional(string, "")
   }))
