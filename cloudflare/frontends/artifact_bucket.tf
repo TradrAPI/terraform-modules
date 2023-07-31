@@ -1,5 +1,5 @@
 module "artifact_bucket" {
-  source = "../../GENERIC/S3"
+  source = "../../aws/s3"
 
   count = var.create_artifact_bucket ? 1 : 0
 
