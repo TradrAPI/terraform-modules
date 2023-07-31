@@ -5,3 +5,10 @@ output "bucket" {
 output "artifact_bucket" {
   value = try(module.artifact_bucket[0].bucket, null)
 }
+
+output "projects" {
+  value = merge({
+    for fqdn, record in local.records:
+    record.variant => fqdn...
+  })
+}
