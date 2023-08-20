@@ -75,13 +75,12 @@ resource "aws_s3_bucket_policy" "this" {
   )
 }
 
-resource "aws_s3_bucket_public_access_block" "this" {
-  count = var.block_public_access ? 1 : 0
+resource "aws_s3_bucket_public_access" "this" {
 
   bucket = aws_s3_bucket.this.id
 
-  block_public_acls       = true
-  block_public_policy     = true
-  restrict_public_buckets = true
-  ignore_public_acls      = true
+  block_public_acls       = var.block_public_access
+  block_public_policy     = var.block_public_policy
+  restrict_public_buckets = var.restrict_public_buckets
+  ignore_public_acls      = var.ignore_public_acls
 }
