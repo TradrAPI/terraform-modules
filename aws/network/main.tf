@@ -51,8 +51,8 @@ resource "aws_subnet" "private" {
 
 /* Gateways Nat and Internet */
 resource "aws_eip" "nat" {
-  count = length(var.az_zones)
-  vpc   = true
+  count  = length(var.az_zones)
+  domain = "vpc"
   tags = {
     Name        = "${var.name}-${var.az_zones[count.index]}-eip"
     Description = "Internet Gateway for NAT Gateway"
@@ -94,7 +94,7 @@ resource "aws_route_table" "private" {
 
   dynamic "route" {
     for_each = concat(
-      var.extra_private_routes, 
+      var.extra_private_routes,
       try(var.extra_private_routes_per_az[var.az_zones[count.index]], [])
     )
 
