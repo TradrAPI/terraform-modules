@@ -46,6 +46,8 @@ resource "aws_db_instance" "this" {
   monitoring_interval = var.monitoring_interval
   monitoring_role_arn = local.monitoring_role_arn
 
+  max_allocated_storage = var.max_allocated_storage_factor * var.allocated_storage
+
   blue_green_update {
     enabled = var.blue_green_update_enabled
   }

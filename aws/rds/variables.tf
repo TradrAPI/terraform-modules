@@ -138,3 +138,8 @@ variable "create_monitoring_role" {
   type    = bool
   default = false
 }
+
+variable "max_allocated_storage_factor" {
+  type    = number
+  default = 2 # by deafult twice the amount of disk for the db instance
+}
