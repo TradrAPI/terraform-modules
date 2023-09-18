@@ -123,3 +123,18 @@ variable "blue_green_update_enabled" {
   type    = bool
   default = false
 }
+
+variable "monitoring_interval" {
+  type    = number
+  default = 15
+}
+
+variable "monitoring_role" {
+  type    = string
+  default = "rds-monitoring-role"
+}
+
+variable "create_monitoring_role" {
+  type    = bool
+  default = false
+}

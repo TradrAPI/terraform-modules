@@ -2,14 +2,14 @@ locals {
   db_identifier = "${var.resources_prefix}-db"
   db_name       = var.name
   db_sg         = "${var.resources_prefix}-db-sg"
+
+  monitoring_role_arn = try(data.aws_iam_role.enhanced_monitoring[0].arn, aws_iam_role.enhanced_monitoring[0].arn)
 }
 
 resource "aws_db_subnet_group" "this" {
   description = "Subnet group for ${local.db_identifier} DB instance"
   subnet_ids  = var.vpc.subnets
 }
-
-
 resource "aws_db_instance" "this" {
   identifier        = local.db_identifier
   db_name           = local.db_name
@@ -42,6 +42,9 @@ resource "aws_db_instance" "this" {
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
   db_subnet_group_name = aws_db_subnet_group.this.id
+
+  monitoring_interval = var.monitoring_interval
+  monitoring_role_arn = local.monitoring_role_arn
 
   blue_green_update {
     enabled = var.blue_green_update_enabled
