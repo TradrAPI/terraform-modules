@@ -23,22 +23,17 @@ resource "aws_iam_user" "kms" {
 resource "aws_iam_policy" "kms" {
   count = var.create_user ? 1 : 0
 
-  name = local.names.kms_policy
+  name        = local.names.kms_policy
+  description = "${local.names.fqn} service kms policy."
 
   policy = jsonencode({
-    description = "${local.names.fqn} service kms policy."
-    path        = "/"
-    tags        = {}
-
-    content_obj = {
-      "Version" : "2012-10-17",
-      "Statement" : [
-        {
-          "Effect" : "Allow",
-          "Action" : distinct(concat(var.default_permissions, var.extra_permissions)),
-          "Resource" : aws_kms_key.this.arn
-        }
-      ]
-    }
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect" : "Allow",
+        "Action" : distinct(concat(var.default_permissions, var.extra_permissions)),
+        "Resource" : aws_kms_key.this.arn
+      }
+    ]
   })
 }
