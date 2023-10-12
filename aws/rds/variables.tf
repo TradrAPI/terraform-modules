@@ -35,12 +35,6 @@ variable "allocated_storage" {
   default     = 10
 }
 
-variable "max_allocated_storage" {
-  description = "Maximum Allocated DB storage in GiB."
-  type        = number
-  default     = 400
-}
-
 variable "instance_class" {
   # See https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html
   description = "DB instance class."
