@@ -125,11 +125,6 @@ variable "manage_master_user_password" {
   default = false
 }
 
-variable "blue_green_update_enabled" {
-  type    = bool
-  default = false
-}
-
 variable "monitoring_interval" {
   type    = number
   default = 15
