@@ -14,7 +14,6 @@ resource "aws_db_instance" "this" {
   identifier            = local.db_identifier
   db_name               = local.db_name
   allocated_storage     = var.allocated_storage
-  max_allocated_storage = var.max_allocated_storage
   instance_class        = var.instance_class
   engine_version        = var.engine_version
   tags                  = var.tags
