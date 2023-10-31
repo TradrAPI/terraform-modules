@@ -9,6 +9,7 @@ output "const" {
     redis_port             = 6379
     redshift_port          = 5439
     mysql_port             = 3306
+    pg_port                = 5432
 
     tcp_protocol   = "tcp"
     udp_protocol   = "udp"
