@@ -9,7 +9,7 @@ variable "dlq"{
 
 variable "fifo" {
     type = bool
-    description = "fifo queue or not"
+    description = "FIFO queue or not"
     default = false
 }
 
