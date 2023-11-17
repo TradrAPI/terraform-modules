@@ -2,8 +2,6 @@
 
 Used to manage IAM users.
 
-[[_TOC_]]
-
 ## Required variables
 
 `users` - A map from username to user definition, where the definition has the following structure
@@ -39,7 +37,7 @@ module "users" {
   source = "../.."
 
   region          = "us-east-2"
-  account_alias   = "redacredev"
+  account_alias   = "awsAccountName"
   slack_bot_token = "top-secret-token"
 
   users = {
