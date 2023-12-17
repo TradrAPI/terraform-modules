@@ -60,11 +60,30 @@ variable "extra_private_routes" {
   description = "List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference"
 }
 
+variable "extra_tgw_routes" {
+  type = list(object({
+    cidr_block         = string
+    transit_gateway_id = optional(string)
+  }))
+
+  default     = []
+  description = "List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference"
+}
+
 variable "extra_private_routes_per_az" {
   type = map(list(object({
     cidr_block                = string
     vpc_peering_connection_id = optional(string)
     network_interface_id      = optional(string)
+  })))
+
+  default = {}
+}
+
+variable "extra_tgw_routes_per_az" {
+  type = map(list(object({
+    cidr_block         = string
+    transit_gateway_id = optional(string)
   })))
 
   default = {}

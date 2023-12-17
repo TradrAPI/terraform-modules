@@ -105,6 +105,18 @@ resource "aws_route_table" "private" {
     }
   }
 
+  dynamic "route" {
+    for_each = concat(
+      var.extra_tgw_routes,
+      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
+    )
+
+    content {
+      cidr_block         = route.value["cidr_block"]
+      transit_gateway_id = route.value["transit_gateway_id"]
+    }
+  }
+
   tags = {
     Name        = "${var.name}-Private-${var.az_zones[count.index]}-routetable"
     Description = "Route table Target to Nat Gateway for ${var.name}"
@@ -129,6 +141,18 @@ resource "aws_route_table" "public" {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
+    }
+  }
+
+  dynamic "route" {
+    for_each = concat(
+      var.extra_tgw_routes,
+      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
+    )
+
+    content {
+      cidr_block         = route.value["cidr_block"]
+      transit_gateway_id = route.value["transit_gateway_id"]
     }
   }
 
