@@ -49,7 +49,7 @@ variable "cluster_mode" {
   })
 
   default  = null
-  nullable = false
+  nullable = true
 }
 
 variable "multi_az_enabled" {
