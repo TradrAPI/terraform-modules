@@ -48,7 +48,8 @@ variable "cluster_mode" {
     num_node_groups         = number
   })
 
-  default = null
+  default  = null
+  nullable = true
 }
 
 variable "multi_az_enabled" {
