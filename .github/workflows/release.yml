@@ -49,5 +49,3 @@ jobs:
           else
             echo "Major or minor version outputs from release-please action are missing"
           fi
-
-          
