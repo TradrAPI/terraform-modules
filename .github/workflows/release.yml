@@ -21,7 +21,7 @@ jobs:
         uses: google-github-actions/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.REPO_WF_TOKEN }}
           release-type: simple
 
       - uses: actions/checkout@v4
