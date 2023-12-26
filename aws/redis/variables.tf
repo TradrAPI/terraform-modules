@@ -18,6 +18,11 @@ variable "platform" {
   description = "Name of Platform or Brand"
 }
 
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
+
 variable "port" {
   type        = number
   description = "port number for redis"
