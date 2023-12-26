@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.1](https://github.com/EAlainMG/terraform-modules/compare/v1.0.0...v1.0.1) (2023-12-26)
+
+
+### Bug Fixes
+
+* Added permission ([40f69cb](https://github.com/EAlainMG/terraform-modules/commit/40f69cb4916e20acd2d9d1003492a08a3018a72b))
+* Secret ([7e5f449](https://github.com/EAlainMG/terraform-modules/commit/7e5f449d4a8694605d00ac79ef5e64cd3fcfa5d1))
+* Testing versioning ([2ef430c](https://github.com/EAlainMG/terraform-modules/commit/2ef430c5413671b713d3c8d68c633e78dbf2e644))
+
 ## 1.0.0 (2023-12-26)
 
 
