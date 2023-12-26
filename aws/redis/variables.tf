@@ -36,6 +36,11 @@ variable "size" {
   default = "t2.small"
 }
 
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
+
 variable "security_group_id" {
   type        = string
   description = "The id of the general security group"
