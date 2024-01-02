@@ -46,7 +46,7 @@ resource "aws_db_instance" "this" {
   monitoring_interval = var.monitoring_interval
   monitoring_role_arn = local.monitoring_role_arn
 
-  max_allocated_storage = var.max_allocated_storage_factor * var.allocated_storage
+  max_allocated_storage = var.max_allocated_storage
 
   vpc_security_group_ids = [
     aws_security_group.this.id
