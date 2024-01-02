@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/TradrAPI/terraform-modules/compare/v1.17.0...v1.18.0) (2024-01-02)
+
+
+### Features
+
+* add maximum allocated storage to rds modules ([#15](https://github.com/TradrAPI/terraform-modules/issues/15)) ([bd11021](https://github.com/TradrAPI/terraform-modules/commit/bd110216692f48bf5ac7c8d3d1b532094e9541ed))
+
 ## [1.17.0](https://github.com/TradrAPI/terraform-modules/compare/v1.16.0...v1.17.0) (2024-01-02)
 
 
