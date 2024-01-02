@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.17.0](https://github.com/TradrAPI/terraform-modules/compare/v1.16.0...v1.17.0) (2024-01-02)
+
+
+### Features
+
+* Adds release-please integration ([#12](https://github.com/TradrAPI/terraform-modules/issues/12)) ([b63a2e3](https://github.com/TradrAPI/terraform-modules/commit/b63a2e3660af6544ff3e92ab8d5020eaa64f3857))
+
+
+### Bug Fixes
+
+* Conditional check on release job ([#14](https://github.com/TradrAPI/terraform-modules/issues/14)) ([0dc3412](https://github.com/TradrAPI/terraform-modules/commit/0dc3412e832a6a8f008861a3b7db9e50ca7da5a7))
+
 ## [1.0.1](https://github.com/EAlainMG/terraform-modules/compare/v1.0.0...v1.0.1) (2023-12-26)
 
 
