@@ -60,3 +60,10 @@ jobs:
         uses: wagoid/commitlint-github-action@v4
         with:
           configFile: commitlint.config.js
+      - name: Lint PR Title
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if [[ ! "$PR_TITLE" =~ ^[a-z]+!?: [A-Z][a-zA-Z]*(\s[a-zA-Z]*)*$ ]]; then
+            echo "PR title does not match required format; 'feat: New feature added"
+            exit 1
+          fi
