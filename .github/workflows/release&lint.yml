@@ -11,9 +11,6 @@ on:
       - '**.yaml'
       - '**.yml'
       - '**.json'
-  pull_request:
-    branches:
-      - main
 
 jobs:
   release-please:
