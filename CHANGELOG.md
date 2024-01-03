@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.18.0](https://github.com/TradrAPI/terraform-modules/compare/v1.17.0...v1.18.0) (2024-01-02)
+
+
+### Features
+
+* add maximum allocated storage to rds modules ([#15](https://github.com/TradrAPI/terraform-modules/issues/15)) ([bd11021](https://github.com/TradrAPI/terraform-modules/commit/bd110216692f48bf5ac7c8d3d1b532094e9541ed))
+
+## [1.17.0](https://github.com/TradrAPI/terraform-modules/compare/v1.16.0...v1.17.0) (2024-01-02)
+
+
+### Features
+
+* Adds release-please integration ([#12](https://github.com/TradrAPI/terraform-modules/issues/12)) ([b63a2e3](https://github.com/TradrAPI/terraform-modules/commit/b63a2e3660af6544ff3e92ab8d5020eaa64f3857))
+
+
+### Bug Fixes
+
+* Conditional check on release job ([#14](https://github.com/TradrAPI/terraform-modules/issues/14)) ([0dc3412](https://github.com/TradrAPI/terraform-modules/commit/0dc3412e832a6a8f008861a3b7db9e50ca7da5a7))
+
 ## [1.0.1](https://github.com/EAlainMG/terraform-modules/compare/v1.0.0...v1.0.1) (2023-12-26)
 
 

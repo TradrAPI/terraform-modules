@@ -27,6 +27,7 @@ module "db" {
   username                    = "testdbuser"
   password                    = "testdbpassword"
   allocated_storage           = 10
+  max_allocated_storage       = 100
   manage_master_user_password = null
   final_snapshot_identifier   = "test-db-instance-final-snapshot"
   deletion_protection         = false
