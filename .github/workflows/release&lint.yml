@@ -1,4 +1,4 @@
-name: Release Please
+name: Release-Please On Push & Lint On PR
 
 on:
   push:
@@ -29,7 +29,7 @@ jobs:
         uses: google-github-actions/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.REPO_WF_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
     
       - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git remote add gh-token "https://${{ secrets.REPO_WF_TOKEN }}@github.com/google-github-actions/release-please-action.git"
+          git remote add gh-token "https://${{ secrets.GITHUB_TOKEN }}@github.com/google-github-actions/release-please-action.git"
           git tag -d v${{ steps.release.outputs.major }} || true
           git tag -d v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
           git push origin :v${{ steps.release.outputs.major }} || true
@@ -49,7 +49,7 @@ jobs:
           git push origin v${{ steps.release.outputs.major }}
           git push origin v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
 
-  commitlint-pr:
+  lint-pr:
     if: "${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.title, 'chore(main): release') }}"
     runs-on: ubuntu-latest
     steps:
