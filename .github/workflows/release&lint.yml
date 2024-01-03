@@ -67,4 +67,3 @@ jobs:
             echo "PR title does not match required format; 'feat: New feature added'"
             exit 1
           fi
-        
