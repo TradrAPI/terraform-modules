@@ -50,7 +50,7 @@ jobs:
           git push origin v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
 
   commitlint-pr:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: "${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.title, 'chore(main): release') }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
