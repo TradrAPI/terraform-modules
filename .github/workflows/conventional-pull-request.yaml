@@ -23,5 +23,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commitlintRulesPath: "./commitlint.config.js"
-
-          
