@@ -1,4 +1,4 @@
-name: Release-Please On Push & Lint On PR
+name: Release Please
 
 on:
   push:
@@ -48,15 +48,3 @@ jobs:
           git tag -a v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} -m "Release v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}"
           git push origin v${{ steps.release.outputs.major }}
           git push origin v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
-
-  lint-pr:
-    if: "${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.title, 'chore(main): release') }}"
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  
-      - name: Lint Commit Messages
-        uses: wagoid/commitlint-github-action@v4
-        with:
-          configFile: commitlint.config.js
