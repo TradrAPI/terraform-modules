@@ -62,7 +62,9 @@ jobs:
           configFile: commitlint.config.js
       - name: Lint PR Title
         run: |
-          if [[ ! ${{ github.event.pull_request.title }} =~ ^[a-z]+!?: [A-Z][a-zA-Z]*(\s[a-zA-Z]*)*$ ]]; then
-            echo "PR title does not match required format; 'feat: New feature added"
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          if ! [[ "$PR_TITLE" =~ ^[a-z]+!?:\ [A-Z][a-zA-Z]*(\s[a-zA-Z]*)*$ ]]; then
+            echo "PR title does not match required format; 'feat: New feature added'"
             exit 1
           fi
+        
