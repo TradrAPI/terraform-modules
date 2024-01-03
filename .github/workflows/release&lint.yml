@@ -1,4 +1,4 @@
-name: Release Please
+name: Release-Please On Push & Lint On PR
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
           git push origin v${{ steps.release.outputs.major }}
           git push origin v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}
 
-  commitlint-pr:
+  lint-pr:
     if: "${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.title, 'chore(main): release') }}"
     runs-on: ubuntu-latest
     steps:
