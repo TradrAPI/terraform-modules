@@ -1,7 +1,7 @@
 
 resource "local_file" "example" {
   for_each = {
-    for partition, data in local.var.partitions : partition => data 
+    for partition, data in var.partitions : partition => data 
     if contains(keys(data), "api")
   }
 
