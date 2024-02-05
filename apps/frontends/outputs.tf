@@ -14,8 +14,5 @@ output "projects" {
 }
 
 output "zone_id" {
-  value = merge({
-  for partition, data in var.partitions:
-     partition => data.cloudflare_zone.this[partition].id...
-  })
+  value = data.cloudflare_zone.this
 }
