@@ -11,14 +11,14 @@
 
 
 # Cache rule configuring cache settings and defining custom cache keys
-resource "cloudflare_ruleset" "cache_rules_example" {
+resource "cloudflare_ruleset" "cache_rules_api_fe_settings" {
   
-  for_each = {
-    for partition, data in var.partitions : partition => data 
-    if contains(keys(data), "api")
-  }
+#  for_each = {
+#    for partition, data in var.partitions : partition => data 
+#    if contains(keys(data), "api")
+#  }
 
-  zone_id     = data.cloudflare_zone.this[each.key].id
+  zone_id     = data.cloudflare_zone.this["vitalmarkets.com"].id
   name        = "Set cache settings"
   description = "Set cache settings for incoming requests"
   kind        = "zone"
