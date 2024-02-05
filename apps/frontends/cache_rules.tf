@@ -18,7 +18,7 @@ resource "cloudflare_ruleset" "cache_rules_api_fe_settings" {
 #    if contains(keys(data), "api")
 #  }
 
-  zone_id     = data.cloudflare_zone.this["vitalmarkets.com"].id
+  zone_id     = "f3cc3aef5bddbfe759f1840e367330d7"
   name        = "Set cache settings"
   description = "Set cache settings for incoming requests"
   kind        = "zone"
