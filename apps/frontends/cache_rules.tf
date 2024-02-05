@@ -1,4 +1,4 @@
-resource "cloudflare_ruleset" "cache_rules_example" {
+resource "cloudflare_ruleset" "cache_rules_api" {
 
   for_each = {
     for partition, data in var.partitions : partition => data 
