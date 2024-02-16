@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.1](https://github.com/TradrAPI/terraform-modules/compare/v1.18.0...v1.18.1) (2024-02-16)
+
+
+### Bug Fixes
+
+* Redis sg rule creation when sg is null ([#20](https://github.com/TradrAPI/terraform-modules/issues/20)) ([84d3183](https://github.com/TradrAPI/terraform-modules/commit/84d31833352ec2765f2b70a667cdfa1fea994334))
+
 ## [1.18.0](https://github.com/TradrAPI/terraform-modules/compare/v1.17.0...v1.18.0) (2024-01-02)
 
 
