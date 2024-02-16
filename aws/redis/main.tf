@@ -3,7 +3,7 @@ terraform {
 
   required_providers {
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
     }
   }
 }
@@ -29,19 +29,19 @@ resource "aws_security_group" "redis" {
 }
 
 resource "aws_elasticache_replication_group" "redis" {
-  automatic_failover_enabled = true
-  preferred_cache_cluster_azs         = local.az_zones
-  replication_group_id       = var.name
-  description                = "redis cluster for ${var.platform}"
-  node_type                  = "cache.${var.size}"
-  num_cache_clusters         = local.num_cache_clusters
-  port                       = var.port
-  subnet_group_name          = aws_elasticache_subnet_group.redis.name
-  security_group_ids         = [aws_security_group.redis.id]
-  engine_version             = var.engine_version
-  engine                     = "redis"
-  multi_az_enabled           = var.multi_az_enabled
-  tags                       = var.tags
+  automatic_failover_enabled  = true
+  preferred_cache_cluster_azs = local.az_zones
+  replication_group_id        = var.name
+  description                 = "redis cluster for ${var.platform}"
+  node_type                   = "cache.${var.size}"
+  num_cache_clusters          = local.num_cache_clusters
+  port                        = var.port
+  subnet_group_name           = aws_elasticache_subnet_group.redis.name
+  security_group_ids          = [aws_security_group.redis.id]
+  engine_version              = var.engine_version
+  engine                      = "redis"
+  multi_az_enabled            = var.multi_az_enabled
+  tags                        = var.tags
 
   parameter_group_name = (
     var.parameter_group_name == null
@@ -77,6 +77,8 @@ resource "aws_elasticache_cluster" "redis" {
 
 
 resource "aws_security_group_rule" "service-redis" {
+  count = var.security_group_id == null ? 0 : 1
+
   type                     = "ingress"
   from_port                = 6379
   to_port                  = 6379
@@ -84,6 +86,11 @@ resource "aws_security_group_rule" "service-redis" {
   source_security_group_id = var.security_group_id
   security_group_id        = aws_security_group.redis.id
   description              = "VPC access"
+}
+
+moved {
+  from = aws_security_group_rule.service-redis
+  to   = aws_security_group_rule.service-redis[0]
 }
 
 locals {
