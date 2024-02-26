@@ -7,5 +7,5 @@ output "sg" {
 }
 
 output "enhanced_monitoring_role_arn" {
-  value = aws_iam_role.enhanced_monitoring[0].arn
+  value = var.create_monitoring_role ? aws_iam_role.enhanced_monitoring[0].arn : null
 }
