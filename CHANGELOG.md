@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.19.2](https://github.com/TradrAPI/terraform-modules/compare/v1.19.1...v1.19.2) (2024-02-26)
+
+
+### Bug Fixes
+
+* **rds:** Fix output ([29706e2](https://github.com/TradrAPI/terraform-modules/commit/29706e2941cdbe36fcd7dd96adcb0c58e8d6e790))
+* Required providers version ([#25](https://github.com/TradrAPI/terraform-modules/issues/25)) ([ee07940](https://github.com/TradrAPI/terraform-modules/commit/ee079405f2ca09f4554f0a28d5e3a9f959ef85b0))
+
 ## [1.19.1](https://github.com/TradrAPI/terraform-modules/compare/v1.19.0...v1.19.1) (2024-02-26)
 
 
