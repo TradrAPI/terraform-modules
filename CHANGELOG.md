@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.0](https://github.com/TradrAPI/terraform-modules/compare/v1.18.1...v1.19.0) (2024-02-26)
+
+
+### Features
+
+* Adds cert module ([#22](https://github.com/TradrAPI/terraform-modules/issues/22)) ([6305845](https://github.com/TradrAPI/terraform-modules/commit/630584546d2c50f238e647b6b410469788a79e79))
+
 ## [1.18.1](https://github.com/TradrAPI/terraform-modules/compare/v1.18.0...v1.18.1) (2024-02-16)
 
 
