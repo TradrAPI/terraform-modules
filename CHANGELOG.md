@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.1](https://github.com/TradrAPI/terraform-modules/compare/v1.19.0...v1.19.1) (2024-02-26)
+
+
+### Bug Fixes
+
+* rds: include enhanced monitoring role ([#7](https://github.com/TradrAPI/terraform-modules/issues/7)) ([c8dcfae](https://github.com/TradrAPI/terraform-modules/commit/c8dcfae2b59661fbe9552383911b6ca55740ac2b))
+
 ## [1.19.0](https://github.com/TradrAPI/terraform-modules/compare/v1.18.1...v1.19.0) (2024-02-26)
 
 
