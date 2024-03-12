@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/TradrAPI/terraform-modules/compare/v1.19.2...v1.20.0) (2024-03-12)
+
+
+### Features
+
+* Add message to create release ([#27](https://github.com/TradrAPI/terraform-modules/issues/27)) ([a5a7724](https://github.com/TradrAPI/terraform-modules/commit/a5a772459c18efd777f7ac93aadef5f18f009ccb))
+
 ## [1.19.2](https://github.com/TradrAPI/terraform-modules/compare/v1.19.1...v1.19.2) (2024-02-26)
 
 
