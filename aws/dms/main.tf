@@ -41,11 +41,11 @@ resource "aws_dms_endpoint" "sources" {
   extra_connection_attributes = each.value.extra_connection_attributes
 
   dynamic "postgres_settings" {
-    for_each = each.value.postgres_settings != "" ? [each.value.postgres_settings] : []
+    for_each = each.value.postgres_settings != null ? [each.value.postgres_settings] : []
     content {
-      execute_timeout      = postgres_settings.value.execute_timeout
-      max_file_size        = postgres_settings.value.max_file_size
-      after_connect_script = postgres_settings.value.after_connect_script
+      execute_timeout      = try(postgres_settings.value.execute_timeout, null)
+      max_file_size        = try(postgres_settings.value.max_file_size, null)
+      after_connect_script = try(postgres_settings.value.after_connect_script, null)
     }
   }
 
