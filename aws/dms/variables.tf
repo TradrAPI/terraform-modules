@@ -56,7 +56,6 @@ variable "targets" {
     database_name               = optional(string)
     ssl_mode                    = optional(string, "none")
     extra_connection_attributes = optional(string, "")
-    postgres_settings           = optional(string, "")
 
     postgres_settings = optional(object({
       execute_timeout      = optional(number, null)
