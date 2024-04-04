@@ -40,6 +40,15 @@ resource "aws_dms_endpoint" "sources" {
   ssl_mode                    = each.value.ssl_mode
   extra_connection_attributes = each.value.extra_connection_attributes
 
+  dynamic "postgres_settings" {
+    for_each = each.value.postgres_settings != "" ? [each.value.postgres_settings] : []
+    content {
+      execute_timeout      = postgres_settings.value.execute_timeout
+      max_file_size        = postgres_settings.value.max_file_size
+      after_connect_script = postgres_settings.value.after_connect_script
+    }
+  }
+
   endpoint_type = "source"
 
   tags = {
@@ -59,6 +68,15 @@ resource "aws_dms_endpoint" "targets" {
   server_name                 = each.value.server_name
   ssl_mode                    = each.value.ssl_mode
   extra_connection_attributes = each.value.extra_connection_attributes
+
+  dynamic "postgres_settings" {
+    for_each = each.value.postgres_settings != "" ? [each.value.postgres_settings] : []
+    content {
+      execute_timeout      = postgres_settings.value.execute_timeout
+      max_file_size        = postgres_settings.value.max_file_size
+      after_connect_script = postgres_settings.value.after_connect_script
+    }
+  }
 
   endpoint_type = "target"
 
