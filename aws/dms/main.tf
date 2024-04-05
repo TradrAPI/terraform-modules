@@ -103,6 +103,7 @@ resource "aws_dms_replication_task" "replication" {
   }
 
   lifecycle {
-    ignore_changes = [replication_task_settings]
+    ignore_changes       = [replication_task_settings]
+    replace_triggered_by = [aws_dms_replication_instance.default]
   }
 }
