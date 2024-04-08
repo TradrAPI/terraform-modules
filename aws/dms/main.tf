@@ -103,16 +103,8 @@ resource "aws_dms_replication_task" "replication" {
   }
 
   lifecycle {
-    ignore_changes       = [replication_task_settings]
     replace_triggered_by = [
-      aws_dms_replication_instance.default,
-      terraform_data.replication_task_settings[each.key]
+      aws_dms_replication_instance.default
     ]
   }
-}
-
-resource "terraform_data" "replication_task_settings" {
-  for_each = var.replication_tasks
-
-  input = each.value.replication_task_settings
 }
