@@ -138,3 +138,13 @@ variable "max_allocated_storage" {
   type    = number
   nullable = false
 }
+
+variable "iops" {
+  type    = number
+  default = 3000
+}
+
+variable "storage_throughput" {
+  type    = number
+  default = 125
+}
