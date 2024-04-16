@@ -2,7 +2,6 @@
 
 Allows the provisioning of DB instances.
 
-
 ## Required variables
 
 - `name` - DB name
@@ -21,6 +20,8 @@ Allows the provisioning of DB instances.
 - `tags` - DB tags
 - `skip_final_snapshot` - Whether to take a DB snapshot before deleting the instance
 - `storage_type` - DB storage type
+- `iops` - DB IOPS
+- `storage_throughput` - DB storage throughput
 - `engine` - DB engine
 - `engine_version` - DB engine version
 - `backup_retention_period` - Number of days to keep DB backups
@@ -39,7 +40,6 @@ Allows the provisioning of DB instances.
 `aws_security_group_rule`
 
 ## Examples
-
 
 ```terraform
 data "aws_vpc" "default" {

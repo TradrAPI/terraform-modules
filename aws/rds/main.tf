@@ -32,6 +32,8 @@ resource "aws_db_instance" "this" {
 
   snapshot_identifier             = var.snapshot_identifier
   storage_type                    = var.storage_type
+  iops                            = var.iops
+  storage_throughput              = var.storage_throughput
   engine                          = var.engine
   backup_retention_period         = var.backup_retention_period
   deletion_protection             = var.deletion_protection
