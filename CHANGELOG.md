@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/TradrAPI/terraform-modules/compare/v1.20.0...v1.21.0) (2024-04-16)
+
+
+### Features
+
+* Add RDS iops and throughput options ([#29](https://github.com/TradrAPI/terraform-modules/issues/29)) ([2b6a29a](https://github.com/TradrAPI/terraform-modules/commit/2b6a29a08729c3842dd13502fec2f1b029f0de22))
+
 ## [1.20.0](https://github.com/TradrAPI/terraform-modules/compare/v1.19.2...v1.20.0) (2024-03-12)
 
 
