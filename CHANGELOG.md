@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.0](https://github.com/TradrAPI/terraform-modules/compare/v1.21.0...v1.22.0) (2024-04-22)
+
+
+### Features
+
+* Add storage encryption toggle to RDS module ([#31](https://github.com/TradrAPI/terraform-modules/issues/31)) ([fdf58e5](https://github.com/TradrAPI/terraform-modules/commit/fdf58e5c1b6d193597394d775dabfc7bf225ccfe))
+
 ## [1.21.0](https://github.com/TradrAPI/terraform-modules/compare/v1.20.0...v1.21.0) (2024-04-16)
 
 
