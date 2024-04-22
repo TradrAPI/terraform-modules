@@ -148,3 +148,8 @@ variable "storage_throughput" {
   type    = number
   default = 125
 }
+
+variable "storage_encrypted" {
+  type    = bool
+  default = false
+}

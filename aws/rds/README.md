@@ -20,6 +20,7 @@ Allows the provisioning of DB instances.
 - `tags` - DB tags
 - `skip_final_snapshot` - Whether to take a DB snapshot before deleting the instance
 - `storage_type` - DB storage type
+- `storage_encrypted` - DB storage encryption enabled
 - `iops` - DB IOPS
 - `storage_throughput` - DB storage throughput
 - `engine` - DB engine

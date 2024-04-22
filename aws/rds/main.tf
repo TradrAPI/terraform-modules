@@ -32,6 +32,7 @@ resource "aws_db_instance" "this" {
 
   snapshot_identifier             = var.snapshot_identifier
   storage_type                    = var.storage_type
+  storage_encrypted               = var.storage_encrypted
   iops                            = var.iops
   storage_throughput              = var.storage_throughput
   engine                          = var.engine
