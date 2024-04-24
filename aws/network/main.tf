@@ -49,6 +49,25 @@ resource "aws_subnet" "private" {
   )
 }
 
+/* Transit Gateway Subnet */
+resource "aws_subnet" "tgw" {
+  count  = length(var.az_zones)
+  vpc_id = aws_vpc.default.id
+
+  cidr_block        = cidrsubnet(format("%s.256.192/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  availability_zone = var.az_zones[count.index]
+
+  tags = merge(
+    var.tgw_subnet_tags,
+    {
+      Name        = "${var.name}-TGW-${var.az_zones[count.index]}-subnet"
+      Description = "TGW Subnet for ${var.name}"
+      Created-By  = "DevOps-Terraform"
+      Environment = var.deployment_env
+    }
+  )
+}
+
 /* Gateways Nat and Internet */
 resource "aws_eip" "nat" {
   count  = length(var.az_zones)
@@ -60,6 +79,7 @@ resource "aws_eip" "nat" {
     Environment = var.deployment_env
   }
 }
+
 resource "aws_nat_gateway" "default" {
   count         = length(var.az_zones)
   allocation_id = element(aws_eip.nat.*.id, count.index)
@@ -72,6 +92,7 @@ resource "aws_nat_gateway" "default" {
     Environment = var.deployment_env
   }
 }
+
 resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.default.id
   tags = {
@@ -81,6 +102,7 @@ resource "aws_internet_gateway" "default" {
     Environment = var.deployment_env
   }
 }
+
 /* route tables */
 resource "aws_route_table" "private" {
   count = !var.remove_all_private_route_tables_v1 ? length(var.az_zones) : 0
@@ -125,6 +147,7 @@ resource "aws_route_table" "private" {
   }
   depends_on = [aws_nat_gateway.default]
 }
+
 resource "aws_route_table" "public" {
   count  = !var.remove_all_public_route_tables_v1 ? length(var.az_zones) : 0
   vpc_id = aws_vpc.default.id
@@ -164,6 +187,7 @@ resource "aws_route_table" "public" {
   }
   depends_on = [aws_internet_gateway.default]
 }
+
 /* Subnets Assciation for Public and Private */
 resource "aws_route_table_association" "private" {
   count = length(var.az_zones)

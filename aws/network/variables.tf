@@ -25,6 +25,11 @@ variable "private_subnet_tags" {
   default = {}
 }
 
+variable "tgw_subnet_tags" {
+  type    = map(string)
+  default = {}
+}
+
 variable "az_zones" {
   type        = list(string)
   description = "List of available Zones"
