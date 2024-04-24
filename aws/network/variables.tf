@@ -94,6 +94,18 @@ variable "extra_tgw_routes_per_az" {
   default = {}
 }
 
+variable "enable_tgw_attachment" {
+  type    = bool
+  default = false
+}
+
+variable "amazon_side_asn" {
+  type        = string
+  description = "The Autonomous System Number (ASN) for the Amazon side of the TGW."
+
+  default = "64512"
+}
+
 variable "create_route_table_v2" {
   type    = bool
   default = false

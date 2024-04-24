@@ -54,7 +54,7 @@ resource "aws_subnet" "tgw" {
   count  = length(var.az_zones)
   vpc_id = aws_vpc.default.id
 
-  cidr_block        = cidrsubnet(format("%s.256.192/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  cidr_block        = cidrsubnet(format("%s.256.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
   availability_zone = var.az_zones[count.index]
 
   tags = merge(
@@ -102,6 +102,23 @@ resource "aws_internet_gateway" "default" {
     Environment = var.deployment_env
   }
 }
+
+/* TGW attachments */
+resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
+  count = var.enable_tgw_attachment ? 1 : 0
+
+  subnet_ids = [
+    for subnet in aws_subnet.tgw : subnet.id
+  ]
+
+  transit_gateway_id = data.aws_ec2_transit_gateway.this[0].id
+  vpc_id             = aws_vpc.default.id
+
+  tags = {
+    Name = "${aws_vpc.default.tags.Name}-vpc"
+  }
+}
+
 
 /* route tables */
 resource "aws_route_table" "private" {
