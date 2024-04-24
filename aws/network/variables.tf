@@ -65,16 +65,6 @@ variable "extra_private_routes" {
   description = "List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference"
 }
 
-variable "extra_tgw_routes" {
-  type = list(object({
-    cidr_block         = string
-    transit_gateway_id = optional(string)
-  }))
-
-  default     = []
-  description = "List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference"
-}
-
 variable "extra_private_routes_per_az" {
   type = map(list(object({
     cidr_block                = string
@@ -85,18 +75,16 @@ variable "extra_private_routes_per_az" {
   default = {}
 }
 
-variable "extra_tgw_routes_per_az" {
-  type = map(list(object({
-    cidr_block         = string
-    transit_gateway_id = optional(string)
-  })))
-
-  default = {}
-}
-
-variable "enable_tgw_attachment" {
+variable "enable_tgw_routes_in_public_subnets" {
   type    = bool
   default = false
+}
+
+variable "tgw_cidrs" {
+  type        = list(string)
+  description = "CIDRs to be routed through the TGW"
+
+  default = []
 }
 
 variable "amazon_side_asn" {

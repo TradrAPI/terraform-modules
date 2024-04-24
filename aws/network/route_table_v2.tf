@@ -27,16 +27,9 @@ resource "aws_route" "private_v2" {
   route_table_id            = aws_route_table.private_v2[index(var.az_zones, each.value.az)].id
   destination_cidr_block    = each.value.cidr_block
   vpc_peering_connection_id = each.value.vpc_peering_connection_id
+  transit_gateway_id        = try(each.value.transit_gateway_id, null)
 }
 
-/* TGW routes */
-resource "aws_route" "private_tgw_v2" {
-  for_each = var.create_route_table_v2 && var.enable_tgw_attachment ? local.private_tgw_routes_v2 : {}
-
-  route_table_id         = aws_route_table.private_v2[index(var.az_zones, each.value.az)].id
-  destination_cidr_block = each.value.cidr_block
-  transit_gateway_id     = data.aws_ec2_transit_gateway.this[0].id
-}
 
 resource "aws_route_table" "public_v2" {
   count = var.create_route_table_v2 ? length(var.az_zones) : 0
@@ -66,22 +59,24 @@ resource "aws_route" "public_v2" {
 
   route_table_id            = aws_route_table.public_v2[index(var.az_zones, each.value.az)].id
   destination_cidr_block    = each.value.cidr_block
-  vpc_peering_connection_id = each.value.vpc_peering_connection_id
+  vpc_peering_connection_id = try(each.value.vpc_peering_connection_id, null)
+  transit_gateway_id        = try(each.value.transit_gateway_id, null)
+
 }
 
 locals {
   private_routes_v2 = merge({
-    for index, az_route in setproduct(var.az_zones, var.extra_private_routes) :
+    for index, az_route in setproduct(var.az_zones, concat(var.extra_private_routes, local.extra_tgw_routes)) :
     "${az_route[0]}/${az_route[1].cidr_block}" => merge(az_route[1], { az = az_route[0] })
   })
 
-  private_tgw_routes_v2 = merge({
-    for index, az_route in setproduct(var.az_zones, var.extra_tgw_routes) :
-    "${az_route[0]}/${az_route[1].cidr_block}" => merge(az_route[1], { az = az_route[0] })
-  })
+  _extra_public_routes = concat(
+    var.extra_public_routes, 
+    var.enable_tgw_routes_in_public_subnets ? local.extra_tgw_routes : []
+  )
 
   public_routes_v2 = {
-    for index, az_route in setproduct(var.az_zones, var.extra_public_routes) :
+    for index, az_route in setproduct(var.az_zones, local._extra_public_routes) :
     "${az_route[0]}/${az_route[1].cidr_block}" => merge(az_route[1], { az = az_route[0] })
   }
 }

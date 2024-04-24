@@ -54,7 +54,7 @@ resource "aws_subnet" "tgw" {
   count  = length(var.az_zones)
   vpc_id = aws_vpc.default.id
 
-  cidr_block        = cidrsubnet(format("%s.256.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  cidr_block        = cidrsubnet(format("%s.255.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
   availability_zone = var.az_zones[count.index]
 
   tags = merge(
@@ -105,7 +105,7 @@ resource "aws_internet_gateway" "default" {
 
 /* TGW attachments */
 resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
-  count = var.enable_tgw_attachment ? 1 : 0
+  count = local.tgw_enabled ? 1 : 0
 
   subnet_ids = [
     for subnet in aws_subnet.tgw : subnet.id
@@ -134,27 +134,18 @@ resource "aws_route_table" "private" {
   dynamic "route" {
     for_each = concat(
       var.extra_private_routes,
-      try(var.extra_private_routes_per_az[var.az_zones[count.index]], [])
+      local.extra_tgw_routes,
+      try(var.extra_private_routes_per_az[var.az_zones[count.index]], []),
     )
 
     content {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
+      transit_gateway_id        = route.value["transit_gateway_id"]
     }
   }
 
-  dynamic "route" {
-    for_each = concat(
-      var.extra_tgw_routes,
-      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
-    )
-
-    content {
-      cidr_block         = route.value["cidr_block"]
-      transit_gateway_id = route.value["transit_gateway_id"]
-    }
-  }
 
   tags = {
     Name        = "${var.name}-Private-${var.az_zones[count.index]}-routetable"
@@ -162,6 +153,7 @@ resource "aws_route_table" "private" {
     Created-By  = "DevOps-Terraform"
     Environment = var.deployment_env
   }
+
   depends_on = [aws_nat_gateway.default]
 }
 
@@ -175,23 +167,15 @@ resource "aws_route_table" "public" {
   }
 
   dynamic "route" {
-    for_each = var.extra_public_routes
+    for_each = concat(
+      var.extra_public_routes,
+      var.enable_tgw_routes_in_public_subnets ? local.extra_tgw_routes : [],
+    )
 
     content {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
-    }
-  }
-
-  dynamic "route" {
-    for_each = concat(
-      var.extra_tgw_routes,
-      try(var.extra_tgw_routes_per_az[var.az_zones[count.index]], [])
-    )
-
-    content {
-      cidr_block         = route.value["cidr_block"]
       transit_gateway_id = route.value["transit_gateway_id"]
     }
   }

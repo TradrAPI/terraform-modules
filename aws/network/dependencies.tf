@@ -1,5 +1,5 @@
 data "aws_ec2_transit_gateway" "this" {
-  count = var.enable_tgw_attachment ? 1 : 0
+  count = local.tgw_enabled ? 1 : 0
 
   filter {
     name   = "options.amazon-side-asn"
