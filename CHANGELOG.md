@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.0](https://github.com/TradrAPI/terraform-modules/compare/v1.22.0...v1.23.0) (2024-04-25)
+
+
+### Features
+
+* Adds TGW support to the network module ([#33](https://github.com/TradrAPI/terraform-modules/issues/33)) ([9751e33](https://github.com/TradrAPI/terraform-modules/commit/9751e3352b2cfd208b13785f9a40897bdf6a370d))
+
 ## [1.22.0](https://github.com/TradrAPI/terraform-modules/compare/v1.21.0...v1.22.0) (2024-04-22)
 
 
