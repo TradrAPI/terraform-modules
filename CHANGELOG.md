@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.0](https://github.com/TradrAPI/terraform-modules/compare/v1.24.0...v1.25.0) (2024-04-26)
+
+
+### Features
+
+* Makes perf insights configurable ([#37](https://github.com/TradrAPI/terraform-modules/issues/37)) ([d5b896e](https://github.com/TradrAPI/terraform-modules/commit/d5b896ecdb0fbb39c143e9a46b5800e4f68af01e))
+
 ## [1.24.0](https://github.com/TradrAPI/terraform-modules/compare/v1.23.0...v1.24.0) (2024-04-26)
 
 
