@@ -153,3 +153,8 @@ variable "storage_encrypted" {
   type    = bool
   default = false
 }
+
+variable "performance_insights_enabled" {
+  type    = bool
+  default = true
+}
