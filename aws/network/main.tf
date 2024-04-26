@@ -51,7 +51,8 @@ resource "aws_subnet" "private" {
 
 /* Transit Gateway Subnet */
 resource "aws_subnet" "tgw" {
-  count  = length(var.az_zones)
+  count = length(var.tgw_cidrs) > 0 ? length(var.az_zones) : 0
+
   vpc_id = aws_vpc.default.id
 
   cidr_block        = cidrsubnet(format("%s.255.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
@@ -176,7 +177,7 @@ resource "aws_route_table" "public" {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
-      transit_gateway_id = route.value["transit_gateway_id"]
+      transit_gateway_id        = route.value["transit_gateway_id"]
     }
   }
 
