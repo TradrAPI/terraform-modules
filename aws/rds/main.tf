@@ -18,7 +18,7 @@ resource "aws_db_instance" "this" {
   engine_version        = var.engine_version
   tags                  = var.tags
 
-  performance_insights_enabled = true
+  performance_insights_enabled = var.performance_insights_enabled
   username                     = var.username
   password                     = var.password
   manage_master_user_password  = var.manage_master_user_password
