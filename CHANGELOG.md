@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/TradrAPI/terraform-modules/compare/v1.23.0...v1.24.0) (2024-04-26)
+
+
+### Features
+
+* Prevent tgw subnet creation if no cidr is passed ([#35](https://github.com/TradrAPI/terraform-modules/issues/35)) ([97b77f3](https://github.com/TradrAPI/terraform-modules/commit/97b77f3d2fc4b130deccc9d5fda97f725be05d61))
+
 ## [1.23.0](https://github.com/TradrAPI/terraform-modules/compare/v1.22.0...v1.23.0) (2024-04-25)
 
 
