@@ -143,7 +143,7 @@ resource "aws_route_table" "private" {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
-      transit_gateway_id        = route.value["transit_gateway_id"]
+      transit_gateway_id        = try(route.value["transit_gateway_id"], null)
     }
   }
 
@@ -177,7 +177,7 @@ resource "aws_route_table" "public" {
       cidr_block                = route.value["cidr_block"]
       vpc_peering_connection_id = route.value["vpc_peering_connection_id"]
       network_interface_id      = route.value["network_interface_id"]
-      transit_gateway_id        = route.value["transit_gateway_id"]
+      transit_gateway_id        = try(route.value["transit_gateway_id"], null)
     }
   }
 
