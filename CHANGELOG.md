@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.26.0](https://github.com/TradrAPI/terraform-modules/compare/v1.25.0...v1.26.0) (2024-04-29)
+
+
+### Features
+
+* Adds conventional PR check ([0ca51dc](https://github.com/TradrAPI/terraform-modules/commit/0ca51dcbe3ae56216467d004d97e2ceca1810b45))
+
+
+### Bug Fixes
+
+* Routes setup for code still using the other routes method ([#39](https://github.com/TradrAPI/terraform-modules/issues/39)) ([dbf21f7](https://github.com/TradrAPI/terraform-modules/commit/dbf21f7aafe51e157f670aec10f5e62fe98ebee0))
+
 ## [1.25.0](https://github.com/TradrAPI/terraform-modules/compare/v1.24.0...v1.25.0) (2024-04-26)
 
 
