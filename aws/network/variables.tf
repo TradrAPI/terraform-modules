@@ -118,3 +118,25 @@ variable "remove_all_private_route_tables_v1" {
   type    = bool
   default = false
 }
+
+
+variable "vpc_cidr" {
+  type     = string
+  default  = null
+  nullable = true
+}
+
+variable "public_subnets_cidrs" {
+  type    = list(string)
+  default = []
+}
+
+variable "private_subnets_cidrs" {
+  type    = list(string)
+  default = []
+}
+
+variable "tgw_subnets_cidrs" {
+  type    = list(string)
+  default = []
+}

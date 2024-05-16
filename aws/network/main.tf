@@ -3,8 +3,14 @@ terraform {
 }
 
 resource "aws_vpc" "default" {
-  cidr_block           = format("%s.0.0/16", var.vpc_sub)
+  cidr_block = (
+    var.vpc_cidr == null
+    ? format("%s.0.0/16", var.vpc_sub)
+    : var.vpc_cidr
+  )
+
   enable_dns_hostnames = true
+
   tags = {
     Name        = "${var.name}-vpc"
     Description = "VPC for ${var.name}"
@@ -13,10 +19,16 @@ resource "aws_vpc" "default" {
 
 /* Public Subnet */
 resource "aws_subnet" "public" {
-  count  = length(var.az_zones)
+  count = length(var.az_zones)
+
   vpc_id = aws_vpc.default.id
 
-  cidr_block        = cidrsubnet(format("%s.0.0/21", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  cidr_block = (
+    length(var.public_subnets_cidrs) <= 0
+    ? cidrsubnet(format("%s.0.0/21", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+    : var.public_subnets_cidrs[count.index]
+  )
+
   availability_zone = var.az_zones[count.index]
 
   tags = merge(
@@ -32,10 +44,16 @@ resource "aws_subnet" "public" {
 
 /* Private Subnet */
 resource "aws_subnet" "private" {
-  count  = length(var.az_zones)
+  count = length(var.az_zones)
+
   vpc_id = aws_vpc.default.id
 
-  cidr_block        = cidrsubnet(format("%s.100.0/20", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  cidr_block = (
+    length(var.private_subnets_cidrs) <= 0
+    ? cidrsubnet(format("%s.100.0/20", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+    : var.private_subnets_cidrs[count.index]
+  )
+
   availability_zone = var.az_zones[count.index]
 
   tags = merge(
@@ -55,7 +73,12 @@ resource "aws_subnet" "tgw" {
 
   vpc_id = aws_vpc.default.id
 
-  cidr_block        = cidrsubnet(format("%s.255.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+  cidr_block = (
+    length(var.tgw_subnets_cidrs) <= 0
+    ? cidrsubnet(format("%s.255.0/26", var.vpc_sub), ceil(log(length(var.az_zones), 2)), count.index)
+    : var.tgw_subnets_cidrs[count.index]
+  )
+
   availability_zone = var.az_zones[count.index]
 
   tags = merge(
