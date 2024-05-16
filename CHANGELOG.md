@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.27.0](https://github.com/TradrAPI/terraform-modules/compare/v1.26.0...v1.27.0) (2024-05-16)
+
+
+### Features
+
+* Allows customizing VPC and subnets cidrs ([#41](https://github.com/TradrAPI/terraform-modules/issues/41)) ([5af8c77](https://github.com/TradrAPI/terraform-modules/commit/5af8c77420c825c8627951f22fecf1895547d98e))
+
 ## [1.26.0](https://github.com/TradrAPI/terraform-modules/compare/v1.25.0...v1.26.0) (2024-04-29)
 
 
