@@ -141,12 +141,12 @@ variable "max_allocated_storage" {
 
 variable "iops" {
   type    = number
-  default = 3000
+  default = null
 }
 
 variable "storage_throughput" {
   type    = number
-  default = 125
+  default = null
 }
 
 variable "storage_encrypted" {
