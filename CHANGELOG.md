@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.28.1](https://github.com/TradrAPI/terraform-modules/compare/v1.28.0...v1.28.1) (2024-05-22)
+
+
+### Bug Fixes
+
+* Update kms module ([#46](https://github.com/TradrAPI/terraform-modules/issues/46)) ([7621a6b](https://github.com/TradrAPI/terraform-modules/commit/7621a6b9f6af695b399a4a3974522b4796bb1c12))
+* Uses null defaults for iops and storage_throughput ([#47](https://github.com/TradrAPI/terraform-modules/issues/47)) ([8e85a3b](https://github.com/TradrAPI/terraform-modules/commit/8e85a3b2849ab45a86b53b150234e84e1d5835ed))
+
 ## [1.28.0](https://github.com/TradrAPI/terraform-modules/compare/v1.27.0...v1.28.0) (2024-05-22)
 
 
