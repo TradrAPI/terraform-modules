@@ -22,6 +22,7 @@ resource "aws_instance" "this" {
   subnet_id                   = var.subnet_id
   private_ip                  = var.private_ip
   availability_zone           = var.availability_zone
+  disable_api_termination     = var.disable_api_termination
 
   tags = merge(var.tags, {
     Name = var.name

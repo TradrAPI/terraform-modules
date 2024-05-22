@@ -137,6 +137,11 @@ variable "get_password_data" {
   default = false
 }
 
+variable "disable_api_termination" {
+  type    = bool
+  default = false
+}
+
 variable "os_type" {
   type    = string
   default = "linux"
