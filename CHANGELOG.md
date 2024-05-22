@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.28.0](https://github.com/TradrAPI/terraform-modules/compare/v1.27.0...v1.28.0) (2024-05-22)
+
+
+### Features
+
+* Adding new Variable to EC2 module ([#43](https://github.com/TradrAPI/terraform-modules/issues/43)) ([3244891](https://github.com/TradrAPI/terraform-modules/commit/32448919f0c9851a6dcc4d58d99f03d8dd249833))
+
 ## [1.27.0](https://github.com/TradrAPI/terraform-modules/compare/v1.26.0...v1.27.0) (2024-05-16)
 
 
