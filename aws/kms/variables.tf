@@ -2,7 +2,6 @@ variable "name" {
   type = string
 }
 
-
 variable "create_user" {
   type    = bool
   default = true
