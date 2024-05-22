@@ -21,5 +21,9 @@ output "key_alias" {
 }
 
 output "policy_arn" {
-  value = aws_iam_policy.kms[0].arn
+  value = (
+    !var.create_user
+    ? null
+    : aws_iam_policy.kms[0].arn
+  )
 }

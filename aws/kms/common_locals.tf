@@ -4,8 +4,8 @@ locals {
   }
 
   names = {
-    fqn        = "${var.prefix}${var.platform}-${var.name}"
-    kms_user   = "${var.prefix}${var.platform}-${var.name}-kms"
-    kms_policy = replace(title("${var.prefix}${var.platform} ${var.name} kms"), "/\\s|-/", "")
+    fqn        = var.name
+    kms_user   = "${var.name}-kms"
+    kms_policy = replace(title("${var.name} kms"), "/\\s|-/", "")
   }
 }

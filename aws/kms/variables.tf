@@ -1,15 +1,7 @@
-variable "platform" {
-  type = string
-}
-
 variable "name" {
   type = string
 }
 
-variable "prefix" {
-  type    = string
-  default = ""
-}
 
 variable "create_user" {
   type    = bool
