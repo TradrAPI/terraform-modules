@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.29.0](https://github.com/TradrAPI/terraform-modules/compare/v1.28.1...v1.29.0) (2024-05-24)
+
+
+### Features
+
+* add secret module ([#50](https://github.com/TradrAPI/terraform-modules/issues/50)) ([cfc6d23](https://github.com/TradrAPI/terraform-modules/commit/cfc6d23807ca3392f291ec149e425b194d8841a9))
+
 ## [1.28.1](https://github.com/TradrAPI/terraform-modules/compare/v1.28.0...v1.28.1) (2024-05-22)
 
 
