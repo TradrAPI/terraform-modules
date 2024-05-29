@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.29.1](https://github.com/TradrAPI/terraform-modules/compare/v1.29.0...v1.29.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* Adds missing required providers to ec2 module ([#52](https://github.com/TradrAPI/terraform-modules/issues/52)) ([b209ab2](https://github.com/TradrAPI/terraform-modules/commit/b209ab226e244d6b3eebdc93c4744cfcf5467b28))
+
 ## [1.29.0](https://github.com/TradrAPI/terraform-modules/compare/v1.28.1...v1.29.0) (2024-05-24)
 
 
