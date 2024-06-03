@@ -17,7 +17,7 @@ variable "kms_key_id" {
 }
 
 variable "replica" {
-  type        = block({
+  type        = object({
     region = string
     kms_key_id = string
   })
