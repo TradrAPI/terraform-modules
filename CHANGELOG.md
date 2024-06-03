@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.0](https://github.com/TradrAPI/terraform-modules/compare/v1.29.1...v1.30.0) (2024-06-03)
+
+
+### Features
+
+* Add secrets replication on the secrets module ([#56](https://github.com/TradrAPI/terraform-modules/issues/56)) ([5ead9b4](https://github.com/TradrAPI/terraform-modules/commit/5ead9b4ff8d9ac7364d6bfba53aa3f01e38c5b7a))
+
 ## [1.29.1](https://github.com/TradrAPI/terraform-modules/compare/v1.29.0...v1.29.1) (2024-05-29)
 
 
