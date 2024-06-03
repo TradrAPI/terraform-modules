@@ -16,12 +16,9 @@ variable "kms_key_id" {
   nullable = true
 }
 
-variable "replica" {
-  type        = object({
-    region = string
-    kms_key_id = string
-  })
-  description = "Configuration block to support secret replication"
+variable "replica_region" {
+  type = string
+  description = "Region of the replica"
   default     = null
   nullable = true
 }
