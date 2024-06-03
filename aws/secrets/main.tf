@@ -7,7 +7,9 @@ resource "aws_secretsmanager_secret" "secret" {
   description             = "Secrets for ${var.name}"
   recovery_window_in_days = 0
   kms_key_id              = var.kms_key_id
-  replica                 = var.replica
+  replica                 = {
+    region = "eu-west-2"
+  }
 }
 
 resource "aws_secretsmanager_secret_version" "secret" {
