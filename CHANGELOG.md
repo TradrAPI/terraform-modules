@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.30.1](https://github.com/TradrAPI/terraform-modules/compare/v1.30.0...v1.30.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* add required_provider on secret module ([#58](https://github.com/TradrAPI/terraform-modules/issues/58)) ([871d28d](https://github.com/TradrAPI/terraform-modules/commit/871d28d9abc8600ee6b2d0c108ed1c101ecfff73))
+
 ## [1.30.0](https://github.com/TradrAPI/terraform-modules/compare/v1.29.1...v1.30.0) (2024-06-03)
 
 
