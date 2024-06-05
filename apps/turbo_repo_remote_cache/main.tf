@@ -74,4 +74,5 @@ module "bucket" {
 
   lifetime_days     = 7
   create_bucket_acl = false
+  force_destroy     = true
 }
