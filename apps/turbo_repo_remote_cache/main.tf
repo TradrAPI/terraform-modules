@@ -32,11 +32,12 @@ module "lambda" {
 
   source_path = [{
     path = "${path.module}/lambda"
-    commands = [
+
+    commands = concat(var.pre_commands, [
       "npm install",
       "npm run build",
       ":zip"
-    ]
+    ])
   }]
 
   create_lambda_function_url = true
@@ -52,8 +53,8 @@ module "lambda" {
     STORAGE_PATH     = module.bucket.bucket_id
     STORAGE_PROVIDER = "s3"
     TURBO_TOKEN      = random_password.turbo_token.result
-  }, {
-    for k, v in var.extra_environment_variables : 
+    }, {
+    for k, v in var.extra_environment_variables :
     k => v
     if !contains(["STORAGE_PATH", "STORAGE_PROVIDER", "TURBO_TOKEN"], k)
   })
