@@ -55,6 +55,8 @@ resource "aws_db_instance" "this" {
     aws_security_group.this.id
   ]
 
+  ca_cert_identifier = var.ca_cert_identifier
+
   lifecycle {
     ignore_changes = [
       engine_version
