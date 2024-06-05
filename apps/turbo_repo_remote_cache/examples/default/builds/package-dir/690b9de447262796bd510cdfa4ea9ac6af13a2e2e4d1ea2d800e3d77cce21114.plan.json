@@ -1,1 +1,0 @@
-{"filename": "./builds/package-dir/690b9de447262796bd510cdfa4ea9ac6af13a2e2e4d1ea2d800e3d77cce21114.zip", "runtime": "node", "artifacts_dir": "./builds/package-dir/", "build_plan": [["zip", "../../lambda", null]]}
