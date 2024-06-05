@@ -10,5 +10,9 @@ variable "role_name" {
 variable "lambda_name" {
   type    = string
   default = "turborepo-cache-lambda"
-  
+}
+
+variable "extra_environment_variables" {
+  type    = map(string)
+  default = {}
 }
