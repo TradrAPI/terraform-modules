@@ -3,7 +3,7 @@ provider "aws" {}
 module "turborepo_remote_cache" {
   source = "../.."
 
-  bucket_name = "turborepo-remote-cache-test-leo"
+  name = "turborepo-remote-cache-test-leo"
 
   extra_environment_variables = {
     STORAGE_PROVIDER = "this-won't-be-used"

@@ -21,8 +21,8 @@ module "lambda" {
     ]
   })
 
-  function_name      = var.lambda_name
-  logging_log_group  = "/aws/lambda/${var.lambda_name}-0"
+  function_name      = var.name
+  logging_log_group  = "/aws/lambda/${var.name}-0"
   attach_policy_json = true
 
   timeout = 10
@@ -70,7 +70,7 @@ resource "random_password" "turbo_token" {
 module "bucket" {
   source = "../../aws/s3"
 
-  bucket_name = var.bucket_name
+  bucket_name = var.name
 
   lifetime_days     = 7
   create_bucket_acl = false

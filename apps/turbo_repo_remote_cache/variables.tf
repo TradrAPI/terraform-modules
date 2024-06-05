@@ -1,12 +1,7 @@
-variable "bucket_name" {
-  type = string
+variable "name" {
+  type        = string
+  description = "The name of the Bucket and Lambda function"
 }
-
-variable "lambda_name" {
-  type    = string
-  default = "turborepo-cache-lambda"
-}
-
 variable "extra_environment_variables" {
   type    = map(string)
   default = {}
