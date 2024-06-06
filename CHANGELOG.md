@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.31.0](https://github.com/TradrAPI/terraform-modules/compare/v1.30.1...v1.31.0) (2024-06-06)
+
+
+### Features
+
+* Adds module for turbo repo remote cache deploy as lambda function ([#60](https://github.com/TradrAPI/terraform-modules/issues/60)) ([ce5f244](https://github.com/TradrAPI/terraform-modules/commit/ce5f2444689db3963027f7a37f46ea0905d14f97))
+
 ## [1.30.1](https://github.com/TradrAPI/terraform-modules/compare/v1.30.0...v1.30.1) (2024-06-04)
 
 
