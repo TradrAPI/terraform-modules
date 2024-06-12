@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.32.0](https://github.com/TradrAPI/terraform-modules/compare/v1.31.0...v1.32.0) (2024-06-12)
+
+
+### Features
+
+* **ci:** Add new replicate_source_db variable to enable read replica creation. ([#62](https://github.com/TradrAPI/terraform-modules/issues/62)) ([4442c7a](https://github.com/TradrAPI/terraform-modules/commit/4442c7a3143ed75ab9aed6c979d3282b1b0c5e57))
+
 ## [1.31.0](https://github.com/TradrAPI/terraform-modules/compare/v1.30.1...v1.31.0) (2024-06-06)
 
 
