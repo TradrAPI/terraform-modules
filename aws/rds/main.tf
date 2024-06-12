@@ -51,6 +51,8 @@ resource "aws_db_instance" "this" {
 
   max_allocated_storage = var.max_allocated_storage
 
+  replicate_source_db = var.replicate_source_db
+
   vpc_security_group_ids = [
     aws_security_group.this.id
   ]
