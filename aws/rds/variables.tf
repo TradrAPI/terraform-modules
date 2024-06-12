@@ -107,6 +107,12 @@ variable "multi_az" {
   default = false
 }
 
+variable "replicate_source_db" {
+  description = "Specifies that this resource is a Replicate database, and to use this value as the source database."
+  type        = string
+  default = null
+}
+
 variable "enabled_cloudwatch_logs_exports" {
   type = list(string)
 
