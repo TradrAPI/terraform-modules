@@ -52,11 +52,7 @@ resource "aws_db_instance" "this" {
   multi_az                        = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
-  db_subnet_group_name = (
-    var.replicate_source_db != null
-    ? aws_db_subnet_group.this[0].id
-    : null
-  )
+  db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 
   monitoring_interval = var.monitoring_interval
   monitoring_role_arn = local.monitoring_role_arn
