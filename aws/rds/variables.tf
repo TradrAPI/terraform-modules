@@ -110,7 +110,7 @@ variable "multi_az" {
 variable "replicate_source_db" {
   description = "Specifies that this resource is a Replicate database, and to use this value as the source database."
   type        = string
-  default = null
+  default     = null
 }
 
 variable "enabled_cloudwatch_logs_exports" {
@@ -141,7 +141,7 @@ variable "create_monitoring_role" {
 }
 
 variable "max_allocated_storage" {
-  type    = number
+  type     = number
   nullable = false
 }
 
