@@ -25,7 +25,7 @@ variable "vpc" {
   type = object({
     id      = string
     cidr    = string
-    subnets = list(string)
+    subnets = optional(list(string), [])
   })
 }
 
