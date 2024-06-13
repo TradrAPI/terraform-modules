@@ -15,7 +15,7 @@ resource "aws_db_subnet_group" "this" {
 
 moved {
   from = aws_db_subnet_group.this
-  to   = aws_db_instance.this[0]
+  to   = aws_db_subnet_group.this[0]
 }
 
 resource "aws_db_instance" "this" {
