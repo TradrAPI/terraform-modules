@@ -25,7 +25,7 @@ module "lambda" {
   logging_log_group  = "/aws/lambda/${var.name}-0"
   attach_policy_json = true
 
-  timeout = 10
+  timeout = var.timeout
 
   handler = "dist/index.handler"
   runtime = "nodejs18.x"
