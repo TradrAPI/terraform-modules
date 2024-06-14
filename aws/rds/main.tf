@@ -7,16 +7,24 @@ locals {
 }
 
 resource "aws_db_subnet_group" "this" {
+  count = var.replicate_source_db == null ? 1 : 0
+
   description = "Subnet group for ${local.db_identifier} DB instance"
   subnet_ids  = var.vpc.subnets
 }
+
+moved {
+  from = aws_db_subnet_group.this
+  to   = aws_db_subnet_group.this[0]
+}
+
 resource "aws_db_instance" "this" {
-  identifier            = local.db_identifier
-  db_name               = local.db_name
-  allocated_storage     = var.allocated_storage
-  instance_class        = var.instance_class
-  engine_version        = var.engine_version
-  tags                  = var.tags
+  identifier        = local.db_identifier
+  db_name           = local.db_name
+  allocated_storage = var.allocated_storage
+  instance_class    = var.instance_class
+  engine_version    = var.engine_version
+  tags              = var.tags
 
   performance_insights_enabled = var.performance_insights_enabled
   username                     = var.username
@@ -44,7 +52,7 @@ resource "aws_db_instance" "this" {
   multi_az                        = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
 
-  db_subnet_group_name = aws_db_subnet_group.this.id
+  db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 
   monitoring_interval = var.monitoring_interval
   monitoring_role_arn = local.monitoring_role_arn
