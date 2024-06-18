@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.32.1](https://github.com/TradrAPI/terraform-modules/compare/v1.32.0...v1.32.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* Rds read replica ([#65](https://github.com/TradrAPI/terraform-modules/issues/65)) ([2b830cd](https://github.com/TradrAPI/terraform-modules/commit/2b830cd3dd8e74a9fd0c07c0100af0fc44865157))
+
 ## [1.32.0](https://github.com/TradrAPI/terraform-modules/compare/v1.31.0...v1.32.0) (2024-06-12)
 
 
