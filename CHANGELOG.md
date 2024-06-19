@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.33.0](https://github.com/TradrAPI/terraform-modules/compare/v1.32.1...v1.33.0) (2024-06-19)
+
+
+### Features
+
+* Turbo remote cache timeout ([#64](https://github.com/TradrAPI/terraform-modules/issues/64)) ([dad3fd0](https://github.com/TradrAPI/terraform-modules/commit/dad3fd058d15d2e20c80719d0db1bc815af97d05))
+
 ## [1.32.1](https://github.com/TradrAPI/terraform-modules/compare/v1.32.0...v1.32.1) (2024-06-14)
 
 
