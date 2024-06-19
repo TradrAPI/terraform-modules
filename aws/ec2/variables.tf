@@ -167,5 +167,5 @@ variable "iam_instance_profile" {
 
 variable "sg_description" {
   type    = string
-  default = "${var.name} security group"
+  default = ""
 }

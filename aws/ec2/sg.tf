@@ -1,7 +1,8 @@
 
 resource "aws_security_group" "this" {
-  name        = "${var.resources_prefix}-ec2-sg"
-  description = var.sg_description
+  name = "${var.resources_prefix}-ec2-sg"
+
+  description = coalesce(var.sg_description, "${var.name} security group")
 
   vpc_id = var.vpc_id
 }
