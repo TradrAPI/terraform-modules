@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.33.1](https://github.com/TradrAPI/terraform-modules/compare/v1.33.0...v1.33.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* Adds required providers to s3 module ([#68](https://github.com/TradrAPI/terraform-modules/issues/68)) ([02daf44](https://github.com/TradrAPI/terraform-modules/commit/02daf445072840c02dc0e31a8034cc6a6d93589f))
+* delete replica feature ([#69](https://github.com/TradrAPI/terraform-modules/issues/69)) ([cdff632](https://github.com/TradrAPI/terraform-modules/commit/cdff632a59d47de46520a07ae535331477a40040))
+
 ## [1.33.0](https://github.com/TradrAPI/terraform-modules/compare/v1.32.1...v1.33.0) (2024-06-19)
 
 

@@ -1,5 +1,5 @@
 variable "bucket_name" {
-  type    = string
+  type = string
 }
 
 variable "lifetime_days" {
