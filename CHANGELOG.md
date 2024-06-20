@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.33.2](https://github.com/TradrAPI/terraform-modules/compare/v1.33.1...v1.33.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* Allows customizing ec2 group description ([#71](https://github.com/TradrAPI/terraform-modules/issues/71)) ([65a4e1a](https://github.com/TradrAPI/terraform-modules/commit/65a4e1a23b769bf26cca1f15a5ea9bb54eae4a3f))
+
 ## [1.33.1](https://github.com/TradrAPI/terraform-modules/compare/v1.33.0...v1.33.1) (2024-06-19)
 
 
