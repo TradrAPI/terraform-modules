@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.33.3](https://github.com/TradrAPI/terraform-modules/compare/v1.33.2...v1.33.3) (2024-07-03)
+
+
+### Bug Fixes
+
+* Release please missing files ([#73](https://github.com/TradrAPI/terraform-modules/issues/73)) ([0970e36](https://github.com/TradrAPI/terraform-modules/commit/0970e369e45931732db4841ef724daae72e2e54b))
+
 ## [1.33.2](https://github.com/TradrAPI/terraform-modules/compare/v1.33.1...v1.33.2) (2024-06-20)
 
 
