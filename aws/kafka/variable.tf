@@ -72,3 +72,11 @@ variable "allowed_cidr_blocks" {
   default     = []
 
 }
+
+
+variable "users" {
+  description = "MSK users."
+  type        = list(string)
+  default     = []
+
+}
