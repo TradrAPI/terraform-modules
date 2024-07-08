@@ -20,21 +20,6 @@ module "mskconnect_custom_plugins" {
 
 
 
-resource "aws_mskconnect_custom_plugin" "plugins" {
-  for_each = local.plugins
-
-  name         = "${var.platform}-${var.environment}-${each.key}"
-  content_type = "ZIP"
-
-  location {
-    s3 {
-      bucket_arn = module.mskconnect_custom_plugins.bucket.arn
-      file_key   = aws_s3_object.plugins[each.key].key
-    }
-  }
-}
-
-
 resource "aws_s3_object" "plugins" {
   for_each = local.plugins
 
@@ -53,6 +38,23 @@ resource "aws_s3_object" "plugins" {
     ]
   }
 }
+
+
+
+resource "aws_mskconnect_custom_plugin" "plugins" {
+  for_each = local.plugins
+
+  name         = "${var.platform}-${var.environment}-${each.key}"
+  content_type = "ZIP"
+
+  location {
+    s3 {
+      bucket_arn = module.mskconnect_custom_plugins.bucket.arn
+      file_key   = aws_s3_object.plugins[each.key].key
+    }
+  }
+}
+
 
 
 resource "terraform_data" "plugins" {
