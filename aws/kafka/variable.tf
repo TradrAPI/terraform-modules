@@ -83,11 +83,11 @@ variable "users" {
 
 
 
- variable "region" {
+variable "region" {
   description = "AWS region."
   type        = string
   default     = null
- }
+}
 
 variable "private_subnets" {
   description = "Private subnets."
