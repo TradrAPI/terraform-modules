@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.33.3](https://github.com/TradrAPI/terraform-modules/compare/v1.33.2...v1.33.3) (2024-07-03)
+
+
+### Bug Fixes
+
+* Release please missing files ([#73](https://github.com/TradrAPI/terraform-modules/issues/73)) ([0970e36](https://github.com/TradrAPI/terraform-modules/commit/0970e369e45931732db4841ef724daae72e2e54b))
+
+## [1.33.2](https://github.com/TradrAPI/terraform-modules/compare/v1.33.1...v1.33.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* Allows customizing ec2 group description ([#71](https://github.com/TradrAPI/terraform-modules/issues/71)) ([65a4e1a](https://github.com/TradrAPI/terraform-modules/commit/65a4e1a23b769bf26cca1f15a5ea9bb54eae4a3f))
+
+## [1.33.1](https://github.com/TradrAPI/terraform-modules/compare/v1.33.0...v1.33.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* Adds required providers to s3 module ([#68](https://github.com/TradrAPI/terraform-modules/issues/68)) ([02daf44](https://github.com/TradrAPI/terraform-modules/commit/02daf445072840c02dc0e31a8034cc6a6d93589f))
+* delete replica feature ([#69](https://github.com/TradrAPI/terraform-modules/issues/69)) ([cdff632](https://github.com/TradrAPI/terraform-modules/commit/cdff632a59d47de46520a07ae535331477a40040))
+
 ## [1.33.0](https://github.com/TradrAPI/terraform-modules/compare/v1.32.1...v1.33.0) (2024-06-19)
 
 

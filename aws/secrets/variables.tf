@@ -15,10 +15,3 @@ variable "kms_key_id" {
   default  = null
   nullable = true
 }
-
-variable "replica_region" {
-  type = string
-  description = "Region of the replica"
-  default     = null
-  nullable = true
-}
