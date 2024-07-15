@@ -20,7 +20,7 @@ output "private_route_tables_v2" {
 
 output "private_routes_v2" {
   value = concat(
-    aws_route.private_nat_v2, 
+    aws_route.private_nat_v2,
     values(aws_route.private_v2),
   )
 }
