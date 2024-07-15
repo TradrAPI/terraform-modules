@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.33.4](https://github.com/TradrAPI/terraform-modules/compare/v1.33.3...v1.33.4) (2024-07-15)
+
+
+### Bug Fixes
+
+* **network:** Add unique values on concat lists to aboid errors ([#76](https://github.com/TradrAPI/terraform-modules/issues/76)) ([dacb873](https://github.com/TradrAPI/terraform-modules/commit/dacb873ba87126237293a15d1405d64a27360fe0))
+
 ## [1.33.3](https://github.com/TradrAPI/terraform-modules/compare/v1.33.2...v1.33.3) (2024-07-03)
 
 
