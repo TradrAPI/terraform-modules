@@ -1,5 +1,5 @@
 module "msk_s3_bkp" {
-  source = "github.com/TradrApi/terraform-modules//aws/s3?ref=v1.28.1"
+  source = "github.com/TradrApi/terraform-modules//aws/s3?ref=v1"
 
   bucket_name = "${var.environment}-${var.platform}-msk-backup"
 
