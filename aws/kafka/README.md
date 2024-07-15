@@ -15,9 +15,9 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kms"></a> [kms](#module\_kms) | github.com/TradrApi/terraform-modules//aws/kms | v1.28.1 |
-| <a name="module_msk_s3_bkp"></a> [msk\_s3\_bkp](#module\_msk\_s3\_bkp) | github.com/TradrApi/terraform-modules//aws/s3 | v1.28.1 |
-| <a name="module_mskconnect_custom_plugins"></a> [mskconnect\_custom\_plugins](#module\_mskconnect\_custom\_plugins) | github.com/TradrApi/terraform-modules//aws/s3 | v1.28.1 |
+| <a name="module_kms"></a> [kms](#module\_kms) | github.com/TradrApi/terraform-modules//aws/kms | v1 |
+| <a name="module_msk_s3_bkp"></a> [msk\_s3\_bkp](#module\_msk\_s3\_bkp) | github.com/TradrApi/terraform-modules//aws/s3 | v1 |
+| <a name="module_mskconnect_custom_plugins"></a> [mskconnect\_custom\_plugins](#module\_mskconnect\_custom\_plugins) | github.com/TradrApi/terraform-modules//aws/s3 | v1 |
 
 ## Resources
 
@@ -68,5 +68,8 @@ No requirements.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_msk_brokers_by_auth_method"></a> [msk\_brokers\_by\_auth\_method](#output\_msk\_brokers\_by\_auth\_method) | n/a |
+| <a name="output_msk_sasl_scram_users"></a> [msk\_sasl\_scram\_users](#output\_msk\_sasl\_scram\_users) | n/a |
 <!-- END_TF_DOCS -->
