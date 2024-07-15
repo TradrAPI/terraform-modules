@@ -156,11 +156,11 @@ resource "aws_route_table" "private" {
   }
 
   dynamic "route" {
-    for_each = concat(
+    for_each = distinct(concat(
       var.extra_private_routes,
       local.extra_tgw_routes,
       try(var.extra_private_routes_per_az[var.az_zones[count.index]], []),
-    )
+    ))
 
     content {
       cidr_block                = route.value["cidr_block"]
@@ -191,10 +191,10 @@ resource "aws_route_table" "public" {
   }
 
   dynamic "route" {
-    for_each = concat(
+    for_each = distinct(concat(
       var.extra_public_routes,
       var.enable_tgw_routes_in_public_subnets ? local.extra_tgw_routes : [],
-    )
+    ))
 
     content {
       cidr_block                = route.value["cidr_block"]

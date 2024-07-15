@@ -66,14 +66,14 @@ resource "aws_route" "public_v2" {
 
 locals {
   private_routes_v2 = merge({
-    for index, az_route in setproduct(var.az_zones, concat(var.extra_private_routes, local.extra_tgw_routes)) :
+    for index, az_route in setproduct(var.az_zones, distinct(concat(var.extra_private_routes, local.extra_tgw_routes))) :
     "${az_route[0]}/${az_route[1].cidr_block}" => merge(az_route[1], { az = az_route[0] })
   })
 
-  _extra_public_routes = concat(
-    var.extra_public_routes, 
+  _extra_public_routes = distinct(concat(
+    var.extra_public_routes,
     var.enable_tgw_routes_in_public_subnets ? local.extra_tgw_routes : []
-  )
+  ))
 
   public_routes_v2 = {
     for index, az_route in setproduct(var.az_zones, local._extra_public_routes) :
