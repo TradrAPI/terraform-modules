@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.0](https://github.com/TradrAPI/terraform-modules/compare/v1.33.4...v1.34.0) (2024-07-17)
+
+
+### Features
+
+* Add kafka module ([#75](https://github.com/TradrAPI/terraform-modules/issues/75)) ([d32d99b](https://github.com/TradrAPI/terraform-modules/commit/d32d99b8e493f0bd209d411e5bea8e6c12e92447))
+
 ## [1.33.4](https://github.com/TradrAPI/terraform-modules/compare/v1.33.3...v1.33.4) (2024-07-15)
 
 
