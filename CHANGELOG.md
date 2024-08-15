@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* Replace deprecated value with content in cert module ([#80](https://github.com/TradrAPI/terraform-modules/issues/80)) ([78a9d3a](https://github.com/TradrAPI/terraform-modules/commit/78a9d3a1f7cd6777ef8676796c86754a99ce6f08))
+
 ## [1.34.0](https://github.com/TradrAPI/terraform-modules/compare/v1.33.4...v1.34.0) (2024-07-17)
 
 
