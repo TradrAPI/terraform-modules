@@ -91,3 +91,15 @@ resource "aws_security_group_rule" "access_from_vpc" {
 
   cidr_blocks = [var.vpc.cidr]
 }
+
+resource "aws_security_group_rule" "access_from_internal_vpc" {
+  security_group_id = aws_security_group.this.id
+  from_port         = aws_db_instance.this.port
+  to_port           = aws_db_instance.this.port
+
+  type        = "ingress"
+  description = "Access from Internal VPC runner"
+  protocol    = "tcp"
+
+  cidr_blocks = ["10.1.99.254/32"]
+}
