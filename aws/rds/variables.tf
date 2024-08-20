@@ -169,3 +169,8 @@ variable "ca_cert_identifier" {
   type    = string
   default = "rds-ca-rsa2048-g1"
 }
+
+variable "vpc_security_group_ids" {
+  description = "List of security group IDs to associate with the RDS instance"
+  type        = list(string)
+}
