@@ -18,7 +18,50 @@ moved {
   to   = aws_db_subnet_group.this[0]
 }
 
+resource "aws_db_parameter_group" "master" {
+  name = "${var.environment}"
+  family = "postgres16"
+
+  parameter {
+    name = "auto_explain.log_min_duration"
+    value = "10"
+  }
+
+  parameter {
+    name = "auto_explain.log_nested_statements"
+    value = "1"
+  }
+
+  parameter {
+    name = "wal_compression"
+    value = "on"
+  }
+
+  parameter {
+    name = "wal_keep_size"
+    value = "10240"
+  }
+
+  parameter {
+    name = "shared_preload_libraries"
+    value = "pg_stat_statements,auto_explain"
+    apply_method = "pending-reboot"
+  }
+
+  parameter {
+    name = "rds.logical_replication"
+    apply_method = "pending-reboot"
+    value = var.enable_logical_replication
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+
 resource "aws_db_instance" "this" {
+
   identifier        = local.db_identifier
   db_name           = local.db_name
   allocated_storage = var.allocated_storage
@@ -59,8 +102,6 @@ resource "aws_db_instance" "this" {
 
   max_allocated_storage = var.max_allocated_storage
 
-  replicate_source_db = var.replicate_source_db
-
   vpc_security_group_ids = concat(
     [aws_security_group.this.id],
     var.vpc_security_group_ids
@@ -91,4 +132,100 @@ resource "aws_security_group_rule" "access_from_vpc" {
   protocol    = "tcp"
 
   cidr_blocks = [var.vpc.cidr]
+}
+# Replica config 
+
+resource "aws_db_parameter_group" "replica" {
+  count  = var.replica_enabled ? 1 : 0
+  name = "${var.environment}-replica"
+  family = "postgres15"
+
+  parameter {
+    name = "max_standby_archive_delay"
+    # 5 min in milliseconds
+    value = "300000"
+  }
+  parameter {
+    name = "max_standby_streaming_delay"
+    # 5 min in milliseconds
+    value = "300000"
+  }
+
+  parameter {
+    name = "statement_timeout"
+    # 10min in milliseconds
+    value = var.replica_statement_timeout
+  }
+
+  parameter {
+    name = "idle_in_transaction_session_timeout"
+    # 10min in milliseconds
+    value = "600000"
+  }
+
+  parameter {
+    name = "hot_standby_feedback"
+    value = "1"
+  }
+
+  parameter {
+    name = "wal_compression"
+    value = "on"
+  }
+
+  parameter {
+    name = "auto_explain.log_min_duration"
+    value = "5"
+  }
+
+  parameter {
+    name = "auto_explain.log_nested_statements"
+    value = "1"
+  }
+
+  parameter {
+    name = "wal_keep_size"
+    value = "10240"
+  }
+
+  parameter {
+    name = "shared_preload_libraries"
+    value = "pg_stat_statements,auto_explain"
+    apply_method = "pending-reboot"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_db_instance" "replica" {
+  count                        = var.replica_enabled ? 1 : 0
+  replicate_source_db          = var.source_db_instance_id
+  backup_retention_period      = var.backup_retention_period
+  parameter_group_name         = aws_db_parameter_group.replica[count.index].name
+  performance_insights_enabled = "true"
+  publicly_accessible          = var.publicly_accessible
+  iops                         = var.iops
+  storage_throughput           = var.storage_throughput
+  allocated_storage            = var.allocated_storage
+  max_allocated_storage        = var.max_allocated_storage
+  storage_encrypted            = var.storage_encrypted
+  monitoring_interval          = var.monitoring_interval
+  delete_automated_backups     = false
+  skip_final_snapshot          = false
+  monitoring_role_arn          = local.monitoring_role_arn
+  storage_type                 = "gp3"
+  engine                       = "postgres"
+  engine_version               = var.engine_version
+  identifier                   = "${local.db_identifier}-replica"
+  instance_class               = var.instance_class_replica
+  multi_az                     = var.multi_az
+  vpc_security_group_ids = concat(
+    [aws_security_group.this.id],
+    var.vpc_security_group_ids
+  )
+  deletion_protection          = true
+  apply_immediately            = true
+  ca_cert_identifier           = "rds-ca-rsa2048-g1"
 }

@@ -1,3 +1,9 @@
+variable "environment" {
+  default     = "dev"
+  type        = string
+  description = "The environment"
+}
+
 variable "name" {
   description = "DB name."
   type        = string
@@ -7,6 +13,7 @@ variable "name" {
 variable "username" {
   description = "DB user name."
   type        = string
+  default     = null
 }
 
 variable "password" {
@@ -36,6 +43,13 @@ variable "allocated_storage" {
 }
 
 variable "instance_class" {
+  # See https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html
+  description = "DB instance class."
+  type        = string
+  default     = "db.t2.micro"
+}
+
+variable "instance_class_replica" {
   # See https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html
   description = "DB instance class."
   type        = string
@@ -107,12 +121,6 @@ variable "multi_az" {
   default = false
 }
 
-variable "replicate_source_db" {
-  description = "Specifies that this resource is a Replicate database, and to use this value as the source database."
-  type        = string
-  default     = null
-}
-
 variable "enabled_cloudwatch_logs_exports" {
   type = list(string)
 
@@ -142,7 +150,8 @@ variable "create_monitoring_role" {
 
 variable "max_allocated_storage" {
   type     = number
-  nullable = false
+  nullable = true
+  default  = null
 }
 
 variable "iops" {
@@ -173,4 +182,40 @@ variable "ca_cert_identifier" {
 variable "vpc_security_group_ids" {
   description = "List of security group IDs to associate with the RDS instance"
   type        = list(string)
+}
+
+variable "replica_enabled" {
+  description = "Set to true if this instance has is a read replica"
+  type        = bool
+  default     = false
+}
+
+variable "source_db_instance_id" {
+  description = "The ID of the source DB instance for creating a read replica"
+  type        = string
+  default     = null
+}
+
+variable "replicate_source_db" {
+  description = "The ID of the source DB instance for creating a read replica"
+  type        = string
+  default     = null
+}
+
+variable "enable_logical_replication" {
+  type        = string
+  description = "Whether to enable logical replication"
+  default     = "0"
+}
+
+variable "replica_statement_timeout" {
+  type        = string
+  description = "The statement timeout for the replica"
+  default     = "600000"
+}
+
+variable "vpc_cidr_block" {
+  type        = string
+  description = "The VPC CIDR block"
+  default     = ""
 }
