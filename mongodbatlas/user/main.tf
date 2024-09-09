@@ -32,7 +32,7 @@ resource "mongodbatlas_database_user" "user" {
 }
 
 resource "random_password" "password" {
-  count   = var.external_password != null ? 0 : 1
+  count   = var.external_password != null ? 0 : 1 # Use the password based on the condition
   length  = 24
   special = false
 }
