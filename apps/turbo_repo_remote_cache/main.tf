@@ -5,6 +5,8 @@ module "lambda" {
   publish     = true
   create_role = true
 
+  memory_size = var.memory_size
+
   policy_json = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [

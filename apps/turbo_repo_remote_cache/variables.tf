@@ -18,3 +18,8 @@ variable "extra_environment_variables" {
   type    = map(string)
   default = {}
 }
+
+variable "memory_size" {
+  type    = number
+  default = 128
+}
