@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.2](https://github.com/TradrAPI/terraform-modules/compare/v1.34.1...v1.34.2) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password resource ([#82](https://github.com/TradrAPI/terraform-modules/issues/82)) ([e3c582f](https://github.com/TradrAPI/terraform-modules/commit/e3c582fcbe308ed93b0c58cf066f4e51225fd950))
+
 ## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
 
 
