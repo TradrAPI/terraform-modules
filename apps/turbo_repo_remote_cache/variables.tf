@@ -23,3 +23,8 @@ variable "memory_size" {
   type    = number
   default = 128
 }
+
+variable "layers" {
+  type    = list(string)
+  default = []
+}

@@ -6,6 +6,7 @@ module "lambda" {
   create_role = true
 
   memory_size = var.memory_size
+  layers      = var.layers
 
   policy_json = jsonencode({
     "Version" : "2012-10-17",
