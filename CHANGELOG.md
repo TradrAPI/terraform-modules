@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.4](https://github.com/TradrAPI/terraform-modules/compare/v1.34.3...v1.34.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* Random password module ([#86](https://github.com/TradrAPI/terraform-modules/issues/86)) ([4947dc7](https://github.com/TradrAPI/terraform-modules/commit/4947dc7cefbcc1d2831b32e4705ac2e8cc99cf50))
+
 ## [1.34.3](https://github.com/TradrAPI/terraform-modules/compare/v1.34.2...v1.34.3) (2024-09-09)
 
 
