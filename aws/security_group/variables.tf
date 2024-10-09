@@ -26,3 +26,20 @@ variable "ingress_rules" {
   }))
 }
 
+variable "replicate_source_db" {
+  description = "The identifier of the source DB instance if creating a read replica"
+  type        = string
+  default     = null
+}
+
+variable "publicly_accessible" {
+  description = "Indicates if the DB instance is publicly accessible"
+  type        = bool
+  default     = false
+}
+
+variable "monitoring_interval" {
+  description = "The interval, in seconds, between points when Enhanced Monitoring metrics are collected"
+  type        = number
+  default     = 60
+}
