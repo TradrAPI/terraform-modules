@@ -11,11 +11,11 @@ output "enhanced_monitoring_role_arn" {
 }
 
 output "identifier" {
-  value       = var.source_db_instance_id == null ? aws_db_instance.this[0].identifier : null
+  value       = var.source_db_instance_id == null ? aws_db_instance.this.identifier : null
   description = "Identifier of the main DB instance"
 }
 
-output "replica_identifier" {
-  value       = var.source_db_instance_id != null ? aws_db_instance.replica[0].identifier : null
-  description = "Identifier of the replica DB instance"
-}
+# output "replica_identifier" {
+#   value       = var.source_db_instance_id != null ? aws_db_instance.replica.identifier : null
+#   description = "Identifier of the replica DB instance"
+# }

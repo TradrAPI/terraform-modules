@@ -81,9 +81,10 @@ resource "aws_db_instance" "this" {
   deletion_protection            = var.deletion_protection
   publicly_accessible            = var.publicly_accessible
   apply_immediately              = var.apply_immediately
-  parameter_group_name           = var.parameter_group
+  parameter_group_name           = aws_db_parameter_group.master.name
   multi_az                       = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
+  availability_zone = var.availability_zone
 
   db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 
@@ -91,11 +92,6 @@ resource "aws_db_instance" "this" {
   monitoring_role_arn  = local.monitoring_role_arn
 
   max_allocated_storage = var.max_allocated_storage
-
-  vpc_security_group_ids = concat(
-    [aws_security_group.this.id],
-    var.vpc_security_group_ids
-  )
 
   ca_cert_identifier = var.ca_cert_identifier
 
@@ -126,91 +122,88 @@ resource "aws_security_group_rule" "access_from_vpc" {
 
 # Replica config
 
-resource "aws_db_parameter_group" "replica" {
-  name   = "${var.environment}-replica"
-  family = "postgres16"
+# resource "aws_db_parameter_group" "replica" {
+#   name   = "${var.parameter_group}-replica"
+#   family = "${var.family}"
 
-  parameter {
-    name  = "max_standby_archive_delay"
-    value = "300000"
-  }
-  parameter {
-    name  = "max_standby_streaming_delay"
-    value = "300000"
-  }
+#   parameter {
+#     name  = "max_standby_archive_delay"
+#     value = "300000"
+#   }
+#   parameter {
+#     name  = "max_standby_streaming_delay"
+#     value = "300000"
+#   }
 
-  parameter {
-    name  = "statement_timeout"
-    value = var.replica_statement_timeout
-  }
+#   parameter {
+#     name  = "statement_timeout"
+#     value = var.replica_statement_timeout
+#   }
 
-  parameter {
-    name  = "idle_in_transaction_session_timeout"
-    value = "600000"
-  }
+#   parameter {
+#     name  = "idle_in_transaction_session_timeout"
+#     value = "600000"
+#   }
 
-  parameter {
-    name  = "hot_standby_feedback"
-    value = "1"
-  }
+#   parameter {
+#     name  = "hot_standby_feedback"
+#     value = "1"
+#   }
 
-  parameter {
-    name  = "wal_compression"
-    value = "on"
-  }
+#   parameter {
+#     name  = "wal_compression"
+#     value = "on"
+#   }
 
-  parameter {
-    name  = "auto_explain.log_min_duration"
-    value = "5"
-  }
+#   parameter {
+#     name  = "auto_explain.log_min_duration"
+#     value = "5"
+#   }
 
-  parameter {
-    name  = "auto_explain.log_nested_statements"
-    value = "1"
-  }
+#   parameter {
+#     name  = "auto_explain.log_nested_statements"
+#     value = "1"
+#   }
 
-  parameter {
-    name  = "wal_keep_size"
-    value = "10240"
-  }
+#   parameter {
+#     name  = "wal_keep_size"
+#     value = "10240"
+#   }
 
-  parameter {
-    name          = "shared_preload_libraries"
-    value         = "pg_stat_statements,auto_explain"
-    apply_method  = "pending-reboot"
-  }
+#   parameter {
+#     name          = "shared_preload_libraries"
+#     value         = "pg_stat_statements,auto_explain"
+#     apply_method  = "pending-reboot"
+#   }
 
-  lifecycle {
-    create_before_destroy = true
-  }
-}
+#   lifecycle {
+#     create_before_destroy = true
+#   }
+# }
 
-resource "aws_db_instance" "replica" {
-  replicate_source_db          = var.source_db_instance_id
-  backup_retention_period      = var.backup_retention_period
-  parameter_group_name         = aws_db_parameter_group.replica.name
-  performance_insights_enabled = "true"
-  publicly_accessible          = var.publicly_accessible
-  iops                         = var.iops
-  storage_throughput           = var.storage_throughput
-  allocated_storage            = var.allocated_storage
-  max_allocated_storage        = var.max_allocated_storage
-  storage_encrypted            = var.storage_encrypted
-  monitoring_interval          = var.monitoring_interval
-  delete_automated_backups     = false
-  skip_final_snapshot          = false
-  monitoring_role_arn          = local.monitoring_role_arn
-  storage_type                 = "gp3"
-  engine                       = "postgres"
-  engine_version               = var.engine_version
-  identifier                   = "${local.db_identifier}-replica"
-  instance_class               = var.instance_class_replica
-  multi_az                     = var.multi_az
-  vpc_security_group_ids       = concat(
-    [aws_security_group.this.id],
-    var.vpc_security_group_ids
-  )
-  deletion_protection          = true
-  apply_immediately            = true
-  ca_cert_identifier           = "rds-ca-rsa2048-g1"
-}
+# resource "aws_db_instance" "replica" {
+#   replicate_source_db          = var.source_db_instance_id
+#   backup_retention_period      = var.backup_retention_period
+#   parameter_group_name         = aws_db_parameter_group.replica.name
+#   performance_insights_enabled = "true"
+#   publicly_accessible          = var.publicly_accessible
+#   iops                         = var.iops
+#   storage_throughput           = var.storage_throughput
+#   allocated_storage            = var.allocated_storage
+#   max_allocated_storage        = var.max_allocated_storage
+#   storage_encrypted            = var.storage_encrypted
+#   monitoring_interval          = var.monitoring_interval
+#   delete_automated_backups     = false
+#   skip_final_snapshot          = false
+#   monitoring_role_arn          = local.monitoring_role_arn
+#   storage_type                 = "gp3"
+#   engine                       = "postgres"
+#   engine_version               = var.engine_version
+#   identifier                   = "${local.db_identifier}-replica"
+#   instance_class               = var.instance_class_replica
+#   multi_az                     = var.multi_az
+
+#   deletion_protection          = true
+#   apply_immediately            = true
+#   ca_cert_identifier           = "rds-ca-rsa2048-g1"
+# }

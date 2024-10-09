@@ -19,10 +19,11 @@ variable "instance_class" {
   type        = string
 }
 
-variable "instance_class_replica" {
-  description = "Instance class for the replica DB."
-  type        = string
-}
+# variable "instance_class_replica" {
+#   description = "Instance class for the replica DB."
+#   type        = string
+#   default     = null
+# }
 
 variable "storage_type" {
   description = "Storage type for the DB."
@@ -76,11 +77,6 @@ variable "monitoring_role" {
   type        = string
 }
 
-variable "vpc_security_group_ids" {
-  description = "List of VPC security group IDs."
-  type        = list(string)
-}
-
 variable "multi_az" {
   description = "Enable Multi-AZ deployment."
   type        = bool
@@ -93,12 +89,10 @@ variable "max_allocated_storage" {
 }
 
 variable "vpc" {
-  description = "VPC configuration."
   type = object({
-    id                  = string
-    cidr                = string
-    subnets             = list(string)
-    security_group_ids  = list(string)
+    id      = string
+    cidr    = string
+    subnets = optional(list(string), [])
   })
 }
 
@@ -156,19 +150,19 @@ variable "apply_immediately" {
 }
 
 variable "enable_logical_replication" {
-  description = "Logcal replication bollean"
+  description = "Logical replication boolean"
   type        = bool
   default     = true
 }
 
 variable "monitoring_interval" {
-   description = "Logcal replication bollean"
+   description = "Monitoring interval"
   type        = number
-  default     = "30000"
+  default     = "30"
 }
 
 variable "publicly_accessible" {
-  description = "Logcal replication bollean"
+  description = "Is the instwance accessible from public"
   type        = bool
   default     = false
 }
@@ -182,11 +176,13 @@ variable "enabled_cloudwatch_logs_exports" {
 variable "ca_cert_identifier" {
   description = "CA certificate identifier."
   type        = string
+  default     = null
 }
 
 variable "replica_statement_timeout" {
   description = "Statement timeout for replica."
   type        = string
+  default     = null
 }
 
 variable "environment" {
@@ -207,4 +203,12 @@ variable "family" {
 variable "replicate_source_db" {
   description = "main db "
   type        = string 
+  default     = null
 }
+
+variable "availability_zone" {
+  description = "Region's availiability zone"
+  type        = string 
+  default     = null
+}
+
