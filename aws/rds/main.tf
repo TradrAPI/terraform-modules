@@ -46,7 +46,7 @@ resource "aws_db_parameter_group" "master" {
   parameter {
     name          = "rds.logical_replication"
     apply_method  = "pending-reboot"
-    value         = var.enable_logical_replication
+    value         = var.logical_replication
   }
 
   lifecycle {
@@ -85,6 +85,9 @@ resource "aws_db_instance" "this" {
   multi_az                       = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
   availability_zone = var.availability_zone
+  maintenance_window = var.maintenance_window
+  performance_insights_retention_period = var.performance_insights_retention_period
+
 
   db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 

@@ -209,9 +209,18 @@ variable "availability_zone" {
 variable "maintenance_window" {
   description = "Date time range allowing maintenance"
   type = string
+  default = null
 }
 
 variable "performance_insights_retention_period" {
   description = "Specify how much indays you need insights to hold data on. has to be multiple of 31"
   type = number
+  default = 31
+}
+
+
+variable "logical_replication" {
+  description = "Enable logical replication TODO"
+  type = bool
+  default = true
 }
