@@ -87,6 +87,7 @@ resource "aws_db_instance" "this" {
   availability_zone = var.availability_zone
   maintenance_window = var.maintenance_window
   performance_insights_retention_period = var.performance_insights_retention_period
+  vpc_security_group_ids = var.vpc_security_group_ids
 
 
   db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)

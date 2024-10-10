@@ -224,3 +224,8 @@ variable "logical_replication" {
   type = bool
   default = true
 }
+
+variable "vpc_security_group_ids" {
+  description = "List of sec group Ids to associate with"
+  type = list(string)
+}
