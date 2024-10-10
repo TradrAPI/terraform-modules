@@ -149,12 +149,6 @@ variable "apply_immediately" {
   default     = true
 }
 
-variable "enable_logical_replication" {
-  description = "Logical replication boolean"
-  type        = bool
-  default     = true
-}
-
 variable "monitoring_interval" {
    description = "Monitoring interval"
   type        = number
@@ -212,3 +206,12 @@ variable "availability_zone" {
   default     = null
 }
 
+variable "maintenance_window" {
+  description = "Date time range allowing maintenance"
+  type = string
+}
+
+variable "performance_insights_retention_period" {
+  description = "Specify how much indays you need insights to hold data on. has to be multiple of 31"
+  type = number
+}
