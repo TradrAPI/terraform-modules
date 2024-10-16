@@ -1,5 +1,140 @@
 # Changelog
 
+## [1.34.4](https://github.com/TradrAPI/terraform-modules/compare/v1.34.3...v1.34.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* Random password module ([#86](https://github.com/TradrAPI/terraform-modules/issues/86)) ([4947dc7](https://github.com/TradrAPI/terraform-modules/commit/4947dc7cefbcc1d2831b32e4705ac2e8cc99cf50))
+
+## [1.34.3](https://github.com/TradrAPI/terraform-modules/compare/v1.34.2...v1.34.3) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password ([#84](https://github.com/TradrAPI/terraform-modules/issues/84)) ([d6a4688](https://github.com/TradrAPI/terraform-modules/commit/d6a468860d42353232b9264793a1db81d8cb5b66))
+
+## [1.34.2](https://github.com/TradrAPI/terraform-modules/compare/v1.34.1...v1.34.2) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password resource ([#82](https://github.com/TradrAPI/terraform-modules/issues/82)) ([e3c582f](https://github.com/TradrAPI/terraform-modules/commit/e3c582fcbe308ed93b0c58cf066f4e51225fd950))
+
+## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
+
+
+### Bug Fixes
+
+* Replace deprecated value with content in cert module ([#80](https://github.com/TradrAPI/terraform-modules/issues/80)) ([78a9d3a](https://github.com/TradrAPI/terraform-modules/commit/78a9d3a1f7cd6777ef8676796c86754a99ce6f08))
+
+## [1.34.0](https://github.com/TradrAPI/terraform-modules/compare/v1.33.4...v1.34.0) (2024-07-17)
+
+
+### Features
+
+* Add kafka module ([#75](https://github.com/TradrAPI/terraform-modules/issues/75)) ([d32d99b](https://github.com/TradrAPI/terraform-modules/commit/d32d99b8e493f0bd209d411e5bea8e6c12e92447))
+
+## [1.33.4](https://github.com/TradrAPI/terraform-modules/compare/v1.33.3...v1.33.4) (2024-07-15)
+
+
+### Bug Fixes
+
+* **network:** Add unique values on concat lists to aboid errors ([#76](https://github.com/TradrAPI/terraform-modules/issues/76)) ([dacb873](https://github.com/TradrAPI/terraform-modules/commit/dacb873ba87126237293a15d1405d64a27360fe0))
+
+## [1.33.3](https://github.com/TradrAPI/terraform-modules/compare/v1.33.2...v1.33.3) (2024-07-03)
+
+
+### Bug Fixes
+
+* Release please missing files ([#73](https://github.com/TradrAPI/terraform-modules/issues/73)) ([0970e36](https://github.com/TradrAPI/terraform-modules/commit/0970e369e45931732db4841ef724daae72e2e54b))
+
+## [1.33.2](https://github.com/TradrAPI/terraform-modules/compare/v1.33.1...v1.33.2) (2024-06-20)
+
+
+### Bug Fixes
+
+* Allows customizing ec2 group description ([#71](https://github.com/TradrAPI/terraform-modules/issues/71)) ([65a4e1a](https://github.com/TradrAPI/terraform-modules/commit/65a4e1a23b769bf26cca1f15a5ea9bb54eae4a3f))
+
+## [1.33.1](https://github.com/TradrAPI/terraform-modules/compare/v1.33.0...v1.33.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* Adds required providers to s3 module ([#68](https://github.com/TradrAPI/terraform-modules/issues/68)) ([02daf44](https://github.com/TradrAPI/terraform-modules/commit/02daf445072840c02dc0e31a8034cc6a6d93589f))
+* delete replica feature ([#69](https://github.com/TradrAPI/terraform-modules/issues/69)) ([cdff632](https://github.com/TradrAPI/terraform-modules/commit/cdff632a59d47de46520a07ae535331477a40040))
+
+## [1.33.0](https://github.com/TradrAPI/terraform-modules/compare/v1.32.1...v1.33.0) (2024-06-19)
+
+
+### Features
+
+* Turbo remote cache timeout ([#64](https://github.com/TradrAPI/terraform-modules/issues/64)) ([dad3fd0](https://github.com/TradrAPI/terraform-modules/commit/dad3fd058d15d2e20c80719d0db1bc815af97d05))
+
+## [1.32.1](https://github.com/TradrAPI/terraform-modules/compare/v1.32.0...v1.32.1) (2024-06-14)
+
+
+### Bug Fixes
+
+* Rds read replica ([#65](https://github.com/TradrAPI/terraform-modules/issues/65)) ([2b830cd](https://github.com/TradrAPI/terraform-modules/commit/2b830cd3dd8e74a9fd0c07c0100af0fc44865157))
+
+## [1.32.0](https://github.com/TradrAPI/terraform-modules/compare/v1.31.0...v1.32.0) (2024-06-12)
+
+
+### Features
+
+* **ci:** Add new replicate_source_db variable to enable read replica creation. ([#62](https://github.com/TradrAPI/terraform-modules/issues/62)) ([4442c7a](https://github.com/TradrAPI/terraform-modules/commit/4442c7a3143ed75ab9aed6c979d3282b1b0c5e57))
+
+## [1.31.0](https://github.com/TradrAPI/terraform-modules/compare/v1.30.1...v1.31.0) (2024-06-06)
+
+
+### Features
+
+* Adds module for turbo repo remote cache deploy as lambda function ([#60](https://github.com/TradrAPI/terraform-modules/issues/60)) ([ce5f244](https://github.com/TradrAPI/terraform-modules/commit/ce5f2444689db3963027f7a37f46ea0905d14f97))
+
+## [1.30.1](https://github.com/TradrAPI/terraform-modules/compare/v1.30.0...v1.30.1) (2024-06-04)
+
+
+### Bug Fixes
+
+* add required_provider on secret module ([#58](https://github.com/TradrAPI/terraform-modules/issues/58)) ([871d28d](https://github.com/TradrAPI/terraform-modules/commit/871d28d9abc8600ee6b2d0c108ed1c101ecfff73))
+
+## [1.30.0](https://github.com/TradrAPI/terraform-modules/compare/v1.29.1...v1.30.0) (2024-06-03)
+
+
+### Features
+
+* Add secrets replication on the secrets module ([#56](https://github.com/TradrAPI/terraform-modules/issues/56)) ([5ead9b4](https://github.com/TradrAPI/terraform-modules/commit/5ead9b4ff8d9ac7364d6bfba53aa3f01e38c5b7a))
+
+## [1.29.1](https://github.com/TradrAPI/terraform-modules/compare/v1.29.0...v1.29.1) (2024-05-29)
+
+
+### Bug Fixes
+
+* Adds missing required providers to ec2 module ([#52](https://github.com/TradrAPI/terraform-modules/issues/52)) ([b209ab2](https://github.com/TradrAPI/terraform-modules/commit/b209ab226e244d6b3eebdc93c4744cfcf5467b28))
+
+## [1.29.0](https://github.com/TradrAPI/terraform-modules/compare/v1.28.1...v1.29.0) (2024-05-24)
+
+
+### Features
+
+* add secret module ([#50](https://github.com/TradrAPI/terraform-modules/issues/50)) ([cfc6d23](https://github.com/TradrAPI/terraform-modules/commit/cfc6d23807ca3392f291ec149e425b194d8841a9))
+
+## [1.28.1](https://github.com/TradrAPI/terraform-modules/compare/v1.28.0...v1.28.1) (2024-05-22)
+
+
+### Bug Fixes
+
+* Update kms module ([#46](https://github.com/TradrAPI/terraform-modules/issues/46)) ([7621a6b](https://github.com/TradrAPI/terraform-modules/commit/7621a6b9f6af695b399a4a3974522b4796bb1c12))
+* Uses null defaults for iops and storage_throughput ([#47](https://github.com/TradrAPI/terraform-modules/issues/47)) ([8e85a3b](https://github.com/TradrAPI/terraform-modules/commit/8e85a3b2849ab45a86b53b150234e84e1d5835ed))
+
+## [1.28.0](https://github.com/TradrAPI/terraform-modules/compare/v1.27.0...v1.28.0) (2024-05-22)
+
+
+### Features
+
+* Adding new Variable to EC2 module ([#43](https://github.com/TradrAPI/terraform-modules/issues/43)) ([3244891](https://github.com/TradrAPI/terraform-modules/commit/32448919f0c9851a6dcc4d58d99f03d8dd249833))
+
 ## [1.27.0](https://github.com/TradrAPI/terraform-modules/compare/v1.26.0...v1.27.0) (2024-05-16)
 
 

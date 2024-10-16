@@ -1,0 +1,17 @@
+{
+  "name": "turborepo-remote-cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --platform=node --outfile=dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "turborepo-remote-cache": "^2.1.2"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.4"
+  }
+}

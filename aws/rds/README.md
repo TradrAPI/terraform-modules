@@ -29,6 +29,7 @@ Allows the provisioning of DB instances.
 - `snapshot_identifier` - Specify a snapshot to create the DB instance from. Triggers recreation
 - `final_snapshot_identifier` - If `skip_final_snapshot = false`, takes a snapshot with this name before deleting the DB instance. Only takes effect it `skip_final_snapshot` is set to `false` during DB creation
 - `deletion_protection` - Whether to allow the DB instance to be deleted
+- `ca_cert_identifier` - RDS certificate authority identifier
 
 ## Scope of this module
 

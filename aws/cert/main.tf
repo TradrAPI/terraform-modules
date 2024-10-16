@@ -29,7 +29,7 @@ resource "cloudflare_record" "domain" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
 
   name            = trimsuffix(each.value.name, ".${var.domain}.")
-  value           = trimsuffix(each.value.value, ".")
+  content         = trimsuffix(each.value.value, ".")
   type            = each.value.type
   proxied         = false
   allow_overwrite = true

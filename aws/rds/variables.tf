@@ -25,7 +25,7 @@ variable "vpc" {
   type = object({
     id      = string
     cidr    = string
-    subnets = list(string)
+    subnets = optional(list(string), [])
   })
 }
 
@@ -107,6 +107,12 @@ variable "multi_az" {
   default = false
 }
 
+variable "replicate_source_db" {
+  description = "Specifies that this resource is a Replicate database, and to use this value as the source database."
+  type        = string
+  default     = null
+}
+
 variable "enabled_cloudwatch_logs_exports" {
   type = list(string)
 
@@ -135,18 +141,18 @@ variable "create_monitoring_role" {
 }
 
 variable "max_allocated_storage" {
-  type    = number
+  type     = number
   nullable = false
 }
 
 variable "iops" {
   type    = number
-  default = 3000
+  default = null
 }
 
 variable "storage_throughput" {
   type    = number
-  default = 125
+  default = null
 }
 
 variable "storage_encrypted" {
@@ -157,4 +163,9 @@ variable "storage_encrypted" {
 variable "performance_insights_enabled" {
   type    = bool
   default = true
+}
+
+variable "ca_cert_identifier" {
+  type    = string
+  default = "rds-ca-rsa2048-g1"
 }

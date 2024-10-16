@@ -21,5 +21,5 @@ output "key_alias" {
 }
 
 output "policy_arn" {
-  value = aws_iam_policy.kms[0].arn
+  value = try(aws_iam_policy.kms[0].arn, null)
 }
