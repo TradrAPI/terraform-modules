@@ -119,7 +119,12 @@ variable "root_volume_size" {
 
 variable "root_volume_type" {
   type    = string
-  default = "gp2"
+  default = "gp3"
+}
+
+variable "iops" {
+  type    = number
+  default = 3000
 }
 
 variable "security_group_ids" {
