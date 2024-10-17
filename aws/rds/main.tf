@@ -13,57 +13,89 @@ resource "aws_db_subnet_group" "this" {
   subnet_ids  = var.vpc.subnets
 }
 
-moved {
-  from = aws_db_subnet_group.this
-  to   = aws_db_subnet_group.this[0]
+resource "aws_db_parameter_group" "master" {
+  name   = "${var.parameter_group}"
+  family = "${var.family}"
+
+  parameter {
+    name  = "auto_explain.log_min_duration"
+    value = "10"
+  }
+
+  parameter {
+    name  = "auto_explain.log_nested_statements"
+    value = "1"
+  }
+
+  parameter {
+    name  = "wal_compression"
+    value = "on"
+  }
+
+  parameter {
+    name  = "wal_keep_size"
+    value = "10240"
+  }
+
+  parameter {
+    name          = "shared_preload_libraries"
+    value         = "pg_stat_statements,auto_explain"
+    apply_method  = "pending-reboot"
+  }
+
+  parameter {
+    name          = "rds.logical_replication"
+    apply_method  = "pending-reboot"
+    value         = var.logical_replication
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_db_instance" "this" {
-  identifier        = local.db_identifier
-  db_name           = local.db_name
-  allocated_storage = var.allocated_storage
-  instance_class    = var.instance_class
-  engine_version    = var.engine_version
-  tags              = var.tags
+  identifier                     = local.db_identifier
+  db_name                        = local.db_name
+  allocated_storage              = var.allocated_storage
+  instance_class                 = var.instance_class
+  engine_version                 = var.engine_version
+  tags                           = var.tags
 
-  performance_insights_enabled = var.performance_insights_enabled
-  username                     = var.username
-  password                     = var.password
-  manage_master_user_password  = var.manage_master_user_password
+  performance_insights_enabled   = var.performance_insights_enabled
+  username                       = var.username
+  password                       = var.password
+  manage_master_user_password    = var.manage_master_user_password
 
-  # Safety good practices
-  # - A final snapshot is always taken
-  # - automated backups are always retained
-  final_snapshot_identifier = coalesce(var.final_snapshot_identifier, "${local.db_identifier}-final-snapshot")
-  delete_automated_backups  = false
-  skip_final_snapshot       = false
+  final_snapshot_identifier      = coalesce(var.final_snapshot_identifier, "${local.db_identifier}-final-snapshot")
+  delete_automated_backups       = false
+  skip_final_snapshot            = false
 
-  snapshot_identifier             = var.snapshot_identifier
-  storage_type                    = var.storage_type
-  storage_encrypted               = var.storage_encrypted
-  iops                            = var.iops
-  storage_throughput              = var.storage_throughput
-  engine                          = var.engine
-  backup_retention_period         = var.backup_retention_period
-  deletion_protection             = var.deletion_protection
-  publicly_accessible             = var.publicly_accessible
-  apply_immediately               = var.apply_immediately
-  parameter_group_name            = var.parameter_group
-  multi_az                        = var.multi_az
+  snapshot_identifier            = var.snapshot_identifier
+  storage_type                   = var.storage_type
+  storage_encrypted              = var.storage_encrypted
+  iops                           = var.iops
+  storage_throughput             = var.storage_throughput
+  engine                         = var.engine
+  backup_retention_period        = var.backup_retention_period
+  deletion_protection            = var.deletion_protection
+  publicly_accessible            = var.publicly_accessible
+  apply_immediately              = var.apply_immediately
+  parameter_group_name           = aws_db_parameter_group.master.name
+  multi_az                       = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
+  availability_zone = var.availability_zone
+  maintenance_window = var.maintenance_window
+  performance_insights_retention_period = var.performance_insights_retention_period
+  vpc_security_group_ids = var.vpc_security_group_ids
+
 
   db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 
-  monitoring_interval = var.monitoring_interval
-  monitoring_role_arn = local.monitoring_role_arn
+  monitoring_interval  = var.monitoring_interval
+  monitoring_role_arn  = local.monitoring_role_arn
 
   max_allocated_storage = var.max_allocated_storage
-
-  replicate_source_db = var.replicate_source_db
-
-  vpc_security_group_ids = [
-    aws_security_group.this.id
-  ]
 
   ca_cert_identifier = var.ca_cert_identifier
 
