@@ -8,7 +8,7 @@ data "mongodbatlas_cluster" "this" {
 resource "mongodbatlas_database_user" "user" {
   provider           = mongodbatlas.creds 
   username           = var.external_username != null ? var.external_username : lower("${var.platform}-${var.brandname}${var.name_suffix}")
-  password           = var.external_password != null ? var.external_password : random_password.password[0].result
+  password           = try(var.external_password, random_password.password.result)
   project_id         = var.mongodb_projectid
   auth_database_name = "admin"
 
@@ -32,9 +32,12 @@ resource "mongodbatlas_database_user" "user" {
 }
 
 resource "random_password" "password" {
-  count   = var.external_password == null ? 1 : 0
+
   length  = 24
   special = false
+  lifecycle {
+    ignore_changes = [length, special]
+  }
 }
 
 locals {
