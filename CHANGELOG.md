@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.35.0](https://github.com/TradrAPI/terraform-modules/compare/v1.34.4...v1.35.0) (2024-10-17)
+
+
+### Features
+
+* **ec2:** Adds iops options to ec2 ([#90](https://github.com/TradrAPI/terraform-modules/issues/90)) ([4c4c614](https://github.com/TradrAPI/terraform-modules/commit/4c4c614d51629d8937266c2958f59c3bf26ae6a6))
+
 ## [1.34.4](https://github.com/TradrAPI/terraform-modules/compare/v1.34.3...v1.34.4) (2024-09-10)
 
 
