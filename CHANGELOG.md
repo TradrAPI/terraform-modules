@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.34.4](https://github.com/TradrAPI/terraform-modules/compare/v1.34.3...v1.34.4) (2024-09-10)
+
+
+### Bug Fixes
+
+* Random password module ([#86](https://github.com/TradrAPI/terraform-modules/issues/86)) ([4947dc7](https://github.com/TradrAPI/terraform-modules/commit/4947dc7cefbcc1d2831b32e4705ac2e8cc99cf50))
+
+## [1.34.3](https://github.com/TradrAPI/terraform-modules/compare/v1.34.2...v1.34.3) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password ([#84](https://github.com/TradrAPI/terraform-modules/issues/84)) ([d6a4688](https://github.com/TradrAPI/terraform-modules/commit/d6a468860d42353232b9264793a1db81d8cb5b66))
+
+## [1.34.2](https://github.com/TradrAPI/terraform-modules/compare/v1.34.1...v1.34.2) (2024-09-09)
+
+
+### Bug Fixes
+
+* **mongodb:** Resolve undetermined count issue in random_password resource ([#82](https://github.com/TradrAPI/terraform-modules/issues/82)) ([e3c582f](https://github.com/TradrAPI/terraform-modules/commit/e3c582fcbe308ed93b0c58cf066f4e51225fd950))
+
 ## [1.34.1](https://github.com/TradrAPI/terraform-modules/compare/v1.34.0...v1.34.1) (2024-08-15)
 
 
