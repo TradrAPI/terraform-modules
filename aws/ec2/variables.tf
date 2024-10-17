@@ -122,6 +122,11 @@ variable "root_volume_type" {
   default = "gp2"
 }
 
+variable "iops" {
+  type    = number
+  default = 3000
+}
+
 variable "security_group_ids" {
   type    = list(string)
   default = []
