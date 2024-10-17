@@ -19,12 +19,6 @@ variable "instance_class" {
   type        = string
 }
 
-# variable "instance_class_replica" {
-#   description = "Instance class for the replica DB."
-#   type        = string
-#   default     = null
-# }
-
 variable "storage_type" {
   description = "Storage type for the DB."
   type        = string
