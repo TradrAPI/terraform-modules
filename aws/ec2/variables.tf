@@ -119,7 +119,7 @@ variable "root_volume_size" {
 
 variable "root_volume_type" {
   type    = string
-  default = "gp2"
+  default = "gp3"
 }
 
 variable "iops" {
