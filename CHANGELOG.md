@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.35.1](https://github.com/TradrAPI/terraform-modules/compare/v1.35.0...v1.35.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* **ec2:** Setting iops variable to default null ([#92](https://github.com/TradrAPI/terraform-modules/issues/92)) ([4c8c9f7](https://github.com/TradrAPI/terraform-modules/commit/4c8c9f7a3ae0597dd12bf4c724d916bacde3052d))
+
 ## [1.35.0](https://github.com/TradrAPI/terraform-modules/compare/v1.34.4...v1.35.0) (2024-10-17)
 
 
