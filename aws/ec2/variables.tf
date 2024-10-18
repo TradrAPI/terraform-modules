@@ -124,7 +124,7 @@ variable "root_volume_type" {
 
 variable "iops" {
   type    = number
-  default = 3000
+  default = null
 }
 
 variable "security_group_ids" {
