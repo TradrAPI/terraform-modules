@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.36.0](https://github.com/TradrAPI/terraform-modules/compare/v1.35.0...v1.36.0) (2024-10-21)
+
+
+### Features
+
+* **ec2:** Adding IOPS option for ebs ([#94](https://github.com/TradrAPI/terraform-modules/issues/94)) ([c06c66e](https://github.com/TradrAPI/terraform-modules/commit/c06c66e65949cf7aa2a904b991401436380b3a6c))
+
+
+### Bug Fixes
+
+* **ec2:** Setting iops variable to default null ([#92](https://github.com/TradrAPI/terraform-modules/issues/92)) ([4c8c9f7](https://github.com/TradrAPI/terraform-modules/commit/4c8c9f7a3ae0597dd12bf4c724d916bacde3052d))
+
 ## [1.35.0](https://github.com/TradrAPI/terraform-modules/compare/v1.34.4...v1.35.0) (2024-10-17)
 
 
