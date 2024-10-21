@@ -25,6 +25,7 @@ variable "ebs" {
     device_name = string
     az          = string
     type        = string
+    iops        = optional(string)
     tags        = map(string)
   })
 
