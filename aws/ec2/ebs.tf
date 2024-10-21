@@ -5,6 +5,7 @@ resource "aws_ebs_volume" "this" {
   tags              = var.ebs.tags
   availability_zone = var.ebs.az
   type              = var.ebs.type
+  iops              = var.ebs.iops
 }
 
 resource "aws_volume_attachment" "this" {
