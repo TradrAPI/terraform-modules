@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.37.0](https://github.com/TradrAPI/terraform-modules/compare/v1.36.0...v1.37.0) (2024-11-12)
+
+
+### Features
+
+* **ebs:** Add defaults ebs to ec2 module ([#95](https://github.com/TradrAPI/terraform-modules/issues/95)) ([b98b313](https://github.com/TradrAPI/terraform-modules/commit/b98b3131035a5f8a6afa0d14d4c859c89cc90d55))
+
 ## [1.36.0](https://github.com/TradrAPI/terraform-modules/compare/v1.35.0...v1.36.0) (2024-10-21)
 
 
