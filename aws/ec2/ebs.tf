@@ -7,7 +7,7 @@ resource "aws_ebs_volume" "this" {
   iops              = var.ebs.iops
 
   tags = {
-    Name = "${var.name}-ebs${var.ebs.size}g"
+    Name = var.ebs.tagName != null ? var.ebs.tagName : "${var.name}-ebs${var.ebs.size}g"
   }
 }
 
