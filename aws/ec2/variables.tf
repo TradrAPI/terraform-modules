@@ -22,7 +22,7 @@ variable "key_pair" {
 variable "ebs" {
   type = object({
     size        = number
-    device_name = optional(string)
+    device_name = optional(string, "xvdf")
     az          = optional(string)
     type        = optional(string)
     iops        = optional(string)

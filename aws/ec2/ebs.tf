@@ -17,7 +17,7 @@ resource "aws_volume_attachment" "this" {
   volume_id   = aws_ebs_volume.this[0].id
   instance_id = aws_instance.this.id
 
-  device_name = var.ebs.device_name != null ? var.ebs.device_name : "xvdf"
+  device_name = var.ebs.device_name
 
   stop_instance_before_detaching = true
 }
