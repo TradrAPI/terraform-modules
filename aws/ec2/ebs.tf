@@ -2,7 +2,7 @@ resource "aws_ebs_volume" "this" {
   count = var.ebs != null ? 1 : 0
 
   size              = var.ebs.size
-  availability_zone = try(var.ebs.az, var.availability_zone)
+  availability_zone = var.ebs.az != null ? var.ebs.az : var.availability_zone
   type              = try(var.ebs.type, null)
   iops              = try(var.ebs.iops, null)
 
