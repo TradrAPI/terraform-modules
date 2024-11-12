@@ -3,8 +3,8 @@ resource "aws_ebs_volume" "this" {
 
   size              = var.ebs.size
   availability_zone = var.ebs.az != null ? var.ebs.az : var.availability_zone
-  type              = try(var.ebs.type, null)
-  iops              = try(var.ebs.iops, null)
+  type              = var.ebs.type
+  iops              = var.ebs.iops
 
   tags = {
     Name = "${var.name}-ebs${var.ebs.size}g"
@@ -17,7 +17,7 @@ resource "aws_volume_attachment" "this" {
   volume_id   = aws_ebs_volume.this[0].id
   instance_id = aws_instance.this.id
 
-  device_name = try(var.ebs.device_name, "xvdf")
+  device_name = var.ebs.device_name != null ? var.ebs.device_name : "xvdf"
 
   stop_instance_before_detaching = true
 }
