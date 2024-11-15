@@ -13,3 +13,7 @@ output "ebs" {
 output "sg" {
   value = aws_security_group.this
 }
+
+output "name" {
+  value = var.name
+}
