@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.38.0](https://github.com/TradrAPI/terraform-modules/compare/v1.37.0...v1.38.0) (2024-11-15)
+
+
+### Features
+
+* **ec2:** Add name to ec2 outputs ([131e3c8](https://github.com/TradrAPI/terraform-modules/commit/131e3c87f0ad66d63f460f80b48a7018ee9054bc))
+
 ## [1.37.0](https://github.com/TradrAPI/terraform-modules/compare/v1.36.0...v1.37.0) (2024-11-12)
 
 
