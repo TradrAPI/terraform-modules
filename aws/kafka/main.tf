@@ -5,12 +5,12 @@ locals {
   ))
 
   _server_properties_good_defaults = [
-    "num.partitions=${3 * local.var.msk.number_of_broker_nodes}",
+    "num.partitions=${3 * var.msk.number_of_broker_nodes}",
     "log.retention.hours=168",
   ]
 
   _server_properties_without_locally_provided = [
-    for property in split("\n", local.var.msk.server_properties) :
+    for property in split("\n", var.msk.server_properties) :
     property
     if(
       property != ""

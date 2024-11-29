@@ -90,3 +90,10 @@ variable "region" {
   default     = null
 }
 
+
+variable "server_properties" {
+  description = "Server properties."
+  type        = map(string)
+  default     = {}
+
+}
