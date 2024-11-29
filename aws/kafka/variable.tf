@@ -94,6 +94,6 @@ variable "region" {
 variable "server_properties" {
   description = "Server properties."
   type        = string
-  default     = {}
+  default     = null
 
 }
