@@ -93,7 +93,7 @@ variable "region" {
 
 variable "server_properties" {
   description = "Server properties."
-  type        = map(string)
+  type        = string
   default     = {}
 
 }
