@@ -66,7 +66,7 @@ resource "aws_msk_cluster" "this" {
       }
     }
 
-    security_groups = var.security_groups
+    security_groups = [aws_security_group.msk.id]
   }
 
   client_authentication {
@@ -105,7 +105,7 @@ resource "aws_msk_cluster" "this" {
 }
 
 resource "aws_security_group" "msk" {
-  name        = "${var.platform}-${var.cluster_name}-${var.environment}-msk"
+  name        = var.cluster_name
   description = "MSK security group"
   vpc_id      = var.vpc_id
 

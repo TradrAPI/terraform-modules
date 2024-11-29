@@ -64,11 +64,7 @@ variable "vpc_id" {
   default     = null
 }
 
-variable "security_groups" {
-  description = "Security groups."
-  type        = list(string)
-  default     = []
-}
+
 
 
 variable "allowed_cidr_blocks" {
