@@ -60,7 +60,6 @@ No requirements.
 | <a name="input_msk_instance_type"></a> [msk\_instance\_type](#input\_msk\_instance\_type) | MSK instance type. | `string` | `"kafka.t3.small"` | no |
 | <a name="input_number_of_broker_nodes"></a> [number\_of\_broker\_nodes](#input\_number\_of\_broker\_nodes) | Number of broker nodes. | `number` | `3` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | Platform name. | `string` | `null` | no |
-| <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | Private subnets. | `list(string)` | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region. | `string` | `null` | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | Security groups. | `list(string)` | `[]` | no |
 | <a name="input_users"></a> [users](#input\_users) | MSK users. | `list(string)` | `[]` | no |
