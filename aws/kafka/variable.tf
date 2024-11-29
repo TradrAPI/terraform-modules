@@ -97,3 +97,10 @@ variable "server_properties" {
   default     = null
 
 }
+
+
+variable "private_subnets" {
+  description = "Private subnets."
+  type        = list(string)
+  default     = []
+}
