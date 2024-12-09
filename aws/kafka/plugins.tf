@@ -2,7 +2,7 @@ locals {
   plugins = {
     # Write data from kafka to s3 backup
     "amazon-s3-sink-connector" = {
-      url = "${var.amazon-s3-sink-connector-url}"
+      url = "${var.amazon_s3_sink_connector_url}"
     }
     # Write data from s3 to kafka restore
     "amazon-s3-source-connector" = {
