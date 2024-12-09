@@ -5,7 +5,7 @@ locals {
   ))
 
   _server_properties_good_defaults = [
-    "num.partitions=${3 * var.number_of_broker_nodes}",
+    "num.partitions=${var.default_num_partitions}",
     "log.retention.hours=168",
   ]
 
