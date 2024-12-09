@@ -109,5 +109,6 @@ variable "private_subnets" {
 variable "default_num_partitions" {
   description = "Default number of partitions."
   type        = number
-  default     = 3 * var.number_of_broker_nodes
+  default     = null
+  nullable    = true
 }
