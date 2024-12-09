@@ -1,4 +1,9 @@
 
+variable "amazon-s3-sink-connector-url" {
+  description = "Amazon S3 Sink Connector URL"
+  type        = string
+  default     = "https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"
+}
 variable "platform" {
   description = "Platform name."
   type        = string
@@ -59,11 +64,7 @@ variable "vpc_id" {
   default     = null
 }
 
-variable "security_groups" {
-  description = "Security groups."
-  type        = list(string)
-  default     = []
-}
+
 
 
 variable "allowed_cidr_blocks" {
@@ -88,6 +89,15 @@ variable "region" {
   type        = string
   default     = null
 }
+
+
+variable "server_properties" {
+  description = "Server properties."
+  type        = string
+  default     = null
+
+}
+
 
 variable "private_subnets" {
   description = "Private subnets."

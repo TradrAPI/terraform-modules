@@ -52,6 +52,7 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allowed_cidr_blocks"></a> [allowed\_cidr\_blocks](#input\_allowed\_cidr\_blocks) | Allowed CIDR blocks. | `list(string)` | `[]` | no |
+| <a name="input_amazon-s3-sink-connector-url"></a> [amazon-s3-sink-connector-url](#input\_amazon-s3-sink-connector-url) | Amazon S3 Sink Connector URL | `string` | `"https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"` | no |
 | <a name="input_client_subnets"></a> [client\_subnets](#input\_client\_subnets) | Client subnets. | `list(string)` | `[]` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | msk cluster name. | `string` | `null` | no |
 | <a name="input_ebs_volume_size"></a> [ebs\_volume\_size](#input\_ebs\_volume\_size) | EBS volume size. | `number` | `10` | no |
@@ -62,7 +63,7 @@ No requirements.
 | <a name="input_platform"></a> [platform](#input\_platform) | Platform name. | `string` | `null` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | Private subnets. | `list(string)` | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region. | `string` | `null` | no |
-| <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | Security groups. | `list(string)` | `[]` | no |
+| <a name="input_server_properties"></a> [server\_properties](#input\_server\_properties) | Server properties. | `string` | `null` | no |
 | <a name="input_users"></a> [users](#input\_users) | MSK users. | `list(string)` | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC id. where the MSK cluster will be created. | `string` | `null` | no |
 

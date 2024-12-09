@@ -2,7 +2,7 @@ locals {
   plugins = {
     # Write data from kafka to s3 backup
     "amazon-s3-sink-connector" = {
-      url = "https://d1i4a15mxbxib1.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.5/confluentinc-kafka-connect-s3-10.5.5.zip"
+      url = "${var.amazon-s3-sink-connector-url}"
     }
     # Write data from s3 to kafka restore
     "amazon-s3-source-connector" = {
