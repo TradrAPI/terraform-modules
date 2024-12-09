@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.39.0](https://github.com/TradrAPI/terraform-modules/compare/v1.38.0...v1.39.0) (2024-12-09)
+
+
+### Features
+
+* **kafka:** Add amazon-s3-sing-connector-url ([#98](https://github.com/TradrAPI/terraform-modules/issues/98)) ([0a85ca8](https://github.com/TradrAPI/terraform-modules/commit/0a85ca8589dbbb5ff1142c7e4db0404de7c1802d))
+
 ## [1.38.0](https://github.com/TradrAPI/terraform-modules/compare/v1.37.0...v1.38.0) (2024-11-15)
 
 
