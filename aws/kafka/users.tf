@@ -56,7 +56,14 @@ resource "aws_secretsmanager_secret_policy" "msk_users" {
 resource "random_password" "msk" {
   for_each = toset(var.users)
 
-  length = 32
+  length  = 32
+  special = false
+
+  lifecycle {
+    ignore_changes = [
+      special
+    ]
+  }
 }
 
 
