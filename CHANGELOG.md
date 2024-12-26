@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.40.0](https://github.com/TradrAPI/terraform-modules/compare/v1.39.0...v1.40.0) (2024-12-26)
+
+
+### Features
+
+* **kafka:** Allows configuring partitions size ([#100](https://github.com/TradrAPI/terraform-modules/issues/100)) ([b1e66ca](https://github.com/TradrAPI/terraform-modules/commit/b1e66ca3fd63408716814a4d1d7eb0b8cea7db9b))
+
 ## [1.39.0](https://github.com/TradrAPI/terraform-modules/compare/v1.38.0...v1.39.0) (2024-12-09)
 
 
