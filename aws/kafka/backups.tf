@@ -5,15 +5,16 @@ module "msk_s3_bkp" {
 
   block_public_access = true
   create_bucket_acl   = false
+
+  # By default topics are stored in kafka for 7 days (168 hours)
+  # We want to store them in the bucket for 14 days (336 hours)
+  lifetime_days = 14
 }
-
-
 
 resource "aws_security_group" "s3_sink_connector" {
   name   = "${var.platform}-${var.environment}-amazon-s3-sink-connector"
   vpc_id = var.vpc_id
 }
-
 
 resource "aws_cloudwatch_log_group" "s3_sink_connector" {
   name              = "${var.platform}-${var.environment}/amazon-msk-s3-sink-connector"
@@ -38,9 +39,6 @@ resource "aws_security_group_rule" "s3_sink_connector_outbound" {
 
   type = "egress"
 }
-
-
-
 
 resource "aws_s3_bucket_server_side_encryption_configuration" "msk_s3_bkp" {
   bucket = module.msk_s3_bkp.bucket.id
@@ -165,15 +163,10 @@ resource "aws_iam_policy" "msk_s3_bkp" {
   })
 }
 
-
-
-
 resource "aws_iam_role_policy_attachment" "msk_s3_bkp" {
   policy_arn = aws_iam_policy.msk_s3_bkp.arn
   role       = aws_iam_role.msk_s3_bkp.name
 }
-
-
 
 resource "aws_mskconnect_connector" "backup_msk_to_s3" {
   name                 = "${var.platform}-msk-bkp-to-s3"
@@ -250,6 +243,3 @@ resource "aws_mskconnect_connector" "backup_msk_to_s3" {
 
   service_execution_role_arn = aws_iam_role.msk_s3_bkp.arn
 }
-
-
-
