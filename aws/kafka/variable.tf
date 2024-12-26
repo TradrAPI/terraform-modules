@@ -1,9 +1,10 @@
 
-variable "amazon-s3-sink-connector-url" {
+variable "amazon_s3_sink_connector_url" {
   description = "Amazon S3 Sink Connector URL"
   type        = string
   default     = "https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"
 }
+
 variable "platform" {
   description = "Platform name."
   type        = string
@@ -103,4 +104,11 @@ variable "private_subnets" {
   description = "Private subnets."
   type        = list(string)
   default     = []
+}
+
+variable "default_num_partitions" {
+  description = "Default number of partitions."
+  type        = number
+  default     = null
+  nullable    = true
 }
