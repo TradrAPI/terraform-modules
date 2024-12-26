@@ -109,6 +109,11 @@ resource "aws_security_group" "msk" {
   description = "MSK security group"
   vpc_id      = var.vpc_id
 
+  lifecycle {
+    ignore_changes = [
+      description
+    ]
+  }
 }
 
 
