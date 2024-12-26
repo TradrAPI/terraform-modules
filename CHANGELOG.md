@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.0](https://github.com/TradrAPI/terraform-modules/compare/v1.40.0...v1.41.0) (2024-12-26)
+
+
+### Features
+
+* **kafka:** Deletes backed up messages after 14days ([#102](https://github.com/TradrAPI/terraform-modules/issues/102)) ([4c684c2](https://github.com/TradrAPI/terraform-modules/commit/4c684c2f40d5885ee36ffc8ce947da5ed32b31be))
+
 ## [1.40.0](https://github.com/TradrAPI/terraform-modules/compare/v1.39.0...v1.40.0) (2024-12-26)
 
 
