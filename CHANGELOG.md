@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.1](https://github.com/TradrAPI/terraform-modules/compare/v1.41.0...v1.41.1) (2025-01-07)
+
+
+### Bug Fixes
+
+* **turbo_remote_cache:** Adds missing parameters ([f5401be](https://github.com/TradrAPI/terraform-modules/commit/f5401be5e6e68ab18f0afaf1931d75c90d1752ac))
+
 ## [1.41.0](https://github.com/TradrAPI/terraform-modules/compare/v1.40.0...v1.41.0) (2024-12-26)
 
 
