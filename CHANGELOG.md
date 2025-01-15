@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.41.2](https://github.com/TradrAPI/terraform-modules/compare/v1.41.1...v1.41.2) (2025-01-15)
+
+
+### Bug Fixes
+
+* **redis:** Updated module ([#105](https://github.com/TradrAPI/terraform-modules/issues/105)) ([05a564d](https://github.com/TradrAPI/terraform-modules/commit/05a564db5113041744b3c07aeab72292ce61f86a))
+
 ## [1.41.1](https://github.com/TradrAPI/terraform-modules/compare/v1.41.0...v1.41.1) (2025-01-07)
 
 
