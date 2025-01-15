@@ -78,3 +78,8 @@ variable "log_delivery_configuration" {
 
   default = null
 }
+
+variable "automatic_failover_enabled" {
+  type    = bool
+  default = true
+}

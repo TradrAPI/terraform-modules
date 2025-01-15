@@ -29,7 +29,7 @@ resource "aws_security_group" "redis" {
 }
 
 resource "aws_elasticache_replication_group" "redis" {
-  automatic_failover_enabled  = true
+  automatic_failover_enabled  = var.automatic_failover_enabled
   preferred_cache_cluster_azs = local.az_zones
   replication_group_id        = var.name
   description                 = "redis cluster for ${var.platform}"
