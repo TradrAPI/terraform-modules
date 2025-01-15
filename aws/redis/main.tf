@@ -41,6 +41,7 @@ resource "aws_elasticache_replication_group" "redis" {
   engine_version              = var.engine_version
   engine                      = "redis"
   multi_az_enabled            = var.multi_az_enabled
+  apply_immediately           = true
   tags                        = var.tags
 
   parameter_group_name = (
