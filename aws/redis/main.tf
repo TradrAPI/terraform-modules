@@ -70,7 +70,7 @@ resource "aws_elasticache_replication_group" "redis" {
 }
 
 resource "aws_elasticache_cluster" "redis" {
-  count = var.cluster_mode == null ? 1 : 0
+  count = var.cluster_mode == null ? 0 : 1
 
   cluster_id           = lower("${var.name}-cache")
   replication_group_id = aws_elasticache_replication_group.redis.id
