@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/TradrAPI/terraform-modules/compare/v1.41.2...v2.0.0) (2025-01-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* **redis:** Updated redis module ([#107](https://github.com/TradrAPI/terraform-modules/issues/107))
+
+### Features
+
+* **redis:** Updated redis module ([#107](https://github.com/TradrAPI/terraform-modules/issues/107)) ([7a3d98d](https://github.com/TradrAPI/terraform-modules/commit/7a3d98d71470c4779e9b05e1a5d838b0c67198fb))
+
 ## [1.41.2](https://github.com/TradrAPI/terraform-modules/compare/v1.41.1...v1.41.2) (2025-01-15)
 
 
