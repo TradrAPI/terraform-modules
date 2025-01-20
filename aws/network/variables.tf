@@ -140,3 +140,16 @@ variable "tgw_subnets_cidrs" {
   type    = list(string)
   default = []
 }
+
+# WIP
+variable "db_subnet_group_name" {
+  description = "Name of the DB subnet group"
+  type        = string
+  default     = null
+}
+
+variable "db_subnet_group_tags" {
+  description = "Tags for the DB subnet group"
+  type        = map(string)
+  default     = {}
+}

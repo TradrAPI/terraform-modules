@@ -247,3 +247,16 @@ resource "aws_route_table_association" "public" {
     aws_route_table.public,
   ]
 }
+
+## Subnets WIP
+
+
+resource "aws_db_subnet_group" "default" {
+  count = var.db_subnet_group_name != null ? 1 : 0
+
+  name        = var.db_subnet_group_name
+  description = "Database subnet group"
+  subnet_ids  = aws_subnet.private.*.id
+
+  tags = var.db_subnet_group_tags
+}

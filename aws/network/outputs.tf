@@ -53,3 +53,9 @@ output "nat_gateways" {
   description = "List of nat gateways"
   value       = concat(aws_eip.nat.*)
 }
+
+#WIP
+output "db_subnet_group_name" {
+  value       = aws_db_subnet_group.default[0].name
+  description = "Name of the database subnet group"
+}
