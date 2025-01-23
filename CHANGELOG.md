@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/TradrAPI/terraform-modules/compare/v2.0.0...v2.1.0) (2025-01-23)
+
+
+### Features
+
+* Added std-ec2 tf module codes ([#110](https://github.com/TradrAPI/terraform-modules/issues/110)) ([e866739](https://github.com/TradrAPI/terraform-modules/commit/e8667394cbc4f0713f40f98f0159a9920f351ed3))
+
 ## [2.0.0](https://github.com/TradrAPI/terraform-modules/compare/v1.41.2...v2.0.0) (2025-01-16)
 
 
