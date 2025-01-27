@@ -247,3 +247,76 @@ resource "aws_route_table_association" "public" {
     aws_route_table.public,
   ]
 }
+
+resource "aws_flow_log" "default" {
+  count = var.flowlogs ? 1 : 0
+
+  iam_role_arn          = aws_iam_role.flowlog.arn
+  log_destination       = aws_cloudwatch_log_group.flowlogs.arn
+  log_destination_type  = "cloud-watch-logs"
+  traffic_type          = "ALL"
+  vpc_id                = aws_vpc.default.id
+
+  tags = {
+    Name        = "${var.name}-vpc-flowlogs"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "flowlogs" {
+  count = var.flowlogs ? 1 : 0
+  name  = "${var.name}-flowlogs"
+}
+
+resource "aws_iam_role" "flowlog" {
+  count = var.flowlogs ? 1 : 0
+
+  name               = "${var.name}-flowlog-role"
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_policy" "flowlog" {
+  count = var.flowlogs ? 1 : 0
+
+  name        = "${var.name}-flowlog-policy"
+  description = "Policy for VPC flow logs"
+  policy      = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VPCFlowLogsAccess",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "flow_log_policy_attachment" {
+  count = var.flowlogs ? 1 : 0
+  
+  role       = aws_iam_role.flowlog.name
+  policy_arn = aws_iam_policy.flowlog.arn
+}
