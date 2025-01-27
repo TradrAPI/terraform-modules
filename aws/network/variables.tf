@@ -140,3 +140,8 @@ variable "tgw_subnets_cidrs" {
   type    = list(string)
   default = []
 }
+
+variable "flowlogs" {
+  type    = bool
+  default = false
+}
