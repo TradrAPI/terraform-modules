@@ -251,8 +251,8 @@ resource "aws_route_table_association" "public" {
 resource "aws_flow_log" "default" {
   count = var.flowlogs ? 1 : 0
 
-  iam_role_arn          = aws_iam_role.flowlog[count.index].arn
-  log_destination       = aws_cloudwatch_log_group.flowlogs[count.index].arn
+  iam_role_arn          = aws_iam_role.flowlog[0].arn
+  log_destination       = aws_cloudwatch_log_group.flowlogs[0].arn
   log_destination_type  = "cloud-watch-logs"
   traffic_type          = "ALL"
   vpc_id                = aws_vpc.default.id
@@ -317,6 +317,6 @@ EOF
 resource "aws_iam_role_policy_attachment" "flow_log_policy_attachment" {
   count = var.flowlogs ? 1 : 0
 
-  role       = aws_iam_role.flowlog[count.index].name
-  policy_arn = aws_iam_policy.flowlog[count.index].arn
+  role       = aws_iam_role.flowlog[0].name
+  policy_arn = aws_iam_policy.flowlog[0].arn
 }
