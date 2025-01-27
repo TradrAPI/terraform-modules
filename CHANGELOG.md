@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/TradrAPI/terraform-modules/compare/v2.1.0...v2.1.1) (2025-01-27)
+
+
+### Bug Fixes
+
+* **aws:** Add vpc network flowlogs ([#112](https://github.com/TradrAPI/terraform-modules/issues/112)) ([3f67498](https://github.com/TradrAPI/terraform-modules/commit/3f6749874f7d8292d227263db0957dbeb63cc089))
+
 ## [2.1.0](https://github.com/TradrAPI/terraform-modules/compare/v2.0.0...v2.1.0) (2025-01-23)
 
 
