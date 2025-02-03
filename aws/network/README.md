@@ -2,7 +2,7 @@
 
 Created a VPC with a public and private subnet.
 
-# Migrating to v3 from v2
+## Migrating to v3 from v2
 
 First ensure you're using the latest v2 version of the module, like below
 
