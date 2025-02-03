@@ -14,3 +14,4 @@ jobs:
       uses: terraform-docs/gh-actions@main
       with:
         find-dir: .
+        git-push: 'true'
