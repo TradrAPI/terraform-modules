@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/TradrAPI/terraform-modules/compare/v2.1.1...v2.1.2) (2025-02-03)
+
+
+### Bug Fixes
+
+* **aws:** Add retention to vpc flowlogs ([#114](https://github.com/TradrAPI/terraform-modules/issues/114)) ([612eb3a](https://github.com/TradrAPI/terraform-modules/commit/612eb3aad2f9a093e4a0bae4565dde1a0e52b484))
+
 ## [2.1.1](https://github.com/TradrAPI/terraform-modules/compare/v2.1.0...v2.1.1) (2025-01-27)
 
 
