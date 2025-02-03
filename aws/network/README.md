@@ -1,3 +1,60 @@
+# AWS Network
+
+Created a VPC with a public and private subnet.
+
+# Migrating to v3 from v2
+
+First ensure you're using the latest v2 version of the module, like below
+
+```hcl
+module "network" {
+  source = "github.com/TradrApi/terraform-modules//aws/network?ref=v2"
+  # ...
+}
+```
+
+Once the above is done, and you have applied the changes, add the following to your module call.
+
+```hcl
+module "network" {
+  source = "github.com/TradrApi/terraform-modules//aws/network?ref=v3"
+  # ...
+
+  create_route_table_v2              = true
+  associate_public_route_table_v2    = 3    # <- number of AZz in the region
+  associate_private_route_table_v2   = 3    # <- number of AZz in the region
+}
+```
+
+Apply the above, it'll create the route tables and associate them to the subnets. If you feel anything is missing, or not working properly, rollback and re-apply.
+
+Note: you can progressively associate the subnets to the new route tables, by incrementing `associate_public_route_table_v2` and/or `associate_private_route_table_v2` (from `1` to `#number of AZs in the region`) and applying the changes step by step.
+
+Once that's done we can remove the old route tables.
+
+```hcl
+module "network" {
+  source = "github.com/TradrApi/terraform-modules//aws/network?ref=v3"
+  # ...
+  create_route_table_v2              = true
+  associate_public_route_table_v2    = 3    # <- number of AZz in the region
+  associate_private_route_table_v2   = 3    # <- number of AZz in the region
+  remove_all_private_route_tables_v1 = true # <- remove all old private route tables
+  remove_all_public_route_tables_v1  = true # <- remove all old public route tables
+}
+```
+
+Once the above is applied, you can update the module to the latest version. Kindly note to remove the `create_route_table_v2` and `associate_public_route_table_v2` and `associate_private_route_table_v2` inputs.
+
+```hcl
+module "network" {
+  source = "github.com/TradrApi/terraform-modules//aws/network?ref=v3"
+  # ...
+}
+```
+
+The above should only show `Name` tag updates. Once applied, you're done.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
