@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/TradrAPI/terraform-modules/compare/v2.1.2...v3.0.0) (2025-02-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **network:** Turns v2 routes the default ([#116](https://github.com/TradrAPI/terraform-modules/issues/116))
+
+### Features
+
+* **network:** Turns v2 routes the default ([#116](https://github.com/TradrAPI/terraform-modules/issues/116)) ([ede1b3b](https://github.com/TradrAPI/terraform-modules/commit/ede1b3b7d8c9575eb5e195b422334aec59b96739))
+
 ## [2.1.2](https://github.com/TradrAPI/terraform-modules/compare/v2.1.1...v2.1.2) (2025-02-03)
 
 
