@@ -52,9 +52,10 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allowed_cidr_blocks"></a> [allowed\_cidr\_blocks](#input\_allowed\_cidr\_blocks) | Allowed CIDR blocks. | `list(string)` | `[]` | no |
-| <a name="input_amazon_s3_sink_connector_url"></a> [amazon_s3_sink_connector_url](#input\_amazon_s3_sink_connector_url) | Amazon S3 Sink Connector URL | `string` | `"https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"` | no |
+| <a name="input_amazon_s3_sink_connector_url"></a> [amazon\_s3\_sink\_connector\_url](#input\_amazon\_s3\_sink\_connector\_url) | Amazon S3 Sink Connector URL | `string` | `"https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"` | no |
 | <a name="input_client_subnets"></a> [client\_subnets](#input\_client\_subnets) | Client subnets. | `list(string)` | `[]` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | msk cluster name. | `string` | `null` | no |
+| <a name="input_default_num_partitions"></a> [default\_num\_partitions](#input\_default\_num\_partitions) | Default number of partitions. | `number` | `null` | no |
 | <a name="input_ebs_volume_size"></a> [ebs\_volume\_size](#input\_ebs\_volume\_size) | EBS volume size. | `number` | `10` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name. | `string` | `null` | no |
 | <a name="input_kafka_version"></a> [kafka\_version](#input\_kafka\_version) | Kafka version. | `string` | `"3.4.0"` | no |

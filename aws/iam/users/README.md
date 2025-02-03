@@ -64,3 +64,47 @@ module "users" {
 `names`: names of the users created
 
 `group_memberships`: map from user names to groups it belongs to
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.18 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.18 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_access_key.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_access_key) | resource |
+| [aws_iam_user.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_group_membership.user_groups](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_group_membership) | resource |
+| [aws_iam_user_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy) | resource |
+| [aws_iam_user_policy_attachment.user_attached_policies](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_users"></a> [users](#input\_users) | n/a | <pre>map(object({<br/>    groups                 = optional(list(string), [])<br/>    tags                   = optional(map(string), {})<br/>    policy                 = optional(string)<br/>    attached_policies_arns = optional(list(string), [])<br/>  }))</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_access_keys"></a> [access\_keys](#output\_access\_keys) | n/a |
+| <a name="output_arns"></a> [arns](#output\_arns) | n/a |
+| <a name="output_group_memberships"></a> [group\_memberships](#output\_group\_memberships) | n/a |
+| <a name="output_names"></a> [names](#output\_names) | n/a |
+| <a name="output_users"></a> [users](#output\_users) | n/a |
+<!-- END_TF_DOCS -->

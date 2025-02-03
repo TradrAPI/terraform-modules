@@ -13,15 +13,10 @@ output "private_route_tables" {
   value       = aws_route_table.private
 }
 
-output "private_route_tables_v2" {
-  description = "List of private route tables v2"
-  value       = aws_route_table.private_v2
-}
-
-output "private_routes_v2" {
+output "private_routes" {
   value = concat(
-    aws_route.private_nat_v2,
-    values(aws_route.private_v2),
+    aws_route.private_nat,
+    values(aws_route.private),
   )
 }
 
@@ -30,13 +25,8 @@ output "public_route_tables" {
   value       = aws_route_table.public
 }
 
-output "public_route_tables_v2" {
-  description = "List of public route tables v2"
-  value       = aws_route_table.public_v2
-}
-
-output "public_routes_v2" {
-  value = concat(aws_route.public_gateway_v2, values(aws_route.public_v2))
+output "public_routes" {
+  value = concat(aws_route.public_gateway, values(aws_route.public))
 }
 
 output "vpc_id" {

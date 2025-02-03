@@ -128,3 +128,49 @@ module "policies_roles_and_groups" {
 `group_policy_attachments`: map of attachment_key to attachment object
 
 `role_policy_attachments`: map of attachment_key to attachment object
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.18 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.18 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group) | resource |
+| [aws_iam_group_policy_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_policy.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_role.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_iam_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_group) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_groups"></a> [groups](#input\_groups) | n/a | `map(list(string))` | `{}` | no |
+| <a name="input_policies"></a> [policies](#input\_policies) | n/a | `any` | `{}` | no |
+| <a name="input_roles"></a> [roles](#input\_roles) | n/a | `any` | `{}` | no |
+| <a name="input_skip_group_creation"></a> [skip\_group\_creation](#input\_skip\_group\_creation) | n/a | `bool` | `false` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_groups"></a> [groups](#output\_groups) | n/a |
+| <a name="output_policies"></a> [policies](#output\_policies) | n/a |
+| <a name="output_roles"></a> [roles](#output\_roles) | n/a |
+<!-- END_TF_DOCS -->

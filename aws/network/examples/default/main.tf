@@ -29,24 +29,9 @@ output "public_routes" {
   ]
 }
 
-output "public_routes_v2" {
-  value = [
-    for route in module.network.public_routes_v2 :
-    "${try(route.gateway_id, route.vpc_peering_connection_id)}/${route.destination_cidr_block}"
-  ]
-}
-
-
 output "private_routes" {
   value = [
-    for index, route in flatten(module.network.private_route_tables.*.route) :
-    "${try(route.nat_gateway_id, route.vpc_peering_connection_id)}/${route.cidr_block}"
-  ]
-}
-
-output "private_routes_v2" {
-  value = [
-    for route in module.network.private_routes_v2 :
+    for route in module.network.private_routes :
     "${try(route.nat_gateway_id, route.vpc_peering_connection_id)}/${route.destination_cidr_block}"
   ]
 }
