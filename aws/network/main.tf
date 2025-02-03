@@ -264,7 +264,9 @@ resource "aws_flow_log" "default" {
 
 resource "aws_cloudwatch_log_group" "flowlogs" {
   count = var.flowlogs ? 1 : 0
-  name  = "${var.name}-flowlogs"
+
+  name              = "${var.name}-flowlogs"
+  retention_in_days = 7
 }
 
 resource "aws_iam_role" "flowlog" {
