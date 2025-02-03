@@ -104,3 +104,72 @@ module "gitlab" {
 - `sg` - Same as https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group#attributes-reference
 - `dlm` - Same as https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dlm_lifecycle_policy#attributes-reference
 - `iam`
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+No requirements.
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_bucket"></a> [bucket](#module\_bucket) | ../s3 | n/a |
+| <a name="module_gitlab"></a> [gitlab](#module\_gitlab) | ../ec2 | n/a |
+| <a name="module_secrets_bucket"></a> [secrets\_bucket](#module\_secrets\_bucket) | ../s3 | n/a |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [aws_ebs_volume.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ebs_volume) | resource |
+| [aws_iam_instance_profile.bucket_iam](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_instance_profile) | resource |
+| [aws_iam_policy.bucket_iam](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_role.bucket_iam](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.bucket_iam](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_security_group_rule.gitlab_ssh_port_ingress](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
+| [aws_volume_attachment.extra](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/volume_attachment) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_admin_authorized_key"></a> [admin\_authorized\_key](#input\_admin\_authorized\_key) | n/a | `string` | n/a | yes |
+| <a name="input_az_zone"></a> [az\_zone](#input\_az\_zone) | n/a | `string` | n/a | yes |
+| <a name="input_backup_agent"></a> [backup\_agent](#input\_backup\_agent) | n/a | <pre>object({<br/>    bucket = object({<br/>      name          = string<br/>      lifetime_days = optional(number, 8)<br/>    })<br/><br/>    iam = optional(object({<br/>      policy           = optional(string, "GitlabS3BackupReadWritePolicy")<br/>      role             = optional(string, "GitlabS3BackupAgent")<br/>      instance_profile = optional(string, "Gitlabs3BackupAgent")<br/>    }), {})<br/>  })</pre> | <pre>{<br/>  "bucket": {<br/>    "lifetime_days": 8,<br/>    "name": "prd-gitlab-backups"<br/>  },<br/>  "iam": {<br/>    "instance_profile": "Gitlabs3BackupAgent",<br/>    "policy": "GitlabS3BackupReadWritePolicy",<br/>    "role": "GitlabS3BackupAgent"<br/>  }<br/>}</pre> | no |
+| <a name="input_certbot_notification_email"></a> [certbot\_notification\_email](#input\_certbot\_notification\_email) | n/a | `string` | n/a | yes |
+| <a name="input_cloudflare_certbot_token"></a> [cloudflare\_certbot\_token](#input\_cloudflare\_certbot\_token) | n/a | `string` | n/a | yes |
+| <a name="input_data_volume_size"></a> [data\_volume\_size](#input\_data\_volume\_size) | n/a | `number` | `80` | no |
+| <a name="input_data_volume_tags"></a> [data\_volume\_tags](#input\_data\_volume\_tags) | n/a | `map(string)` | `{}` | no |
+| <a name="input_extra_volumes"></a> [extra\_volumes](#input\_extra\_volumes) | n/a | <pre>map(object({<br/>    device_name = string<br/>    size        = number<br/>    tags        = map(string)<br/>  }))</pre> | n/a | yes |
+| <a name="input_gitlab_fqdn"></a> [gitlab\_fqdn](#input\_gitlab\_fqdn) | n/a | `string` | n/a | yes |
+| <a name="input_gitlab_ssh_trusted_cidrs"></a> [gitlab\_ssh\_trusted\_cidrs](#input\_gitlab\_ssh\_trusted\_cidrs) | n/a | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
+| <a name="input_http_trusted_cidrs"></a> [http\_trusted\_cidrs](#input\_http\_trusted\_cidrs) | n/a | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
+| <a name="input_instance_ssh_port"></a> [instance\_ssh\_port](#input\_instance\_ssh\_port) | n/a | `number` | `2224` | no |
+| <a name="input_instance_ssh_trusted_cidrs"></a> [instance\_ssh\_trusted\_cidrs](#input\_instance\_ssh\_trusted\_cidrs) | n/a | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
+| <a name="input_name"></a> [name](#input\_name) | n/a | `string` | `"gitlab"` | no |
+| <a name="input_private_ip"></a> [private\_ip](#input\_private\_ip) | n/a | `string` | `null` | no |
+| <a name="input_resources_prefix"></a> [resources\_prefix](#input\_resources\_prefix) | n/a | `string` | n/a | yes |
+| <a name="input_root_volume_size"></a> [root\_volume\_size](#input\_root\_volume\_size) | n/a | `number` | `20` | no |
+| <a name="input_security_group_ids"></a> [security\_group\_ids](#input\_security\_group\_ids) | n/a | `list(string)` | `[]` | no |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | n/a | `string` | `null` | no |
+| <a name="input_swap_size"></a> [swap\_size](#input\_swap\_size) | n/a | `number` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(string)` | `{}` | no |
+| <a name="input_type"></a> [type](#input\_type) | n/a | `string` | n/a | yes |
+| <a name="input_use_test_cert"></a> [use\_test\_cert](#input\_use\_test\_cert) | n/a | `bool` | `false` | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | n/a | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_eip"></a> [eip](#output\_eip) | n/a |
+| <a name="output_instance"></a> [instance](#output\_instance) | n/a |
+| <a name="output_sg"></a> [sg](#output\_sg) | n/a |
+<!-- END_TF_DOCS -->
