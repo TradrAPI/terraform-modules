@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/TradrAPI/terraform-modules/compare/v3.0.0...v3.1.0) (2025-02-04)
+
+
+### Features
+
+* **network:** Allows overriding flowlog role and policy names ([#118](https://github.com/TradrAPI/terraform-modules/issues/118)) ([f4145c3](https://github.com/TradrAPI/terraform-modules/commit/f4145c3ee1e1125a64283b9ce6a36aa24e7ef6a9))
+
 ## [3.0.0](https://github.com/TradrAPI/terraform-modules/compare/v2.1.2...v3.0.0) (2025-02-03)
 
 
