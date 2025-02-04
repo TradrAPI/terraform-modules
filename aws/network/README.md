@@ -115,6 +115,7 @@ No modules.
 | <a name="input_extra_public_routes"></a> [extra\_public\_routes](#input\_extra\_public\_routes) | List of route configs, see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route_table#route-argument-reference | <pre>list(object({<br/>    cidr_block                = string<br/>    vpc_peering_connection_id = optional(string)<br/>    network_interface_id      = optional(string)<br/>  }))</pre> | `[]` | no |
 | <a name="input_flowlogs"></a> [flowlogs](#input\_flowlogs) | n/a | `bool` | `false` | no |
 | <a name="input_name"></a> [name](#input\_name) | name of vpc | `string` | n/a | yes |
+| <a name="input_name_overrides"></a> [name\_overrides](#input\_name\_overrides) | name overrides for resources | <pre>object({<br/>    flowlogs_policy = optional(string)<br/>    flowlogs_role   = optional(string)<br/>  })</pre> | `{}` | no |
 | <a name="input_private_subnet_tags"></a> [private\_subnet\_tags](#input\_private\_subnet\_tags) | n/a | `map(string)` | `{}` | no |
 | <a name="input_private_subnets_cidrs"></a> [private\_subnets\_cidrs](#input\_private\_subnets\_cidrs) | n/a | `list(string)` | `[]` | no |
 | <a name="input_public_subnet_tags"></a> [public\_subnet\_tags](#input\_public\_subnet\_tags) | n/a | `map(string)` | `{}` | no |
