@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "turborepo-remote-cache": "^2.1.2"
+    "turborepo-remote-cache": "^2.2.8"
   },
   "devDependencies": {
     "esbuild": "^0.21.4"
