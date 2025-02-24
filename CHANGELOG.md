@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.1](https://github.com/TradrAPI/terraform-modules/compare/v3.2.0...v3.2.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* **turbo_repo_remote_cache:** Misssing npm run build ([bb81a71](https://github.com/TradrAPI/terraform-modules/commit/bb81a71598be1adc06fa8eb4ce8eca18a78ac428))
+
 ## [3.2.0](https://github.com/TradrAPI/terraform-modules/compare/v3.1.0...v3.2.0) (2025-02-24)
 
 
