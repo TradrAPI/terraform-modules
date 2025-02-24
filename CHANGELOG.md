@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/TradrAPI/terraform-modules/compare/v3.1.0...v3.2.0) (2025-02-24)
+
+
+### Features
+
+* **turbo_repo_remote_cache:** Upgrade the turbo-remote-cache version ([#120](https://github.com/TradrAPI/terraform-modules/issues/120)) ([dc723a0](https://github.com/TradrAPI/terraform-modules/commit/dc723a069455eb23dbaba4f636a32d59e7be6299))
+
 ## [3.1.0](https://github.com/TradrAPI/terraform-modules/compare/v3.0.0...v3.1.0) (2025-02-04)
 
 
