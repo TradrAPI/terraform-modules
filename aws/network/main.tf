@@ -135,7 +135,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
     for subnet in aws_subnet.tgw : subnet.id
   ]
 
-  transit_gateway_id = data.aws_ec2_transit_gateway.this[0].id
+  transit_gateway_id = try(var.transit_gateway_id, data.aws_ec2_transit_gateway.this[0].id)
   vpc_id             = aws_vpc.default.id
 
   tags = {

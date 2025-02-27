@@ -140,3 +140,7 @@ variable "tgw_subnets_cidrs" {
   type    = list(string)
   default = []
 }
+
+variable "transit_gateway_id" {
+  type        = string
+}
