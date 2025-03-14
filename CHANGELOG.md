@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.2](https://github.com/TradrAPI/terraform-modules/compare/v3.2.1...v3.2.2) (2025-03-14)
+
+
+### Bug Fixes
+
+* **mongodbatlas/user:** Password resolution logic ([#123](https://github.com/TradrAPI/terraform-modules/issues/123)) ([5ab2ac1](https://github.com/TradrAPI/terraform-modules/commit/5ab2ac1ddf43d25438991e58cbe248c256cee1e0))
+
 ## [3.2.1](https://github.com/TradrAPI/terraform-modules/compare/v3.2.0...v3.2.1) (2025-02-24)
 
 
