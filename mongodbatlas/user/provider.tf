@@ -3,8 +3,8 @@ terraform {
   required_providers {
     aws = {}
     mongodbatlas = {
-      source = "mongodb/mongodbatlas"
-      configuration_aliases = [ mongodbatlas.creds ]
+      source                = "mongodb/mongodbatlas"
+      configuration_aliases = [mongodbatlas.creds]
     }
   }
 }

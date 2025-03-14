@@ -38,7 +38,7 @@ No modules.
 | <a name="input_external_password"></a> [external\_password](#input\_external\_password) | n/a | `string` | `null` | no |
 | <a name="input_external_username"></a> [external\_username](#input\_external\_username) | n/a | `string` | `null` | no |
 | <a name="input_mongodb_clusters"></a> [mongodb\_clusters](#input\_mongodb\_clusters) | n/a | `list(string)` | `[]` | no |
-| <a name="input_mongodb_permissions"></a> [mongodb\_permissions](#input\_mongodb\_permissions) | n/a | <pre>list(object({<br/>    dbname = string<br/>    role = string<br/>  }))</pre> | n/a | yes |
+| <a name="input_mongodb_permissions"></a> [mongodb\_permissions](#input\_mongodb\_permissions) | n/a | <pre>list(object({<br/>    dbname = string<br/>    role   = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_mongodb_projectid"></a> [mongodb\_projectid](#input\_mongodb\_projectid) | The mongodb project id, which can be found in project settings | `string` | n/a | yes |
 | <a name="input_name_suffix"></a> [name\_suffix](#input\_name\_suffix) | n/a | `string` | `"-user"` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | n/a | `string` | n/a | yes |
