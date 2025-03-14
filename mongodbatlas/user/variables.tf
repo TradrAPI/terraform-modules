@@ -6,12 +6,12 @@ variable "mongodb_projectid" {
 variable "mongodb_permissions" {
   type = list(object({
     dbname = string
-    role = string
+    role   = string
   }))
 }
 
 variable "mongodb_clusters" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 
@@ -36,23 +36,23 @@ variable "external_username" {
 }
 
 variable "brandname" {
-  type = string
+  type    = string
   default = ""
 }
 
-variable create_outputs {
-  type = bool
-  default = false
+variable "create_outputs" {
+  type        = bool
+  default     = false
   description = "only set to true if there is at least 1 item in mongodb_clusters and 1 item in mongodb_permissions. It will always use the values in the first item"
 }
 
-variable connection_string_shards {
-  type = bool
-  default = true
+variable "connection_string_shards" {
+  type        = bool
+  default     = true
   description = "define whether to use the connection string with the shards or not, see here for more information https://www.mongodb.com/docs/manual/reference/connection-string/"
 }
 
-variable encryption_key {
-  type = string
+variable "encryption_key" {
+  type    = string
   default = null
 }
