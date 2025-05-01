@@ -61,7 +61,7 @@ resource "aws_mskconnect_connector" "backup_msk_to_s3" {
     }
   }
 
-  service_execution_role_arn = aws_iam_role.msk_s3_bkp.arn
+  service_execution_role_arn = aws_iam_role.backup.arn
 }
 
 module "mskconnect_plugin" {
