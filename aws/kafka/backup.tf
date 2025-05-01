@@ -1,7 +1,7 @@
 module "msk_backup" {
   source = "../kafka_backup"
 
-  resources_prefix = "${var.environment}-${var.platform}"
+  resources_prefix = "${var.platform}-${var.environment}"
 
   create_backup_bucket = true
   bucket_lifetime_days = 14
