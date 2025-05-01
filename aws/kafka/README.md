@@ -9,7 +9,6 @@ No requirements.
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | n/a |
-| <a name="provider_terraform"></a> [terraform](#provider\_terraform) | n/a |
 
 ## Modules
 
@@ -17,7 +16,7 @@ No requirements.
 |------|--------|---------|
 | <a name="module_kms"></a> [kms](#module\_kms) | github.com/TradrApi/terraform-modules//aws/kms | v1 |
 | <a name="module_msk_s3_bkp"></a> [msk\_s3\_bkp](#module\_msk\_s3\_bkp) | github.com/TradrApi/terraform-modules//aws/s3 | v1 |
-| <a name="module_mskconnect_custom_plugins"></a> [mskconnect\_custom\_plugins](#module\_mskconnect\_custom\_plugins) | github.com/TradrApi/terraform-modules//aws/s3 | v1 |
+| <a name="module_mskconnect_plugins"></a> [mskconnect\_plugins](#module\_mskconnect\_plugins) | ../kafka_plugins | n/a |
 
 ## Resources
 
@@ -32,9 +31,7 @@ No requirements.
 | [aws_msk_configuration.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_configuration) | resource |
 | [aws_msk_scram_secret_association.users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/msk_scram_secret_association) | resource |
 | [aws_mskconnect_connector.backup_msk_to_s3](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mskconnect_connector) | resource |
-| [aws_mskconnect_custom_plugin.plugins](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/mskconnect_custom_plugin) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.msk_s3_bkp](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
-| [aws_s3_object.plugins](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object) | resource |
 | [aws_secretsmanager_secret.msk_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret) | resource |
 | [aws_secretsmanager_secret_policy.msk_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_policy) | resource |
 | [aws_secretsmanager_secret_version.msk_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version) | resource |
@@ -43,7 +40,6 @@ No requirements.
 | [aws_security_group_rule.msk](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [aws_security_group_rule.s3_sink_connector_outbound](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group_rule) | resource |
 | [random_password.msk](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password) | resource |
-| [terraform_data.plugins](https://registry.terraform.io/providers/hashicorp/terraform/latest/docs/resources/data) | resource |
 | [aws_caller_identity.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.msk_users](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
