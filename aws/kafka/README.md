@@ -60,7 +60,7 @@ No requirements.
 | <a name="input_platform"></a> [platform](#input\_platform) | Platform name | `string` | `null` | no |
 | <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | Kafka connectors private subnets, usually the same as client subnets | `list(string)` | `[]` | no |
 | <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `null` | no |
-| <a name="input_server_properties"></a> [server\_properties](#input\_server\_properties) | Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html".<br/><br/>Example:<pre>terraform<br/>server_properties = <<-EOF2<br/>  auto.create.topics.enable=true<br/>  delete.topic.enable=true<br/>EOF2</pre> | `string` | `null` | no |
+| <a name="input_server_properties"></a> [server\_properties](#input\_server\_properties) | Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html.<br/><br/>Example:<pre>server_properties = <<-EOF2<br/>  auto.create.topics.enable=true<br/>  delete.topic.enable=true<br/>EOF2</pre> | `string` | `null` | no |
 | <a name="input_users"></a> [users](#input\_users) | MSK users names list (passwords are generated automatically) | `list(string)` | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC where the MSK cluster will be created | `string` | `null` | no |
 
