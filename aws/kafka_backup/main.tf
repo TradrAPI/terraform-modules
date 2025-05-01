@@ -47,8 +47,8 @@ resource "aws_mskconnect_connector" "backup_msk_to_s3" {
 
   plugin {
     custom_plugin {
-      arn      = mskconnect_plugin.plugins["amazon-s3-sink-connector"].arn
-      revision = mskconnect_plugin.plugins["amazon-s3-sink-connector"].latest_revision
+      arn      = module.mskconnect_plugin.plugins["amazon-s3-sink-connector"].arn
+      revision = module.mskconnect_plugin.plugins["amazon-s3-sink-connector"].latest_revision
     }
   }
 
