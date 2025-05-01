@@ -20,9 +20,6 @@ locals {
   ]
 }
 
-
-
-
 resource "aws_msk_configuration" "this" {
   kafka_versions = [var.kafka_version]
 
@@ -35,13 +32,10 @@ resource "aws_msk_configuration" "this" {
   }
 }
 
-
 resource "aws_cloudwatch_log_group" "msk" {
   name              = "${terraform.workspace}/msk"
   retention_in_days = 7
 }
-
-
 
 resource "aws_msk_cluster" "this" {
   cluster_name  = var.cluster_name

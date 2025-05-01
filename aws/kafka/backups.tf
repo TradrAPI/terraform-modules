@@ -1,5 +1,5 @@
 module "msk_s3_bkp" {
-  source = "github.com/TradrApi/terraform-modules//aws/s3?ref=v1"
+  source = "../s3"
 
   bucket_name = "${var.environment}-${var.platform}-msk-backup"
 
@@ -227,8 +227,8 @@ resource "aws_mskconnect_connector" "backup_msk_to_s3" {
 
   plugin {
     custom_plugin {
-      arn      = aws_mskconnect_custom_plugin.plugins["amazon-s3-sink-connector"].arn
-      revision = aws_mskconnect_custom_plugin.plugins["amazon-s3-sink-connector"].latest_revision
+      arn      = module.mskconnect_plugins.plugins["amazon-s3-sink-connector"].arn
+      revision = module.mskconnect_plugins.plugins["amazon-s3-sink-connector"].latest_revision
     }
   }
 

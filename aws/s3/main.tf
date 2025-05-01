@@ -30,6 +30,8 @@ resource "aws_s3_bucket_lifecycle_configuration" "this" {
     id     = "Delete-${var.lifetime_days}-days"
     status = "Enabled" # TODO what happened to enabled
 
+    filter {}
+
     expiration {
       days = var.lifetime_days # TODO is this the same value?
     }
