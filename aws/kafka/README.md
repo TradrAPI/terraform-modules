@@ -15,8 +15,6 @@ No requirements.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_kms"></a> [kms](#module\_kms) | ../kms | n/a |
-| <a name="module_msk_backup"></a> [msk\_backup](#module\_msk\_backup) | ../kafka_backup | n/a |
-| <a name="module_mskconnect_plugins"></a> [mskconnect\_plugins](#module\_mskconnect\_plugins) | ../kafka_plugins | n/a |
 
 ## Resources
 
@@ -39,7 +37,6 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_allowed_cidr_blocks"></a> [allowed\_cidr\_blocks](#input\_allowed\_cidr\_blocks) | Allowed CIDR blocks that can access the MSK cluster | `list(string)` | `[]` | no |
-| <a name="input_amazon_s3_sink_connector_url"></a> [amazon\_s3\_sink\_connector\_url](#input\_amazon\_s3\_sink\_connector\_url) | Amazon S3 Sink Connector URL | `string` | `"https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"` | no |
 | <a name="input_client_subnets"></a> [client\_subnets](#input\_client\_subnets) | Client VPC subnets | `list(string)` | `[]` | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | MSK cluster name | `string` | `null` | no |
 | <a name="input_default_num_partitions"></a> [default\_num\_partitions](#input\_default\_num\_partitions) | Default number of partitions (>= number\_of\_broker\_nodes is recommended) | `number` | `null` | no |
@@ -49,8 +46,6 @@ No requirements.
 | <a name="input_msk_instance_type"></a> [msk\_instance\_type](#input\_msk\_instance\_type) | MSK instance type (See https://docs.aws.amazon.com/msk/latest/developerguide/broker-instance-sizes.html) | `string` | `"kafka.t3.small"` | no |
 | <a name="input_number_of_broker_nodes"></a> [number\_of\_broker\_nodes](#input\_number\_of\_broker\_nodes) | Number of broker nodes | `number` | `3` | no |
 | <a name="input_platform"></a> [platform](#input\_platform) | Platform name | `string` | `null` | no |
-| <a name="input_private_subnets"></a> [private\_subnets](#input\_private\_subnets) | Kafka connectors private subnets, usually the same as client subnets | `list(string)` | `[]` | no |
-| <a name="input_region"></a> [region](#input\_region) | AWS region | `string` | `null` | no |
 | <a name="input_server_properties"></a> [server\_properties](#input\_server\_properties) | Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html.<br/><br/>Example:<pre>server_properties = <<-EOF2<br/>  auto.create.topics.enable=true<br/>  delete.topic.enable=true<br/>EOF2</pre> | `string` | `null` | no |
 | <a name="input_users"></a> [users](#input\_users) | MSK users names list (passwords are generated automatically) | `list(string)` | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC where the MSK cluster will be created | `string` | `null` | no |
@@ -61,5 +56,4 @@ No requirements.
 |------|-------------|
 | <a name="output_msk_brokers_by_auth_method"></a> [msk\_brokers\_by\_auth\_method](#output\_msk\_brokers\_by\_auth\_method) | Map of brokers list by authentication method. The list on each key is a comma-separated list of brokers |
 | <a name="output_msk_sasl_scram_users"></a> [msk\_sasl\_scram\_users](#output\_msk\_sasl\_scram\_users) | Map of user names to their passwords |
-| <a name="output_plugins_bucket_name"></a> [plugins\_bucket\_name](#output\_plugins\_bucket\_name) | Name of the bucket to store the plugins |
 <!-- END_TF_DOCS -->
