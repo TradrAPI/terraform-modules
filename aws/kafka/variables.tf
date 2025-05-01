@@ -90,10 +90,11 @@ variable "region" {
 
 variable "server_properties" {
   description = <<-EOF
-    Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html".
+    Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html.
 
     Example:
-    ```terraform
+
+    ```
     server_properties = <<-EOF2
       auto.create.topics.enable=true
       delete.topic.enable=true
