@@ -3,7 +3,7 @@ output "bucket_name" {
 
   value = (
     var.create_bucket
-    ? module.plugins_bucket[0].bucket_name
+    ? module.plugins_bucket[0].bucket_id
     : var.bucket_name
   )
 }
