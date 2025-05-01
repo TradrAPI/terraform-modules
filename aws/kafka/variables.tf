@@ -93,11 +93,11 @@ variable "server_properties" {
     Server properties. You can specify any of the properties in https://docs.aws.amazon.com/msk/latest/developerguide/msk-configuration-properties.html".
 
     Example:
-    ```
-      server_properties = <<-EOF2
-        auto.create.topics.enable=true
-        delete.topic.enable=true
-      EOF2
+    ```terraform
+    server_properties = <<-EOF2
+      auto.create.topics.enable=true
+      delete.topic.enable=true
+    EOF2
     ```
   EOF
   type        = string
