@@ -14,7 +14,7 @@ resource "aws_s3_object" "plugins" {
 
   bucket = (
     var.create_bucket
-    ? module.mskconnect_custom_plugins.bucket_id
+    ? module.plugins_bucket[0].bucket_id
     : var.bucket_name
   )
 
@@ -50,7 +50,7 @@ resource "aws_mskconnect_custom_plugin" "plugins" {
 
       bucket_arn = (
         var.create_bucket
-        ? module.mskconnect_custom_plugins.bucket.arn
+        ? module.plugins_bucket[0].bucket.arn
         : data.aws_s3_bucket.plugins[0].arn
       )
     }
