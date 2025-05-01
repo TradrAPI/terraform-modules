@@ -7,3 +7,9 @@ output "bucket_name" {
     : var.bucket_name
   )
 }
+
+output "plugins" {
+  description = "A map of plugins names to their resource objects"
+
+  value = aws_mskconnect_custom_plugin.plugins
+}

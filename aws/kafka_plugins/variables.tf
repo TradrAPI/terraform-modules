@@ -5,7 +5,7 @@ variable "bucket_name" {
 }
 
 variable "create_bucket" {
-  description = "Create the plugins bucket"
+  description = "Whether to create the plugins bucket"
   type        = bool
   default     = true
 }
