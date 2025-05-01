@@ -20,7 +20,7 @@ module "mskconnect_plugins" {
 
 moved {
   from = module.mskconnect_custom_plugins
-  to   = module.mskconnect_plugins.plugins_bucket[0]
+  to   = module.mskconnect_plugins.module.plugins_bucket[0]
 }
 
 moved {
