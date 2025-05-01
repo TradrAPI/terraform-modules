@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.0](https://github.com/TradrAPI/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-01)
+
+
+### Features
+
+* **core:** Update list of changelog sections triggering a release PR ([95ba3ea](https://github.com/TradrAPI/terraform-modules/commit/95ba3eae67aa5688554875c47eeea97a8eccdfef))
+
+
+### Refactor
+
+* **kafka:** Split plugins setup to a separate module ([#125](https://github.com/TradrAPI/terraform-modules/issues/125)) ([062dfdf](https://github.com/TradrAPI/terraform-modules/commit/062dfdff3381463d016db115d399ab987f00db0d))
+
 ## [3.2.2](https://github.com/TradrAPI/terraform-modules/compare/v3.2.1...v3.2.2) (2025-03-14)
 
 
