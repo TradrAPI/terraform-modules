@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/TradrAPI/terraform-modules/compare/v4.0.0...v4.0.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka_plugins:** Handles empty alias cases ([cd66156](https://github.com/TradrAPI/terraform-modules/commit/cd661564dbae3757e83eedb416d98cfdf1e7c4ff))
+
 ## [4.0.0](https://github.com/TradrAPI/terraform-modules/compare/v3.4.0...v4.0.0) (2025-05-01)
 
 
