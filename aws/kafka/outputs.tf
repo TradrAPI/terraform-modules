@@ -13,3 +13,8 @@ output "msk_sasl_scram_users" {
 
   sensitive = true
 }
+
+output "plugins_bucket_name" {
+  description = "Name of the bucket to store the plugins"
+  value       = module.mskconnect_plugins.bucket_name
+}

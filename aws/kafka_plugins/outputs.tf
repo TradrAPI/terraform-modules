@@ -3,7 +3,7 @@ output "bucket_name" {
 
   value = (
     var.create_bucket
-    ? module.mskconnect_custom_plugins.bucket_name
+    ? module.plugins_bucket.bucket_name
     : var.bucket_name
   )
 }
