@@ -58,7 +58,7 @@ variable "log_retention_in_days" {
 
 variable "connector" {
   type = object({
-    kafkaconnect_version  = "2.7.1"
+    kafkaconnect_version  = optional(string, "2.7.1")
     log_retention_in_days = optional(number, 3)
 
     sink_connector_url = optional(
