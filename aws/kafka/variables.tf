@@ -1,10 +1,4 @@
 
-variable "amazon_s3_sink_connector_url" {
-  description = "Amazon S3 Sink Connector URL"
-  type        = string
-  default     = "https://d2p6pa21dvn84.cloudfront.net/api/plugins/confluentinc/kafka-connect-s3/versions/10.5.2/confluentinc-kafka-connect-s3-10.5.2.zip"
-}
-
 variable "platform" {
   description = "Platform name"
   type        = string
@@ -23,14 +17,12 @@ variable "cluster_name" {
   default     = null
 }
 
-
 variable "kafka_version" {
   description = "Kafka version (See https://docs.aws.amazon.com/msk/latest/developerguide/supported-kafka-versions.html)"
   type        = string
   default     = "3.4.0"
 
 }
-
 
 variable "number_of_broker_nodes" {
   description = "Number of broker nodes"
@@ -42,7 +34,6 @@ variable "client_subnets" {
   description = "Client VPC subnets"
   type        = list(string)
   default     = []
-
 }
 
 variable "msk_instance_type" {
@@ -58,15 +49,11 @@ variable "ebs_volume_size" {
   default     = 10
 }
 
-
 variable "vpc_id" {
   description = "ID of the VPC where the MSK cluster will be created"
   type        = string
   default     = null
 }
-
-
-
 
 variable "allowed_cidr_blocks" {
   description = "Allowed CIDR blocks that can access the MSK cluster"
@@ -75,17 +62,10 @@ variable "allowed_cidr_blocks" {
 
 }
 
-
 variable "users" {
   description = "MSK users names list (passwords are generated automatically)"
   type        = list(string)
   default     = []
-}
-
-variable "region" {
-  description = "AWS region"
-  type        = string
-  default     = null
 }
 
 variable "server_properties" {
@@ -103,12 +83,6 @@ variable "server_properties" {
   EOF
   type        = string
   default     = null
-}
-
-variable "private_subnets" {
-  description = "Kafka connectors private subnets, usually the same as client subnets"
-  type        = list(string)
-  default     = []
 }
 
 variable "default_num_partitions" {
