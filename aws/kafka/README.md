@@ -70,4 +70,5 @@ No requirements.
 |------|-------------|
 | <a name="output_msk_brokers_by_auth_method"></a> [msk\_brokers\_by\_auth\_method](#output\_msk\_brokers\_by\_auth\_method) | n/a |
 | <a name="output_msk_sasl_scram_users"></a> [msk\_sasl\_scram\_users](#output\_msk\_sasl\_scram\_users) | n/a |
+| <a name="output_plugins_bucket_name"></a> [plugins\_bucket\_name](#output\_plugins\_bucket\_name) | Name of the bucket to store the plugins |
 <!-- END_TF_DOCS -->
