@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/TradrAPI/terraform-modules/compare/v3.4.0...v4.0.0) (2025-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130))
+
+### Features
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130)) ([1f27b7a](https://github.com/TradrAPI/terraform-modules/commit/1f27b7a2a04c262ecbb48eb4b64fb2a8c6017daf))
+
 ## [3.4.0](https://github.com/TradrAPI/terraform-modules/compare/v3.3.1...v3.4.0) (2025-05-01)
 
 
