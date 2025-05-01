@@ -15,7 +15,7 @@ variable "plugins" {
 
   type = map(object({
     url   = string
-    alias = optional(string)
+    alias = optional(string, "")
   }))
 
   default = {}

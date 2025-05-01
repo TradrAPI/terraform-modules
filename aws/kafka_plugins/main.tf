@@ -41,7 +41,7 @@ data "aws_s3_bucket" "plugins" {
 resource "aws_mskconnect_custom_plugin" "plugins" {
   for_each = var.plugins
 
-  name         = try(each.value.alias, each.key)
+  name         = coalesce(each.value.alias, each.key)
   content_type = "ZIP"
 
   location {
