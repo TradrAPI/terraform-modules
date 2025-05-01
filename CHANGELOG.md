@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.4.0](https://github.com/TradrAPI/terraform-modules/compare/v3.3.1...v3.4.0) (2025-05-01)
+
+
+### Features
+
+* **kafka:** Split backup from main module ([b9dc0b3](https://github.com/TradrAPI/terraform-modules/commit/b9dc0b3f3ff468cc0dff1faee2003809cabf502e))
+
+
+### Refactor
+
+* **kafka:** Moves backup code to dedicated module ([#128](https://github.com/TradrAPI/terraform-modules/issues/128)) ([c46510d](https://github.com/TradrAPI/terraform-modules/commit/c46510d264c0f65fa50f32c463267f726d6493ff))
+
 ## [3.3.1](https://github.com/TradrAPI/terraform-modules/compare/v3.3.0...v3.3.1) (2025-05-01)
 
 
