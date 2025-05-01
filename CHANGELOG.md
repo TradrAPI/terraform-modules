@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.1](https://github.com/TradrAPI/terraform-modules/compare/v3.3.0...v3.3.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka,kafka_plugins,s3:** Warnings over s3 bucket deprecations ([15e65a7](https://github.com/TradrAPI/terraform-modules/commit/15e65a7e00a0710c960f8a1a1edf82db61443fb1))
+
 ## [3.3.0](https://github.com/TradrAPI/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-01)
 
 
