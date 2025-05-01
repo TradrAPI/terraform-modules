@@ -64,7 +64,7 @@ moved {
 
 moved {
   from = aws_s3_bucket_server_side_encryption_configuration.msk_s3_bkp
-  to   = module.msk_backup.aws_s3_bucket_server_side_encryption_configuration.backup_bucket
+  to   = module.msk_backup.aws_s3_bucket_server_side_encryption_configuration.backup_bucket[0]
 }
 
 moved {
@@ -93,13 +93,7 @@ module "mskconnect_plugins" {
   bucket_name   = "${var.environment}-${var.platform}-mskconnect-custom-plugins"
   create_bucket = true
 
-  plugins = {
-    # Write data from kafka to s3 backup
-    "amazon-s3-sink-connector" = {
-      alias = "${var.platform}-${var.environment}-amazon-s3-sink-connector"
-      url   = var.amazon_s3_sink_connector_url
-    }
-  }
+  plugins = {}
 }
 
 moved {
