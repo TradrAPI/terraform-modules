@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.3.0](https://github.com/funderpro/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-02)
+
+
+### Features
+
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([db4d6c4](https://github.com/funderpro/terraform-modules/commit/db4d6c4343f49e0a005eefd3943364bfd7d757ea))
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([b3e3656](https://github.com/funderpro/terraform-modules/commit/b3e3656e5b8065d4a9d87040169433c01359840e))
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([0ade0bf](https://github.com/funderpro/terraform-modules/commit/0ade0bfc5e25f99754b43318db81455db97f4374))
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([c3b246f](https://github.com/funderpro/terraform-modules/commit/c3b246fa2c73f4fd1abe860a222edd4789b25720))
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([59d92cb](https://github.com/funderpro/terraform-modules/commit/59d92cbf0a43d2436fab29d756af64d17dca0d35))
+* **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([2cb6113](https://github.com/funderpro/terraform-modules/commit/2cb611383bfabd1431619b6410d793dd35a5ed02))
+
 ## [3.2.2](https://github.com/TradrAPI/terraform-modules/compare/v3.2.1...v3.2.2) (2025-03-14)
 
 
