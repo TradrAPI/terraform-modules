@@ -28,3 +28,9 @@ variable "layers" {
   type    = list(string)
   default = []
 }
+
+
+variable "create_lambda" {
+  type    = bool
+  default = true
+}
