@@ -18,3 +18,4 @@ With this in place all your commits will be checked for linting and formatting i
 according to the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) standard
 and our [`./commitlint.config.js`](./commitlint.config.js) file.
 
+
