@@ -12,9 +12,3 @@ variable "cluster_id" {
   description = "The ID of the MSK cluster."
   type        = string
 }
-
-variable "extra_policies_arns" {
-  description = "List of additional IAM policy ARNs to attach to the role."
-  type        = list(string)
-  default     = []
-}

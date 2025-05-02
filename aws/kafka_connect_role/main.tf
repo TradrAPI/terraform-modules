@@ -3,13 +3,6 @@ resource "aws_iam_role_policy_attachment" "this" {
   policy_arn = aws_iam_policy.kafka_iam_auth.arn
 }
 
-resource "aws_iam_role_policy_attachment" "extras" {
-  for_each = toset(var.extra_policies_arns)
-
-  role       = aws_iam_role.this.name
-  policy_arn = each.value
-}
-
 resource "aws_iam_role" "this" {
   name = var.role_name
 
