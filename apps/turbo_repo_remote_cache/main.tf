@@ -1,4 +1,5 @@
 module "lambda" {
+  count   = var.create_lambda ? 1 : 0
   source  = "terraform-aws-modules/lambda/aws"
   version = "7.2.5"
 
