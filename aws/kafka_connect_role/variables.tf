@@ -10,7 +10,7 @@ variable "cluster_name" {
 
 variable "cluster_id" {
   description = "The ID of the MSK cluster."
-  type        = strings
+  type        = string
 }
 
 variable "extra_policies_arns" {
