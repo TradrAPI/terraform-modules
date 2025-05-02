@@ -37,7 +37,7 @@ resource "aws_iam_policy" "kafka_iam_auth" {
 
   description = "IAM policy for Kafka Connect to authenticate with MSK using IAM"
 
-  policy = jsondecode({
+  policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
       {
