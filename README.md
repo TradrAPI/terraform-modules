@@ -19,4 +19,3 @@ according to the [conventional commits](https://www.conventionalcommits.org/en/v
 and our [`./commitlint.config.js`](./commitlint.config.js) file.
 
 
-
