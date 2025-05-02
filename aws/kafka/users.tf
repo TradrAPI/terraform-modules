@@ -1,12 +1,10 @@
 module "kms" {
-  source = "github.com/TradrApi/terraform-modules//aws/kms?ref=v1"
-
+  source = "../kms"
 
   name = "${terraform.workspace}-msk-sasl-scam"
 
   create_user = false
 }
-
 
 resource "aws_secretsmanager_secret" "msk_users" {
   for_each = toset(var.users)
@@ -18,13 +16,10 @@ resource "aws_secretsmanager_secret" "msk_users" {
   recovery_window_in_days = 0
 }
 
-
-
 resource "aws_msk_scram_secret_association" "users" {
   cluster_arn     = aws_msk_cluster.this.arn
   secret_arn_list = values(aws_secretsmanager_secret.msk_users).*.arn
 }
-
 
 data "aws_iam_policy_document" "msk_users" {
   for_each = toset(var.users)
@@ -43,15 +38,12 @@ data "aws_iam_policy_document" "msk_users" {
   }
 }
 
-
 resource "aws_secretsmanager_secret_policy" "msk_users" {
   for_each = toset(var.users)
 
   secret_arn = aws_secretsmanager_secret.msk_users[each.value].arn
   policy     = data.aws_iam_policy_document.msk_users[each.value].json
 }
-
-
 
 resource "random_password" "msk" {
   for_each = toset(var.users)
@@ -66,7 +58,6 @@ resource "random_password" "msk" {
   }
 }
 
-
 resource "aws_secretsmanager_secret_version" "msk_users" {
   for_each = toset(var.users)
 
@@ -77,4 +68,3 @@ resource "aws_secretsmanager_secret_version" "msk_users" {
     password = random_password.msk[each.value].result
   })
 }
-

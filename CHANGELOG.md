@@ -1,9 +1,48 @@
 # Changelog
 
-## [3.3.0](https://github.com/funderpro/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-02)
+
+## [4.0.1](https://github.com/TradrAPI/terraform-modules/compare/v4.0.0...v4.0.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka_plugins:** Handles empty alias cases ([cd66156](https://github.com/TradrAPI/terraform-modules/commit/cd661564dbae3757e83eedb416d98cfdf1e7c4ff))
+
+## [4.0.0](https://github.com/TradrAPI/terraform-modules/compare/v3.4.0...v4.0.0) (2025-05-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130))
+
+### Features
+
+* **kafka:** Rremove kafka backup from the base module ([#130](https://github.com/TradrAPI/terraform-modules/issues/130)) ([1f27b7a](https://github.com/TradrAPI/terraform-modules/commit/1f27b7a2a04c262ecbb48eb4b64fb2a8c6017daf))
+
+## [3.4.0](https://github.com/TradrAPI/terraform-modules/compare/v3.3.1...v3.4.0) (2025-05-01)
 
 
 ### Features
+
+* **kafka:** Split backup from main module ([b9dc0b3](https://github.com/TradrAPI/terraform-modules/commit/b9dc0b3f3ff468cc0dff1faee2003809cabf502e))
+
+
+### Refactor
+
+* **kafka:** Moves backup code to dedicated module ([#128](https://github.com/TradrAPI/terraform-modules/issues/128)) ([c46510d](https://github.com/TradrAPI/terraform-modules/commit/c46510d264c0f65fa50f32c463267f726d6493ff))
+
+## [3.3.1](https://github.com/TradrAPI/terraform-modules/compare/v3.3.0...v3.3.1) (2025-05-01)
+
+
+### Bug Fixes
+
+* **kafka,kafka_plugins,s3:** Warnings over s3 bucket deprecations ([15e65a7](https://github.com/TradrAPI/terraform-modules/commit/15e65a7e00a0710c960f8a1a1edf82db61443fb1))
+
+## [3.3.0](https://github.com/TradrAPI/terraform-modules/compare/v3.2.2...v3.3.0) (2025-05-01)
+
+
+### Features
+
 
 * **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([db4d6c4](https://github.com/funderpro/terraform-modules/commit/db4d6c4343f49e0a005eefd3943364bfd7d757ea))
 * **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([b3e3656](https://github.com/funderpro/terraform-modules/commit/b3e3656e5b8065d4a9d87040169433c01359840e))
@@ -11,6 +50,14 @@
 * **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([c3b246f](https://github.com/funderpro/terraform-modules/commit/c3b246fa2c73f4fd1abe860a222edd4789b25720))
 * **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([59d92cb](https://github.com/funderpro/terraform-modules/commit/59d92cbf0a43d2436fab29d756af64d17dca0d35))
 * **turbo_repo_remote_cache:** Add conditional rule to create lambda function ([2cb6113](https://github.com/funderpro/terraform-modules/commit/2cb611383bfabd1431619b6410d793dd35a5ed02))
+
+* **core:** Update list of changelog sections triggering a release PR ([95ba3ea](https://github.com/TradrAPI/terraform-modules/commit/95ba3eae67aa5688554875c47eeea97a8eccdfef))
+
+
+### Refactor
+
+* **kafka:** Split plugins setup to a separate module ([#125](https://github.com/TradrAPI/terraform-modules/issues/125)) ([062dfdf](https://github.com/TradrAPI/terraform-modules/commit/062dfdff3381463d016db115d399ab987f00db0d))
+
 
 ## [3.2.2](https://github.com/TradrAPI/terraform-modules/compare/v3.2.1...v3.2.2) (2025-03-14)
 
