@@ -40,7 +40,8 @@ resource "aws_iam_policy" "kafka_iam_auth" {
           "kafka-cluster:DescribeCluster"
         ],
         "Resource" : [
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:cluster/${var.cluster_name}/${var.cluster_id}"
+          "*"
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:cluster/${var.cluster_name}/${var.cluster_id}"
         ]
       },
       {
@@ -50,7 +51,8 @@ resource "aws_iam_policy" "kafka_iam_auth" {
           "kafka-cluster:DescribeTopic"
         ],
         "Resource" : [
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_read"
+          "*"
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_read"
         ]
       },
       {
@@ -60,7 +62,8 @@ resource "aws_iam_policy" "kafka_iam_auth" {
           "kafka-cluster:DescribeTopic"
         ],
         "Resource" : [
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_write"
+          "*"
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_write"
         ]
       },
       {
@@ -72,7 +75,8 @@ resource "aws_iam_policy" "kafka_iam_auth" {
           "kafka-cluster:DescribeTopic"
         ],
         "Resource" : [
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_*"
+          "*"
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:topic/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_*"
         ]
       },
       {
@@ -82,8 +86,9 @@ resource "aws_iam_policy" "kafka_iam_auth" {
           "kafka-cluster:DescribeGroup"
         ],
         "Resource" : [
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:group/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_*",
-          "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:group/${var.cluster_name}/${var.cluster_id}/connect-*"
+          "*"
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:group/${var.cluster_name}/${var.cluster_id}/__amazon_msk_connect_*",
+          # "arn:aws:kafka:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:group/${var.cluster_name}/${var.cluster_id}/connect-*"
         ]
       }
     ]
