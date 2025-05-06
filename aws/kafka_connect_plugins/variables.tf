@@ -24,7 +24,7 @@ variable "plugins" {
     condition = alltrue(flatten([
       for _, urls in var.plugins : [
         for url in urls :
-        contains(["zip", "jar"], split(url, ".")[-1])
+        contains(["zip", "jar"], split(".", url)[length(split(".", url)) - 1])
       ]
     ]))
 
