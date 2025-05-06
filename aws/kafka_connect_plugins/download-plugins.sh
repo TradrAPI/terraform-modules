@@ -41,7 +41,7 @@ main() {
     cd -
 
     echo "Creating zip file ${key}.zip"
-    python3 -m zipfile "${key}.zip" "${dir}"
+    python3 -m zipfile -c "${key}.zip" "${dir}"
 
     echo "Cleaning up"
     rm -rf "${dir}"
