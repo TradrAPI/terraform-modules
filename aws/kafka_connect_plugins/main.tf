@@ -38,7 +38,7 @@ resource "aws_s3_object" "plugins" {
   )
 
   key    = "${each.key}.zip"
-  source = "${each.key}.zip"
+  source = "./plugins/${each.key}.zip"
 
   depends_on = [
     terraform_data.plugins
