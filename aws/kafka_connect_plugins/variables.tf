@@ -22,8 +22,8 @@ variable "plugins" {
 
   validation {
     condition = alltrue(flatten([
-      for _, urls in var.plugins : [
-        for url in urls :
+      for _, config in var.plugins : [
+        for url in config.urls :
         contains(["zip", "jar"], split(".", url)[length(split(".", url)) - 1])
       ]
     ]))
