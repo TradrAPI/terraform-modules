@@ -1,3 +1,22 @@
+resource "aws_mskconnect_custom_plugin" "plugins" {
+  for_each = var.plugins
+
+  name         = coalesce(each.value.alias, each.key)
+  content_type = "ZIP"
+
+  location {
+    s3 {
+      file_key = aws_s3_object.plugins[each.key].key
+
+      bucket_arn = (
+        var.create_bucket
+        ? module.plugins_bucket[0].bucket.arn
+        : data.aws_s3_bucket.plugins[0].arn
+      )
+    }
+  }
+}
+
 module "plugins_bucket" {
   count = var.create_bucket ? 1 : 0
 
@@ -38,25 +57,6 @@ data "aws_s3_bucket" "plugins" {
   bucket = var.bucket_name
 }
 
-resource "aws_mskconnect_custom_plugin" "plugins" {
-  for_each = var.plugins
-
-  name         = coalesce(each.value.alias, each.key)
-  content_type = "ZIP"
-
-  location {
-    s3 {
-      file_key = aws_s3_object.plugins[each.key].key
-
-      bucket_arn = (
-        var.create_bucket
-        ? module.plugins_bucket[0].bucket.arn
-        : data.aws_s3_bucket.plugins[0].arn
-      )
-    }
-  }
-}
-
 resource "terraform_data" "plugins" {
   for_each = var.plugins
 
@@ -65,6 +65,6 @@ resource "terraform_data" "plugins" {
   ]
 
   provisioner "local-exec" {
-    command = "curl -o ${each.key}.zip -LO ${each.value.url}"
+    command = "/usr/bin/env bash -c ${path.module}/download-plugins.sh ${each.key} ${join(",", each.value.urls)}"
   }
 }
