@@ -23,7 +23,7 @@ main() {
             # and remove the zip file afterwards
             # The unzip command will create a directory with the same name as the zip file
             # For example: plugin-1.0.zip -> plugin-1.0/
-            unzip "${plugin}"
+            tar -xzvf "${plugin}"
             rm "${plugin}"
         elif [[ "${plugin}" == *.jar ]]; then
             # If the plugin is a jar file, we need to create a directory for it
@@ -37,7 +37,7 @@ main() {
 
     cd -
     
-    zip -r "${key}.zip" "${dir}"
+    tar -czvf "${key}.zip" "${dir}"
     rm -rf "${dir}"
 }
 
