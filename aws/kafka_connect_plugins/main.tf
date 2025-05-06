@@ -65,6 +65,7 @@ resource "terraform_data" "plugins" {
   ]
 
   provisioner "local-exec" {
-    command = "/usr/bin/env bash -c ${path.module}/download-plugins.sh ${each.key} ${join(",", each.value.urls)}"
+    command     = "${path.module}/download-plugins.sh ${each.key} ${join(",", each.value.urls)}"
+    interpreter = ["/usr/bin/env", "bash", "-c"]
   }
 }
