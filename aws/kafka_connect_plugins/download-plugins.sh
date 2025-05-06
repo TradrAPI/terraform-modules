@@ -25,7 +25,7 @@ main() {
             # The unzip command will create a directory with the same name as the zip file
             # For example: plugin-1.0.zip -> plugin-1.0/
             echo "Unzipping ${plugin}"
-            tar -xzvf "${plugin}"
+            python3 -m zipfile -e "${plugin}"
             rm "${plugin}"
         elif [[ "${plugin}" == *.jar ]]; then
             # If the plugin is a jar file, we need to create a directory for it
@@ -41,7 +41,7 @@ main() {
     cd -
 
     echo "Creating zip file ${key}.zip"
-    tar -czvf "${key}.zip" "${dir}"
+    python3 -m zipfile "${key}.zip" "${dir}"
 
     echo "Cleaning up"
     rm -rf "${dir}"
