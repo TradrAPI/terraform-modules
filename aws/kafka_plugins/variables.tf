@@ -19,4 +19,9 @@ variable "plugins" {
   }))
 
   default = {}
+
+  validation {
+    condition     = alltrue([for _, url in var.plugins : split(url, ".")[-1] == "zip"])
+    error_message = "All plugins must be zip files"
+  }
 }
