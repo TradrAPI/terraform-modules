@@ -12,7 +12,7 @@ main() {
     cd plugins
 
     # Creates a temporary directory for each of the script's call
-    local dir=$(mktemp -p . -d -t msk-connect.XXXXXXX)
+    local dir=$(mktemp -p . -d msk-connect-XXXXXXX)
     cd "${dir}"
 
     for url in ${urls//,/ }; do
