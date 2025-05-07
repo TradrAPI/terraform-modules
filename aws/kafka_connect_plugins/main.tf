@@ -7,7 +7,7 @@ resource "aws_mskconnect_custom_plugin" "plugins" {
   location {
     s3 {
       file_key       = aws_s3_object.plugins[each.key].key
-      object_version = null
+      object_version = "null"
 
       bucket_arn = (
         var.create_bucket
@@ -64,7 +64,7 @@ resource "terraform_data" "plugins" {
 
   triggers_replace = [
     each.value.urls,
-    "manual-replacement-trigger-v1"
+    "manual-replacement-trigger-v2"
   ]
 
   provisioner "local-exec" {
