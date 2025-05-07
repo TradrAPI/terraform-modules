@@ -16,6 +16,12 @@ resource "aws_mskconnect_custom_plugin" "plugins" {
       )
     }
   }
+
+  lifecycle {
+    replace_triggered_by = [
+      aws_s3_object.plugins[each.key]
+    ]
+  }
 }
 
 module "plugins_bucket" {
