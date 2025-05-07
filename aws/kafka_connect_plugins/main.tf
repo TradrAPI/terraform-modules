@@ -63,7 +63,8 @@ resource "terraform_data" "plugins" {
   for_each = var.plugins
 
   triggers_replace = [
-    each.value.urls
+    each.value.urls,
+    "manual-replacement-trigger-v1"
   ]
 
   provisioner "local-exec" {
