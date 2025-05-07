@@ -37,8 +37,9 @@ resource "aws_s3_object" "plugins" {
     : var.bucket_name
   )
 
-  key    = "${each.key}.zip"
-  source = "./plugins/${each.key}.zip"
+  key          = "${each.key}.zip"
+  source       = "./plugins/${each.key}.zip"
+  content_type = "application/zip"
 
   depends_on = [
     terraform_data.plugins
