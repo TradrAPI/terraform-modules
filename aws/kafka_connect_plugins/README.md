@@ -31,7 +31,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | <a name="input_bucket_name"></a> [bucket\_name](#input\_bucket\_name) | Name of the bucket to store plugins | `string` | `""` | no |
 | <a name="input_create_bucket"></a> [create\_bucket](#input\_create\_bucket) | Whether to create the plugins bucket | `bool` | `true` | no |
-| <a name="input_plugins"></a> [plugins](#input\_plugins) | Map of plugins names to configs | <pre>map(object({<br/>    url   = string<br/>    alias = optional(string)<br/>  }))</pre> | `{}` | no |
+| <a name="input_plugins"></a> [plugins](#input\_plugins) | Map of plugins names to configs | <pre>map(object({<br/>    alias = optional(string, "")<br/>    urls  = list(string)<br/>  }))</pre> | `{}` | no |
 
 ## Outputs
 

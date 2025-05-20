@@ -14,9 +14,20 @@ variable "plugins" {
   description = "Map of plugins names to configs"
 
   type = map(object({
-    url   = string
     alias = optional(string, "")
+    urls  = list(string)
   }))
 
   default = {}
+
+  validation {
+    condition = alltrue(flatten([
+      for _, config in var.plugins : [
+        for url in config.urls :
+        contains(["zip", "jar"], split(".", url)[length(split(".", url)) - 1])
+      ]
+    ]))
+
+    error_message = "All plugins must be zip files"
+  }
 }

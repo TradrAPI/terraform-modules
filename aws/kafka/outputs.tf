@@ -16,3 +16,13 @@ output "msk_sasl_scram_users" {
 
   sensitive = true
 }
+
+output "cluster_id" {
+  description = "The ID of the MSK cluster."
+  value       = aws_msk_cluster.this.cluster_uuid
+}
+
+output "cluster_name" {
+  description = "The name of the MSK cluster."
+  value       = var.cluster_name
+}
