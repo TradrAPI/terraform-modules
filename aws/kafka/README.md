@@ -54,6 +54,8 @@ No requirements.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_cluster_id"></a> [cluster\_id](#output\_cluster\_id) | The ID of the MSK cluster. |
+| <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | The name of the MSK cluster. |
 | <a name="output_msk_brokers_by_auth_method"></a> [msk\_brokers\_by\_auth\_method](#output\_msk\_brokers\_by\_auth\_method) | Map of brokers list by authentication method. The list on each key is a comma-separated list of brokers |
 | <a name="output_msk_sasl_scram_users"></a> [msk\_sasl\_scram\_users](#output\_msk\_sasl\_scram\_users) | Map of user names to their passwords |
 <!-- END_TF_DOCS -->
