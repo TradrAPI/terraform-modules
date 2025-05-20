@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/TradrAPI/terraform-modules/compare/v4.0.1...v4.1.0) (2025-05-20)
+
+
+### Features
+
+* **kafka:** Split kafka module resources into separate modules  ([#135](https://github.com/TradrAPI/terraform-modules/issues/135)) ([bbbf9b8](https://github.com/TradrAPI/terraform-modules/commit/bbbf9b85349cc6b550aeec0df084ec306134f547))
+
 ## [4.0.1](https://github.com/TradrAPI/terraform-modules/compare/v4.0.0...v4.0.1) (2025-05-01)
 
 
