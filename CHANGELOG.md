@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.2.0](https://github.com/TradrAPI/terraform-modules/compare/v4.1.0...v4.2.0) (2025-06-26)
+
+
+### Features
+
+* **trade-infra:** Netrios features to tradrapi ([#137](https://github.com/TradrAPI/terraform-modules/issues/137)) ([1153d1c](https://github.com/TradrAPI/terraform-modules/commit/1153d1c3ea89f6efffaee1e8a6cc5fb57022cb9f))
+
 ## [4.1.0](https://github.com/TradrAPI/terraform-modules/compare/v4.0.1...v4.1.0) (2025-05-20)
 
 
