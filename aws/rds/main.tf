@@ -51,6 +51,10 @@ resource "aws_db_instance" "this" {
   parameter_group_name            = var.parameter_group
   multi_az                        = var.multi_az
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
+  auto_minor_version_upgrade      = var.auto_minor_version_upgrade
+  allow_major_version_upgrade     = var.allow_major_version_upgrade
+  maintenance_window              = var.maintenance_window
+
 
   db_subnet_group_name = try(aws_db_subnet_group.this[0].id, null)
 
