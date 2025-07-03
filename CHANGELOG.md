@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.3.0](https://github.com/TradrAPI/terraform-modules/compare/v4.2.0...v4.3.0) (2025-07-03)
+
+
+### Features
+
+* **cloudflare/dns:** Adds dns module ([#139](https://github.com/TradrAPI/terraform-modules/issues/139)) ([0736226](https://github.com/TradrAPI/terraform-modules/commit/0736226f5d621d4d90a928847d1e1420ef57b7f6))
+
 ## [4.2.0](https://github.com/TradrAPI/terraform-modules/compare/v4.1.0...v4.2.0) (2025-06-26)
 
 
