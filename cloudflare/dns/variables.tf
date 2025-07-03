@@ -17,7 +17,7 @@ variable "records_by_zone" {
     name    = string
     value   = optional(string)
     type    = optional(string)
-    proxied = optional(bool, false)
+    proxied = optional(bool)
     id      = optional(string, "")
   })))
 
