@@ -17,17 +17,6 @@ resource "cloudflare_dns_record" "this" {
   ]
 }
 
-import {
-  for_each = {
-    for name, r in local.records :
-    name => r
-    if r.id != ""
-  }
-
-  id = each.value.id
-  to = cloudflare_dns_record.this[each.key]
-}
-
 locals {
   records = {
     for r in local._records :
