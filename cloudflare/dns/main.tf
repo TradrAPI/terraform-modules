@@ -28,10 +28,10 @@ locals {
       for record in records : {
         zone    = zone
         name    = record.name
-        value   = lookup(record, "value", var.defaults.value)
-        type    = lookup(record, "type", var.defaults.type)
-        proxied = lookup(record, "proxied", var.defaults.proxied)
-        id      = lookup(record, "id", "")
+        id      = record.id
+        value   = coalesce(record.value, var.defaults.value)
+        type    = coalesce(record.type, var.defaults.type)
+        proxied = coalesce(record.proxied, var.defaults.proxied)
       }
     ]
   ])
